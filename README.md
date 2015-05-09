@@ -6,7 +6,7 @@ SteamCMD does not have a "list all" command to get all command options within St
 Instead you have use find <string>
 This script outputs all the commands available and saves it to a file
 
-## Usage:
+## Usage
 
 Simply download the script and run it
 
