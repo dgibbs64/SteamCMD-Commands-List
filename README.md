@@ -10,8 +10,6 @@ This script outputs all the commands available and saves it to a file
 
 Simply download the script and run it
 
-wget https://raw.githubusercontent.com/dgibbs64/SteamCMD-Commands-List/master/steamcmdcommands.sh
-
-chmod +x steamcmdcommands.sh
-
-./steamcmdcommands.sh
+	wget https://raw.githubusercontent.com/dgibbs64/SteamCMD-Commands-List/master/steamcmdcommands.sh''''
+	chmod +x steamcmdcommands.sh
+	./steamcmdcommands.sh
