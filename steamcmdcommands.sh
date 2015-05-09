@@ -1,7 +1,7 @@
 #!/bin/bash
 # steamcmdlistcommands.sh
 # Author: Daniel Gibbs
-# Website: http://gameservermanagers.com
+# Website: http://danielgibbs.co.uk
 # Version: 090515
 # Description: SteamCMD does not have a "list all" command to get all command options within SteamCMD.
 # Instead you have use find <string>
