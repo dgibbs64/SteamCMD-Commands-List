@@ -2,13 +2,13 @@
 # steamcmdlistcommands.sh
 # Author: Daniel Gibbs
 # Website: http://danielgibbs.co.uk
-# Version: 090515
+# Version: 271215
 # Description: SteamCMD does not have a "list all" command to get all command options within SteamCMD.
 # Instead you have use find <string>
 # This script outputs all the commands available and saves it to a file
 
 
-rootdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+rootdir="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
 echo ""
 echo "Installing SteamCMD"
 echo "================================="
