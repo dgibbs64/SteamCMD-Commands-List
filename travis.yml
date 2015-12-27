@@ -1,0 +1,20 @@
+language: bash
+sudo: false
+env:
+- DISTRO=ubuntu-trusty
+
+before_script:
+    - curl -L "https://shunit2.googlecode.com/files/shunit2-2.1.6.tgz" | tar zx
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - lib32gcc1 
+    - libstdc++6 
+    - libstdc++6:i386 
+
+script:
+
+    - bash steamcmdcommands.sh
