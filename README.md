@@ -1,5 +1,6 @@
 # SteamCMD-Commands-List
 [![Build Status](https://travis-ci.org/dgibbs64/SteamCMD-Commands-List.svg?branch=master)](https://travis-ci.org/dgibbs64/SteamCMD-Commands-List)
+
 ##Description
 
 SteamCMD does not have a "list all" command to get all command options within SteamCMD.
@@ -18,4 +19,3 @@ You can get the output without using the script.
 https://github.com/dgibbs64/SteamCMD-Commands-List/blob/master/steamcmdcommands.txt
 
 > My server now checks daily for updates and posts them to this repo. So this list will always be up-to-date.
-
