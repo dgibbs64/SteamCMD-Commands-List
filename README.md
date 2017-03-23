@@ -1,7 +1,7 @@
 # SteamCMD-Commands-List
 [![Build Status](https://travis-ci.org/dgibbs64/SteamCMD-Commands-List.svg?branch=master)](https://travis-ci.org/dgibbs64/SteamCMD-Commands-List)
 
-##Description
+## Description
 
 SteamCMD does not have a "list all" command to get all command options within SteamCMD.
 Instead you have to use `find <string>`.
