@@ -21,7 +21,8 @@ ConVars:
         @bEnableFrameFuncOverageWarnings = "0"          : This turns on the spew in SPEW_MISC at level 4, still need to adjust spew levels to see it.
                   @bEnableMovieRecording = "0"          : 
               @bEnableOfflineLogonTicket = "1"          : If true, an offline logon ticket will be requested during logon if none is cached
-              @bEnableSiteLicenseConnect = "0"          : 
+              @bEnableSiteLicenseConnect = "1"          : 
+       @bEnableSiteLicenseConsoleLogging = "0"          : 
                     @bEnableSpewThrottle = "1"          : 
           bEnableSubscribedFileListCache = "1"          : 
               bFinishStagedDepotVersions = "1"          : 
@@ -29,10 +30,11 @@ ConVars:
            @bLANPeerConnectionTimeoutSec = "5"          : 
                    bLogLegacyDiskDetails = "0"          : 
                           @bMsgErrorDump = "0"          : 
-             @bRequireOfflineLogonTicket = "0"          : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
-         @bRequireSignedParentalSettings = "1"          : If true, a valid set of signed parental settings is required when logging in in offline or no connection mode
+             @bRequireOfflineLogonTicket = "1"          : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
                broadcast_upload_drop_sec = "6"          : 
              broadcast_upload_update_sec = "3"          : 
+            bShaderEnableCacheManagement = "1"          : 
+                     bShaderEnableUpload = "1"          : 
                 bSteam3LimitedUserEnable = "1"          : 
                       bSteamLoaderEnable = "1"          : 
       bSubscribedFilesDecompressOnClient = "1"          : 
@@ -56,6 +58,7 @@ ConVars:
        @csecFavoriteGameAccountCacheTime = "86400"      : Control how often we refresh the account IDs in the game server favorites list
              @csecIncomingDataRatePeriod = "1"          : 
              csecManifestDownloadTimeout = "120"        : 
+           @csecSiteLicenseProxyStatsLog = "60"         : Log proxy stats this often
     @csecUpdateTargetNumConnectionsEpoch = "10"         : 
                 @cSecUploadDownloadRates = "300"        : 
                @CSInterfaceProxyPassword = ""           : 
@@ -84,6 +87,7 @@ ConVars:
                    @ForceContentServerID = ""           : 
                          @GCNameOverride = ""           : 
                      @LocalContentServer = ""           : 
+                      @LogFileFolderName = ""           : Use something other than 'logs' as the folder for log files
                   log_files_always_flush = "0"          : 
                log_matchmaking_callbacks = "0"          : 
            @MaxOutstandingSendThreadItem = "1000"       : 
@@ -103,6 +107,7 @@ nCloudFileCompressionMinFileSizeKBSharedFile = "128"        :
 nCloudFileCompressionPercentageMinSharedFile = "50"         : 
                    nCloudSyncIntervalSec = "30"         : 
               nCloudUploadMinIntervalSec = "1800"       : 
+           nContentDownloadsToOtherDrive = "1"          : Allow to download updates to other drives then install folder is on
              nContentStatsReportInterval = "72"         : In Hours
                  @nCSClientRateLimitKbps = "0"          : 
            @nDownloadLANChunkCacheSizeMB = "128"        : 
@@ -114,13 +119,15 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
                        net_incomingcheck = "1"          : 
                            @net_loopback = "1"          : 
                   net_maxresendsperframe = "32"         : 
-                         @nIOCPBatchSize = "1"          : 
-                       @nIOCPThreadCount = "3"          : 
+                       @nIOCPThreadCount = "1"          : 
                   @nLANPeerRateLimitKbps = "0"          : 
            @nNetConnectionBufferZipLevel = "1"          : 
                     @NoPromptForPassword = "0"          : 
               @nParentalSettingsLogLevel = "4"          : Control the amount of spew written to the parental log file
               nProductInfoUpdateInterval = "900"        : 
+            @nSiteLicenseProxyCacheMaxGB = "100"        : If local content cache is enabled, use up to this much disk space
+             @nSiteLicenseProxyEnableP2P = "0"          : If set, will have all connected clients join the same P2P download group
+                  @nSiteLicenseProxyPort = "0"          : Local content cache: set > 0 to enable, will listen on this port
             @nSpewThrottleNagFrequencyMs = "5000"       : 
                   n@SpewThrottlePeriodMs = "1000"       : 
            @nSpewThrottleResumeThreshold = "3"          : 
@@ -136,6 +143,7 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
         ServerBrowserPingSurveySubmitPct = "5"          : 
                 @ShutdownOnFailedCommand = "1"          : Exit steamcmd immediately upon any failed build-related command
                     spew_controller_loss = "0"          : 
+        @sSiteLicenseProxyCacheDirectory = "appcache/slscache" : If local content cache is enabled, use this path for disk cache
           @sSteamCmdForcePlatformBitness = ""           : Must be one of: [32 | 64]
              @sSteamCmdForcePlatformType = ""           : Must be one of: [windows | macos | linux]
                      @strCSNoCacheHeader = "no-cache"   : 
@@ -144,6 +152,8 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
                    @uDownloadLANPeerPort = "27038"      : If LAN p2p download enabled, will listen on this port for TCP connections from peers. Must be set consistently across all members of the group!
                         uForcePreloadApp = "0"          : 
                          UGCCDNReportPct = "100"        : 
+            unShaderMaxHeadersPerMessage = "1024"       : 
+          unShaderMaxUploadMessageSizeKb = "256"        : 
            @uRemoteDiscoveryPortOverride = "0"          : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort
            @uRemoteDiscoveryPortTransmit = "0"          : If non-zero, will transmit outgoing broadcasts on this port instead of on the listen port
                    voice_api_optimalrate = "24000"      : 
@@ -179,6 +189,7 @@ Commands:
                           app_info_request : <AppID> - Issue an appinfo request for the given appid. Does not wait for results from the server.
                            app_info_update : [0|1] : trigger app info update, optionally for update all
                        app_license_request : <AppID> - Requests a free licenses for this app if not already owned.
+                                   app_run : <appId> [LaunchOptionIndex] [Arguments]
                             app_set_config : <AppID> <key> <value> - sets a config value for given app.
                        app_set_update_flag : app_set_update_flag <appId>
                             apps_installed : 
