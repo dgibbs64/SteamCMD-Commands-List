@@ -173,7 +173,6 @@ Commands:
 
                             app_info_print : Dumps app info for appID
                           async_disconnect : async disconnect
-                           build_installer : <project file> <target folder> [beta key] [beta pwd]
                    device_authorize_status : prints device authorization status
                      get_download_throttle : 
                        install_folder_list : list all mounted Steam volumes
@@ -252,3 +251,4 @@ Commands:
                workshop_create_legacy_item : workshop_create_legacy_item <appid> <workshop file> : build a legacy workshop item
                     workshop_download_item : workshop_download_item <appid> <PublishedFileId> : download a workshop item
                            workshop_status : workshop_status <appId>
+CWorkThreadPool::~CWorkThreadPool: work processing queue not empty: 1 items discarded.
