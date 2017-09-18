@@ -252,4 +252,3 @@ Commands:
                workshop_create_legacy_item : workshop_create_legacy_item <appid> <workshop file> : build a legacy workshop item
                     workshop_download_item : workshop_download_item <appid> <PublishedFileId> : download a workshop item
                            workshop_status : workshop_status <appId>
-CWorkThreadPool::~CWorkThreadPool: work processing queue not empty: 1 items discarded.
