@@ -5,11 +5,12 @@ ConVars:
                  AsyncFileIODisableWrite = "0"          : 
           AsyncFileIOExpectOutstandingIO = "6"          : 
                AsyncFileIOForceGenericIO = "0"          : 
-                   AsyncFileIOMaxPending = "2"          : 
+              AsyncFileIOMaxPendingWin32 = "64"         : 
               AsyncFileIOReadHandleCache = "4"          : 
              AsyncFileIOWriteHandleCache = "4"          : 
                           batterypercent = "0"          : 
                              batterytime = "0"          : 
+        bBroadcastAlwaysUploadThumbnails = "0"          : 
                bCheckForFreeGamesOnLogin = "0"          : 
                       bCheckUGCIntegrity = "1"          : 
            @bContentManifestUseProtobufs = "1"          : 
@@ -17,6 +18,7 @@ ConVars:
                         @bCSForceNoCache = "0"          : 
           @bDepotBuilderReadBufferSizeKB = "8192"       : 
            @bDepotBuilderUnbufferedReads = "1"          : 
+                 bDisableClientUIOverlay = "1"          : 
                   bDisableTenFootOverlay = "0"          : 
         @bEnableFrameFuncOverageWarnings = "0"          : This turns on the spew in SPEW_MISC at level 4, still need to adjust spew levels to see it.
                   @bEnableMovieRecording = "0"          : 
@@ -33,6 +35,7 @@ ConVars:
              @bRequireOfflineLogonTicket = "1"          : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
                broadcast_upload_drop_sec = "6"          : 
              broadcast_upload_update_sec = "3"          : 
+                   bShaderCacheDownloads = "1"          : Allow to download shader cache depots
             bShaderEnableCacheManagement = "1"          : 
                      bShaderEnableUpload = "1"          : 
                 bSteam3LimitedUserEnable = "1"          : 
@@ -192,6 +195,7 @@ Commands:
                                    app_run : <appId> [LaunchOptionIndex] [Arguments]
                             app_set_config : <AppID> <key> <value> - sets a config value for given app.
                        app_set_update_flag : app_set_update_flag <appId>
+                       app_shader_manifest : app_shader_manifest <appId> <manifestid>
                             apps_installed : 
                               apps_running : displays information about running games tracked by Steam 
                                 app_status : app_status <appId>
