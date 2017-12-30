@@ -60,7 +60,8 @@ cat commandslisttidy|tr -d '\000-\011\013\014\016-\037'| sed 's/\[0m//g'|sed 's/
 sort -n convarslistraw > convarslistsort
 uniq convarslistsort > convarslisttidy
 cat convarslisttidy|tr -d '\000-\011\013\014\016-\037'| sed 's/\[0m//g'|sed 's/\[1m//g'> convarslist
-
+sed -i '/CWorkThreadPool/d' commandslist
+sed -i '/CWorkThreadPool/d' convarslist
 echo "Generating output."
 echo "ConVars:" > "${rootdir}/steamcmdcommands.txt"
 cat  "convarslist" >> "${rootdir}/steamcmdcommands.txt"
