@@ -13,7 +13,6 @@ commit_website_files() {
 }
 
 upload_files() {
-  echo "${GH_TOKEN}"
   git remote add origin https://${GH_TOKEN}@github.com/dgibbs64/SteamCMD-Commands-List.git > /dev/null 2>&1
   git push --set-upstream origin ${TRAVIS_BRANCH}
 }
