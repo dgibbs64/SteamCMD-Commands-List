@@ -10,10 +10,16 @@ addons:
     sources:
     - ubuntu-toolchain-r-test
     packages:
-    - lib32gcc1 
-    - libstdc++6 
-    - libstdc++6:i386 
+    - lib32gcc1
+    - libstdc++6
+    - libstdc++6:i386
 
 script:
+  - bash ./steamcmdcommands.sh
 
-    - bash ./steamcmdcommands.sh
+after_success:
+  - .travis/push.sh
+
+env:
+  global:
+  - secure: YI928L4e39qYCBy2B7EuKIBtGjpx1U3XHK9jnqgrbRqdmhnptUBUp2JCDNzFC2DPbmJIhjpnDC3FjS5GxxxSQeyE7QWikzmAIOFG/u0rG5M2DZdeA/Q6+WawmBitc2/+rFuVYEBAIeCTBQhCsS8K0yEnRm5BqF7vvt/6Nh+kmQWfPcsdSKurkgy+JTGa6YKXzu9e1+bQHeYPfrqjoa0t9gOtzjfQi9ONnp48blEvO/Z1XohuknM2uSmQMwI4A0AkZOONofQLLe9/BYgTtYeWREAvYUbqeY/bIxF2lfD6YLv/4dFyojtk1ngdN9wY7rz5jgCe7DoBMTHH7/JskkGxvCfcmYJ03sAZTk/nsO76d4z3EBld2UtFhiVzrVRSvWYwVeE8TqeC26Igwzkdim1sLepBjHjr+5CQub5FhcI25LxlmZ2aHDKI6jYN0WTncdJeuxACGYc+TfU+zlfSg02ti9Ci9dude/45scKXw9xWacxiMpADM+L8z+6++/07xusBjagj8gSOQVtgs0Wj886pM3k+Rk1X7+MGU2t5Wp7Vg2P6X1GSj8Fg+cuSw4R4XLTgSTLEs4vOyx5UUo5Xf42U8aFvE18h8nKJsVKDW+q4r9jQ/tDcQBr+zFjDvhuMoCtQUwL1rPqDbwNH8rH86uYyoHjVj/sugGleNv9GYyVFqMY=
