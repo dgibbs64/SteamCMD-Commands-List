@@ -18,7 +18,7 @@ script:
   - bash ./steamcmdcommands.sh
 
 after_success:
-  - .travis/push.sh
+  - ./push.sh
 
 env:
   global:
