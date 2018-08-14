@@ -37,7 +37,6 @@ do
     echo "./steamcmd.sh +login anonymous +find ${letter} +quit"
 	./steamcmd.sh +login anonymous +find ${letter} +quit > "${rootdir}/tmp/${letter}"
 	echo "Creating list for letter ${letter}."
-	sleep 0.5
 	echo ""
 	# Commands List
 	cat "${rootdir}/tmp/${letter}" > "${rootdir}/tmp/${letter}commands"
