@@ -1,7 +1,7 @@
 #!/bin/sh
 
 date > lastchecked.txt
-echo "lastchecked.txt"
+cat "lastchecked.txt"
 git config --global user.email "me@danielgibbs.co.uk"
 git config --global user.name "dgibbs64"
 
