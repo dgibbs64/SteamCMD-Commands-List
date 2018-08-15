@@ -13,7 +13,7 @@ commit_website_files() {
 }
 
 upload_files() {
-  git remote add origin https://dgibbs64:${GH_TOKEN}@github.com/dgibbs64/SteamCMD-Commands-List.git
+  git remote set-url origin https://dgibbs64:${GH_TOKEN}@github.com/dgibbs64/SteamCMD-Commands-List.git
   git push --set-upstream origin ${TRAVIS_BRANCH}
 }
 
