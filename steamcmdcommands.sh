@@ -14,7 +14,6 @@ echo "Installing SteamCMD"
 echo "================================="
 cd "${rootdir}"
 mkdir -pv "steamcmd"
-sleep 1
 cd "steamcmd"
 if [ ! -f steamcmd.sh ]; then
 		echo -e "downloading steamcmd_linux.tar.gz...\c"
@@ -22,11 +21,9 @@ if [ ! -f steamcmd.sh ]; then
 		tar --verbose -zxf steamcmd_linux.tar.gz
 		rm -v steamcmd_linux.tar.gz
 		chmod +x steamcmd.sh
-		sleep 1
 else
 		echo "Steam already installed!"
 fi
-sleep 1
 echo ""
 echo "Getting SteamCMD Commands/Convars"
 echo "================================="
