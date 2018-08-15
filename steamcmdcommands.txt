@@ -10,12 +10,14 @@ ConVars:
              AsyncFileIOWriteHandleCache = "4"          : 
                           batterypercent = "0"          : 
                              batterytime = "0"          : 
-        bBroadcastAlwaysUploadThumbnails = "0"          : 
+        bBroadcastAlwaysUploadThumbnails = "1"          : 
                bCheckForFreeGamesOnLogin = "0"          : 
                       bCheckUGCIntegrity = "1"          : 
+        @bClientOpenCacheStickyRedirects = "1"          : 
            @bContentManifestUseProtobufs = "1"          : 
             @bCSClientRateLimitUseDelays = "0"          : 
                         @bCSForceNoCache = "0"          : 
+                 bDelayGameUpdatesOnBeta = "0"          : Should we do scheduling of updates on Steam Beta? If not, they'll all be ASAP
           @bDepotBuilderReadBufferSizeKB = "8192"       : 
            @bDepotBuilderUnbufferedReads = "1"          : 
                  bDisableClientUIOverlay = "1"          : 
@@ -27,6 +29,7 @@ ConVars:
        @bEnableSiteLicenseConsoleLogging = "0"          : 
                     @bEnableSpewThrottle = "1"          : 
           bEnableSubscribedFileListCache = "1"          : 
+              @bEnforceValidEmailDomains = "1"          : Enable valid email domains in BIsValidEmailAddress
               bFinishStagedDepotVersions = "1"          : 
              @bForceStreamUnsupportedApp = "0"          : 
            @bLANPeerConnectionTimeoutSec = "5"          : 
@@ -38,6 +41,7 @@ ConVars:
                    bShaderCacheDownloads = "1"          : Allow to download shader cache depots
             bShaderEnableCacheManagement = "1"          : 
                      bShaderEnableUpload = "1"          : 
+                     @bSiteLicenseServer = "0"          : 
                 bSteam3LimitedUserEnable = "1"          : 
                       bSteamLoaderEnable = "1"          : 
       bSubscribedFilesDecompressOnClient = "1"          : 
@@ -55,6 +59,12 @@ ConVars:
  @cNetEncryptionHandshakeWorkMax_HighPri = "8000"       : 
   @cNetEncryptionHandshakeWorkMax_LowPri = "2000"       : 
   @cNetEncryptionHandshakeWorkMax_MedPri = "4000"       : 
+                       controller_interp = "0"          : 
+controller_momentum_num_excluded_samples = "1"          : 
+controller_momentum_num_included_samples = "5"          : 
+              controller_momentum_smooth = "0"          : 
+                      controller_newpoll = "1"          : 
+                         controller_rate = "2000"       : 
                              countrycode = ""           : 
                cPreallocateMinimumSizeKB = "256"        : 
           @csecCSRequestProcessorTimeOut = "300"        : 
@@ -71,12 +81,17 @@ ConVars:
              @DepotBuilderAppInfoTimeout = "120"        : 
                  @DepotBuilderConfigRoot = "./depotscripts" : 
                 @DepotBuilderContentRoot = ""           : 
+             @DepotBuilderDeltaMaxChunks = "20000"      : 
+                  @DepotBuilderEnableVZd = "1"          : 
     @DepotBuilderMaxParallelUploadChunks = "24"         : 
                   @DepotBuilderNoReslist = "0"          : 
         @DepotBuilderNumHTTPSocketsToMDS = "12"         : 
                  @DepotBuilderOutputRoot = ""           : 
        @DepotBuilderParallelUploadChunks = "6"          : 
             @DepotBuilderProgressTimeout = "1000"       : 
+                @DepotBuilderVZdMinRatio = "0.4"        : 
+            @DepotBuilderXORMatchPercent = "95"         : 
+                       DepotDeltaPatches = "1"          : 
             DepotDownloadProgressTimeout = "120"        : 
              DepotReconstructionBadChunk = "0"          : 
               DepotReconstructionLowPrio = "1"          : 
@@ -86,7 +101,7 @@ ConVars:
                        @EnableUDPHistory = "0"          : 
 @fDownloadRateImprovementToAddAnotherConnection = "1.2"        : 
                 findbestcellstartupdelay = "600"        : 
-@fMinDataRateToAttemptTwoConnectionsMbps = "0.5"        : 
+@fMinDataRateToAttemptTwoConnectionsMbps = "1.5"        : 
                    @ForceContentServerID = ""           : 
                          @GCNameOverride = ""           : 
                      @LocalContentServer = ""           : 
@@ -100,7 +115,9 @@ ConVars:
                             musiclogging = "0"          : 
             nBroadcastSessionHearbeatSec = "120"        : 
           nBroadcastSessionMaxDropFrames = "100"        : 
-nClientBackgroundAutoUpdateTimeSpreadMinutes = "0"          : Number of minutes to spread background auto-updates out over
+nClientBackgroundAutoUpdateRecentlyPlayedThresholdHours = "168"        : If you've played the game more recently than this, we'll schedule the background update sooner.
+   nClientBackgroundAutoUpdateTargetHour = "6"          : Target hour, in local time, for auto-scheduled app updates. Will be spread around this point via the convar below.
+nClientBackgroundAutoUpdateTimeSpreadMinutes = "360"        : Spread of time around the above target hour - this is the +/- 2-sigma window, so half this on either side.
 nClientCMUDPPingTimeGoodEnoughThresholdMS = "50"         : 
   nClientCMUDPPingTimeoutUseGoodEnoughMS = "250"        : 
             nCloudDownloadMinIntervalSec = "60"         : 
@@ -123,6 +140,8 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
                            @net_loopback = "1"          : 
                   net_maxresendsperframe = "32"         : 
                        @nIOCPThreadCount = "1"          : 
+             @nLANPeerGroupRateLimitKbps = "0"          : 
+                 @nLANPeerMaxConnections = "24"         : 
                   @nLANPeerRateLimitKbps = "0"          : 
            @nNetConnectionBufferZipLevel = "1"          : 
                     @NoPromptForPassword = "0"          : 
@@ -147,6 +166,7 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
                 @ShutdownOnFailedCommand = "1"          : Exit steamcmd immediately upon any failed build-related command
                     spew_controller_loss = "0"          : 
         @sSiteLicenseProxyCacheDirectory = "appcache/slscache" : If local content cache is enabled, use this path for disk cache
+                         @sStartupScript = ""           : Exec contents of this convar as a script at startup
           @sSteamCmdForcePlatformBitness = ""           : Must be one of: [32 | 64]
              @sSteamCmdForcePlatformType = ""           : Must be one of: [windows | macos | linux]
                      @strCSNoCacheHeader = "no-cache"   : 
@@ -173,17 +193,11 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
                workshop_items_cache_days = "14"         : 
           workshop_items_update_interval = "900"        : 
 Commands:
-
                             app_info_print : Dumps app info for appID
-                          async_disconnect : async disconnect
-                           build_installer : <project file> <target folder> [beta key] [beta pwd]
-                   device_authorize_status : prints device authorization status
                      get_download_throttle : 
                        install_folder_list : list all mounted Steam volumes
                              manifest_dump : <filename>
                         package_info_print : Dumps package info for packageID
-                                      quit : Stops Steam client console
-                     set_download_throttle : set_download_throttle <kbps> <bPersistent = false>
                       test_failnextconnect : Tests failing the next connection
                                api_logging : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
                       app_build_all_depots : app_build_all_depots [-desc <text>] -depotconfigpath <folder> -contentroot <folder> -buildoutput <folder> <appid>  : Build all depots for one app
