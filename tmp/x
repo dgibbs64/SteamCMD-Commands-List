@@ -1,0 +1,51 @@
+Redirecting stderr to '/home/travis/Steam/logs/stderr.txt'
+[  0%] Checking for available updates...
+[----] Verifying installation...
+Steam Console Client (c) Valve Corporation
+-- type 'quit' to exit --
+Loading Steam API...OK.
+
+Connecting anonymously to Steam Public...Logged in OK
+Waiting for user info...OK
+ConVars:
+[0m[1m          AsyncFileIOExpectOutstandingIO[0m = "6"          : 
+[0m[1m              AsyncFileIOMaxPendingWin32[0m = "64"         : 
+[0m[1m    @DepotBuilderMaxParallelUploadChunks[0m = "24"         : 
+[0m[1m                      voice_outputdevice[0m = "0"          : 0=>Miles 1=>XAudio2
+[0m[1m             @sSteamCmdForcePlatformType[0m = ""           : Must be one of: [windows | macos | linux]
+[0m[1m                  net_maxresendsperframe[0m = "32"         : 
+[0m[1m          nBroadcastSessionMaxDropFrames[0m = "100"        : 
+[0m[1m                   cFileValidationMaxLog[0m = "100"        : 
+[0m[1mcontroller_momentum_num_excluded_samples[0m = "1"          : 
+[0m[1m            @DepotBuilderXORMatchPercent[0m = "95"         : 
+[0m[1m             @DepotBuilderDeltaMaxChunks[0m = "20000"      : 
+[0m[1m                 @nLANPeerMaxConnections[0m = "24"         : 
+[0m[1m            @cMaxContentServersToRequest[0m = "20"         : 
+[0m[1m             @cMaxInitialDownloadSources[0m = "-1"         : 
+[0m[1m               @CSInterfaceProxyUsername[0m = ""           : 
+[0m[1m               @CSInterfaceProxyPassword[0m = ""           : 
+[0m[1m          @cCSClientMaxNumSocketsPerHost[0m = "8"          : 
+[0m[1m            unShaderMaxHeadersPerMessage[0m = "1024"       : 
+[0m[1m          unShaderMaxUploadMessageSizeKb[0m = "256"        : 
+[0m[1m        @sSiteLicenseProxyCacheDirectory[0m = "appcache/slscache" : If local content cache is enabled, use this path for disk cache
+[0m[1m            @nSiteLicenseProxyCacheMaxGB[0m = "100"        : If local content cache is enabled, use up to this much disk space
+[0m[1m                  @nSiteLicenseProxyPort[0m = "0"          : Local content cache: set > 0 to enable, will listen on this port
+[0m[1m             @nSiteLicenseProxyEnableP2P[0m = "0"          : If set, will have all connected clients join the same P2P download group
+[0m[1m           @csecSiteLicenseProxyStatsLog[0m = "60"         : Log proxy stats this often
+[0m[1m  nSubscribedAutoDownloadMaxSimultaneous[0m = "8"          : 
+[0m[1m            @NetConnectionBufferMsgLimit[0m = "1000"       : Max # of message that will be buffered into a single zipped packet
+[0m[1m  @cNetEncryptionHandshakeWorkMax_LowPri[0m = "2000"       : 
+[0m[1m  @cNetEncryptionHandshakeWorkMax_MedPri[0m = "4000"       : 
+[0m[1m @cNetEncryptionHandshakeWorkMax_HighPri[0m = "8000"       : 
+[0m[1m           @MaxOutstandingSendThreadItem[0m = "1000"       : 
+[0m[1m                         @sStartupScript[0m = ""           : Exec contents of this convar as a script at startup
+[0m[1m                @ShutdownOnFailedCommand[0m = "1"          : Exit steamcmd immediately upon any failed build-related command
+[0mCommands:
+[0m[1m                      test_failnextconnect[0m : Tests failing the next connection
+[0m[1m                                  ceg_wrap[0m : ceg_wrap <appid> <orig filename> <stripped filename> <strips filename> : upload executable to back end for CEG wrapping
+[0m[1m                                  drm_wrap[0m : drm_wrap <appid> <input filename> <output filename> <toolname> <flags> : upload executable to back end for DRM wrapping
+[0m[1m                                      exit[0m : Stops Steam client console
+[0m[1m                             run_app_build[0m : run_app_build [-preview] [-desc <text>] <appbuildfile> : run app depot build as specified in appbuildfile
+[0m[1m                      app_build_all_depots[0m : app_build_all_depots [-desc <text>] -depotconfigpath <folder> -contentroot <folder> -buildoutput <folder> <appid>  : Build all depots for one app
+[0m[1m                                   app_run[0m : <appId> [LaunchOptionIndex] [Arguments]
+[0mCWorkThreadPool::~CWorkThreadPool: work processing queue not empty: 2 items discarded.

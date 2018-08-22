@@ -1,0 +1,23 @@
+[0m[1m                     set_download_throttle[0m : set_download_throttle <kbps> <bPersistent = false>
+[0m[1m                             log_callbacks[0m : usage: "log_callbacks <first callbackID> [last callbackID]
+[0m[1m                                   log_ipc[0m : usage: "log_ipc [counts|verbose] <filter>" Enables IPC logging. Specifying "counts" or "verbose" is optional, defaulting to counts.
+[0m[1m                                  p2p_info[0m : usage: "p2p_info" Displays the current state of the P2P networking subsystem.
+[0m[1m                  dump_scheduled_functions[0m : usage: "dump_scheduled_functions" Displays internal Steam function callback timers
+[0m[1m                          voice_game_usage[0m : displays information about the game's use of Steam voice
+[0m[1m                              apps_running[0m : displays information about running games tracked by Steam 
+[0m[1m                    workshop_download_item[0m : workshop_download_item <appid> <PublishedFileId> : download a workshop item
+[0m[1m               workshop_create_legacy_item[0m : workshop_create_legacy_item <appid> <workshop file> : build a legacy workshop item
+[0m[1m                       workshop_build_item[0m : workshop_build_item <build config filename> : build a workshop item
+[0m[1m                                  ceg_wrap[0m : ceg_wrap <appid> <orig filename> <stripped filename> <strips filename> : upload executable to back end for CEG wrapping
+[0m[1m                                  drm_wrap[0m : drm_wrap <appid> <input filename> <output filename> <toolname> <flags> : upload executable to back end for DRM wrapping
+[0m[1m                       sign_install_script[0m : sign_install_script <appid> <input filename> <output filename> : upload install script to back end for signing
+[0m[1m                               api_logging[0m : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
+[0m[1m                                      find[0m : find substrings in console commands
+[0m[1m                        verify_chunk_store[0m : verify_chunk_store <appid> <depotid> <datafile> : run app depot build as specified in appbuildfile
+[0m[1m                           build_installer[0m : <project file> <target folder> [beta key] [beta pwd]
+[0m[1m                        run_app_build_http[0m : run_app_build_http : alias for run_app_build
+[0m[1m                             run_app_build[0m : run_app_build [-preview] [-desc <text>] <appbuildfile> : run app depot build as specified in appbuildfile
+[0m[1m                      app_build_all_depots[0m : app_build_all_depots [-desc <text>] -depotconfigpath <folder> -contentroot <folder> -buildoutput <folder> <appid>  : Build all depots for one app
+[0m[1m                      set_steam_guard_code[0m : <code> - authorize this computer by adding the Steam Guard email code
+[0m[1m                                app_update[0m : app_update <appid> [-validate] [-language <lang>] [-beta <betaname>] [-betapassword <pwd>] make sure a Steam application is up-to-date
+[0m

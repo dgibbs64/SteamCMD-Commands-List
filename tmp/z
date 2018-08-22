@@ -1,0 +1,28 @@
+Redirecting stderr to '/home/travis/Steam/logs/stderr.txt'
+[  0%] Checking for available updates...
+[----] Verifying installation...
+Steam Console Client (c) Valve Corporation
+-- type 'quit' to exit --
+Loading Steam API...OK.
+
+Connecting anonymously to Steam Public...Logged in OK
+Waiting for user info...OK
+ConVars:
+[0m[1m      nCloudFileCompressionMinFileSizeKB[0m = "16"         : 
+[0m[1mnCloudFileCompressionMinFileSizeKBSharedFile[0m = "128"        : 
+[0m[1m               cPreallocateMinimumSizeKB[0m = "256"        : 
+[0m[1m                  @DepotBuilderEnableVZd[0m = "1"          : 
+[0m[1m                @DepotBuilderVZdMinRatio[0m = "0.4"        : 
+[0m[1m           @nDownloadLANChunkCacheSizeMB[0m = "128"        : 
+[0m[1m               @cbPartnerUploadChunkSize[0m = "1000000"    : Chunk size to use for POSTing partner uploads
+[0m[1m           @uRemoteDiscoveryPortOverride[0m = "0"          : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort
+[0m[1m           @uRemoteDiscoveryPortTransmit[0m = "0"          : If non-zero, will transmit outgoing broadcasts on this port instead of on the listen port
+[0m[1m          unShaderMaxUploadMessageSizeKb[0m = "256"        : 
+[0m[1m          @bDepotBuilderReadBufferSizeKB[0m = "8192"       : 
+[0m[1m                 @nTCPLargeSendBufSizeMB[0m = "16"         : 
+[0m[1m            @NetConnectionBufferMsgLimit[0m = "1000"       : Max # of message that will be buffered into a single zipped packet
+[0m[1m           @nNetConnectionBufferZipLevel[0m = "1"          : 
+[0mCommands:
+[0m[1m                   device_authorize_status[0m : prints device authorization status
+[0m[1m                      set_steam_guard_code[0m : <code> - authorize this computer by adding the Steam Guard email code
+[0mCWorkThreadPool::~CWorkThreadPool: work processing queue not empty: 3 items discarded.

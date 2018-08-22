@@ -1,0 +1,40 @@
+Redirecting stderr to '/home/travis/Steam/logs/stderr.txt'
+[  0%] Checking for available updates...
+[----] Verifying installation...
+Steam Console Client (c) Valve Corporation
+-- type 'quit' to exit --
+Loading Steam API...OK.
+
+Connecting anonymously to Steam Public...Logged in OK
+Waiting for user info...OK
+-- Downloading and updating Steam applications installed on the local
+machine --
+
+Use the 'app_update' command to download and update Steam games and
+applications on this computer. This is generally intended for game dedicated
+server installations, and will only work for games that have been converted
+to the new Steam HTTP download system - for games that haven't been
+converted yet, you should use the older 'HldsUpdateTool' (Windows) / 'steam'
+(linux) command-line tool.
+
+By default, the game is downloaded to the folder
+"./SteamApps/common/<gamename>". To change this location, use the
+'force_install_dir' command to set the target directory BEFORE running
+app_update. Note: Steam will create a directory within the target directory
+for storing state information and temporary files; the name of this folder
+will be a string of numbers and letters 40 characters long.
+
+You will first need to login to Steam using an account which has access to
+the game, or anonymously - type 'help login' for more information.
+
+It's likely you'll want to put all of the necessary calls into a script file
+(see "runscript"); here is an example file: 
+
+ @ShutdownOnFailedCommand 1
+ @NoPromptForPassword 1
+ force_install_dir ../Ricochet/
+ login anonymous
+ app_update 60 validate
+ quit
+
+
