@@ -1,8 +1,0 @@
-[0m[1m                      test_failnextconnect[0m : Tests failing the next connection
-[0m[1m                                  ceg_wrap[0m : ceg_wrap <appid> <orig filename> <stripped filename> <strips filename> : upload executable to back end for CEG wrapping
-[0m[1m                                  drm_wrap[0m : drm_wrap <appid> <input filename> <output filename> <toolname> <flags> : upload executable to back end for DRM wrapping
-[0m[1m                                      exit[0m : Stops Steam client console
-[0m[1m                             run_app_build[0m : run_app_build [-preview] [-desc <text>] <appbuildfile> : run app depot build as specified in appbuildfile
-[0m[1m                      app_build_all_depots[0m : app_build_all_depots [-desc <text>] -depotconfigpath <folder> -contentroot <folder> -buildoutput <folder> <appid>  : Build all depots for one app
-[0m[1m                                   app_run[0m : <appId> [LaunchOptionIndex] [Arguments]
-[0mCWorkThreadPool::~CWorkThreadPool: work processing queue not empty: 2 items discarded.

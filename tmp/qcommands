@@ -1,4 +1,0 @@
-[0m[1m                                      quit[0m : Stops Steam client console
-[0m[1m                       app_license_request[0m : <AppID> - Requests a free licenses for this app if not already owned.
-[0m[1m                          app_info_request[0m : <AppID> - Issue an appinfo request for the given appid. Does not wait for results from the server.
-[0m
