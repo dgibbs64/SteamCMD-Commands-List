@@ -1,0 +1,3 @@
+[0m[1m                   device_authorize_status[0m : prints device authorization status
+[0m[1m                      set_steam_guard_code[0m : <code> - authorize this computer by adding the Steam Guard email code
+[0mCWorkThreadPool::~CWorkThreadPool: work processing queue not empty: 3 items discarded.

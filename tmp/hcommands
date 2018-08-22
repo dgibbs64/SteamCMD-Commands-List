@@ -1,0 +1,25 @@
+[0m[1m                     get_download_throttle[0m : 
+[0m[1m                     set_download_throttle[0m : set_download_throttle <kbps> <bPersistent = false>
+[0m[1m                       app_shader_manifest[0m : app_shader_manifest <appId> <manifestid>
+[0m[1m                   device_authorize_status[0m : prints device authorization status
+[0m[1m                           workshop_status[0m : workshop_status <appId>
+[0m[1m                           cm_force_change[0m : Change CM List
+[0m[1m                      test_failnextconnect[0m : Tests failing the next connection
+[0m[1m                                  p2p_info[0m : usage: "p2p_info" Displays the current state of the P2P networking subsystem.
+[0m[1m                  dump_scheduled_functions[0m : usage: "dump_scheduled_functions" Displays internal Steam function callback timers
+[0m[1m                          voice_game_usage[0m : displays information about the game's use of Steam voice
+[0m[1m                                  app_stop[0m : <appid> [force:0|1] stop this running app
+[0m[1m                          licenses_for_app[0m : <appid> : shows active licenses for appid
+[0m[1m                    workshop_download_item[0m : workshop_download_item <appid> <PublishedFileId> : download a workshop item
+[0m[1m               workshop_create_legacy_item[0m : workshop_create_legacy_item <appid> <workshop file> : build a legacy workshop item
+[0m[1m                       workshop_build_item[0m : workshop_build_item <build config filename> : build a workshop item
+[0m[1m                                      help[0m : Show help information
+[0m[1m                                  set_spew[0m : <group> <level> <loglevel> set spew levels for the given group
+[0m[1m                        verify_chunk_store[0m : verify_chunk_store <appid> <depotid> <datafile> : run app depot build as specified in appbuildfile
+[0m[1m                        run_app_build_http[0m : run_app_build_http : alias for run_app_build
+[0m[1m                      app_build_all_depots[0m : app_build_all_depots [-desc <text>] -depotconfigpath <folder> -contentroot <folder> -buildoutput <folder> <appid>  : Build all depots for one app
+[0m[1m                      set_steam_guard_code[0m : <code> - authorize this computer by adding the Steam Guard email code
+[0m[1m                       app_license_request[0m : <AppID> - Requests a free licenses for this app if not already owned.
+[0m[1m                          app_info_request[0m : <AppID> - Issue an appinfo request for the given appid. Does not wait for results from the server.
+[0m[1m                                   app_run[0m : <appId> [LaunchOptionIndex] [Arguments]
+[0m

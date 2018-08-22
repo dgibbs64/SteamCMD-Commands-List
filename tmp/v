@@ -1,0 +1,80 @@
+Redirecting stderr to '/home/travis/Steam/logs/stderr.txt'
+[  0%] Checking for available updates...
+[----] Verifying installation...
+Steam Console Client (c) Valve Corporation
+-- type 'quit' to exit --
+Loading Steam API...OK.
+
+Connecting anonymously to Steam Public...Logged in OK
+Waiting for user info...OK
+ConVars:
+[0m[1m                            voice_minavg[0m = "1.0"        : 
+[0m[1m                            voice_minabs[0m = "0.15"       : 
+[0m[1m                   voice_api_optimalrate[0m = "24000"      : 
+[0m[1m                        voice_preprocess[0m = "0"          : enables voice cleanup on incoming microphone data
+[0m[1m                           mic_inputfile[0m = ""           : causes voice data to be read from the specified file instead of from the microphone
+[0m[1m                            mic_autogain[0m = "16000"      : automatic gain control level for microphone input
+[0m[1m                      voice_outputdevice[0m = "0"          : 0=>Miles 1=>XAudio2
+[0m[1m                           voice_quality[0m = "4"          : 
+[0m[1m                        voice_outputfile[0m = ""           : causes output from voice system to be written out to the specified file
+[0m[1m                      voice_silk_bitrate[0m = "30000"      : 
+[0m[1m                          voice_autogain[0m = "0"          : 
+[0m[1m                          voice_fakeloss[0m = "0"          : 
+[0m[1m   nClientBackgroundAutoUpdateTargetHour[0m = "6"          : Target hour, in local time, for auto-scheduled app updates. Will be spread around this point via the convar below.
+[0m[1mnClientBackgroundAutoUpdateTimeSpreadMinutes[0m = "360"        : Spread of time around the above target hour - this is the +/- 2-sigma window, so half this on either side.
+[0m[1mnClientBackgroundAutoUpdateRecentlyPlayedThresholdHours[0m = "168"        : If you've played the game more recently than this, we'll schedule the background update sooner.
+[0m[1m             nContentStatsReportInterval[0m = "72"         : In Hours
+[0m[1m           nContentDownloadsToOtherDrive[0m = "1"          : Allow to download updates to other drives then install folder is on
+[0m[1m                         @GCNameOverride[0m = ""           : 
+[0m[1m                     bVerifyAllDownloads[0m = "0"          : 
+[0m[1m              bFinishStagedDepotVersions[0m = "1"          : 
+[0m[1m          workshop_items_update_interval[0m = "900"        : 
+[0m[1m                   cFileValidationMaxLog[0m = "100"        : 
+[0m[1m                  @DepotBuilderEnableVZd[0m = "1"          : 
+[0m[1m                @DepotBuilderVZdMinRatio[0m = "0.4"        : 
+[0m[1m            @cMaxContentServersToRequest[0m = "20"         : 
+[0m[1m                     @LocalContentServer[0m = ""           : 
+[0m[1m                   @ForceContentServerID[0m = ""           : 
+[0m[1m                 @sCSDSVirtualHostHeader[0m = ""           : 
+[0m[1m@fDownloadRateImprovementToAddAnotherConnection[0m = "1.2"        : 
+[0m[1m        ServerBrowserPingSurveySubmitPct[0m = "5"          : 
+[0m[1m           @uRemoteDiscoveryPortOverride[0m = "0"          : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort
+[0m[1m           @uRemoteDiscoveryPortTransmit[0m = "0"          : If non-zero, will transmit outgoing broadcasts on this port instead of on the listen port
+[0m[1m             @nSiteLicenseProxyEnableP2P[0m = "0"          : If set, will have all connected clients join the same P2P download group
+[0m[1m                     @bSiteLicenseServer[0m = "0"          : 
+[0m[1m                               developer[0m = "0"          : 
+[0m[1m                  @bEnableMovieRecording[0m = "0"          : 
+[0m[1m              nProductInfoUpdateInterval[0m = "900"        : 
+[0m[1m                  voice_resample_quality[0m = "1"          : 
+[0m[1m                  bDisableTenFootOverlay[0m = "0"          : 
+[0m[1m                 bDisableClientUIOverlay[0m = "1"          : 
+[0m[1m             @bRequireOfflineLogonTicket[0m = "1"          : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
+[0m[1m              @nParentalSettingsLogLevel[0m = "4"          : Control the amount of spew written to the parental log file
+[0m[1m       @csecFavoriteGameAccountCacheTime[0m = "86400"      : Control how often we refresh the account IDs in the game server favorites list
+[0m[1m                   nCloudSyncIntervalSec[0m = "30"         : 
+[0m[1m              nCloudUploadMinIntervalSec[0m = "1800"       : 
+[0m[1m            nCloudDownloadMinIntervalSec[0m = "60"         : 
+[0m[1m              @bEnforceValidEmailDomains[0m = "1"          : Enable valid email domains in BIsValidEmailAddress
+[0m[1m        @bEnableFrameFuncOverageWarnings[0m = "0"          : This turns on the spew in SPEW_MISC at level 4, still need to adjust spew levels to see it.
+[0m[1m           @nNetConnectionBufferZipLevel[0m = "1"          : 
+[0m[1m                         @sStartupScript[0m = ""           : Exec contents of this convar as a script at startup
+[0m[1m                     @bSiteLicenseServer[0m = "0"          : 
+[0mCommands:
+[0m[1m                       install_folder_list[0m : list all mounted Steam volumes
+[0m[1m                   device_authorize_status[0m : prints device authorization status
+[0m[1m                                   log_ipc[0m : usage: "log_ipc [counts|verbose] <filter>" Enables IPC logging. Specifying "counts" or "verbose" is optional, defaulting to counts.
+[0m[1m                          voice_game_usage[0m : displays information about the game's use of Steam voice
+[0m[1m                         test_voice_encode[0m : test a voice encode
+[0m[1m                    test_opus_voice_encode[0m : test an opus voice encode
+[0m[1m                          licenses_for_app[0m : <appid> : shows active licenses for appid
+[0m[1m                               api_logging[0m : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
+[0m[1m                            set_spew_level[0m : <SpewLevel LogLevel> Sets spew and log level for all groups
+[0m[1m                                  set_spew[0m : <group> <level> <loglevel> set spew levels for the given group
+[0m[1m                                verify_vpk[0m : verify_vpk <datafile> : verifies content of given VPK
+[0m[1m                        verify_chunk_store[0m : verify_chunk_store <appid> <depotid> <datafile> : run app depot build as specified in appbuildfile
+[0m[1m                             run_app_build[0m : run_app_build [-preview] [-desc <text>] <appbuildfile> : run app depot build as specified in appbuildfile
+[0m[1m                                      info[0m : Dump various Steam info
+[0m[1m                            app_set_config[0m : <AppID> <key> <value> - sets a config value for given app.
+[0m[1m                          app_info_request[0m : <AppID> - Issue an appinfo request for the given appid. Does not wait for results from the server.
+[0m[1m                                app_update[0m : app_update <appid> [-validate] [-language <lang>] [-beta <betaname>] [-betapassword <pwd>] make sure a Steam application is up-to-date
+[0m
