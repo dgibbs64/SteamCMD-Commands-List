@@ -9,6 +9,7 @@
 
 
 rootdir="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
+
 echo ""
 echo "Installing SteamCMD"
 echo "================================="
@@ -16,14 +17,15 @@ cd "${rootdir}"
 mkdir -pv "steamcmd"
 cd "steamcmd"
 if [ ! -f steamcmd.sh ]; then
-		echo -e "downloading steamcmd_linux.tar.gz...\c"
-		wget -N /dev/null http://media.steampowered.com/client/steamcmd_linux.tar.gz 2>&1 | grep -F HTTP | cut -c45-| uniq
-		tar --verbose -zxf steamcmd_linux.tar.gz
-		rm -v steamcmd_linux.tar.gz
-		chmod +x steamcmd.sh
+	echo -e "downloading steamcmd_linux.tar.gz...\c"
+	wget -N /dev/null http://media.steampowered.com/client/steamcmd_linux.tar.gz 2>&1 | grep -F HTTP | cut -c45-| uniq
+	tar --verbose -zxf steamcmd_linux.tar.gz
+	rm -v steamcmd_linux.tar.gz
+	chmod +x steamcmd.sh
 else
-		echo "Steam already installed!"
+	echo "Steam already installed!"
 fi
+
 echo ""
 echo "Getting SteamCMD Commands/Convars"
 echo "================================="
@@ -71,6 +73,7 @@ cat  "commandslist"
 echo ""
 echo "Getting SteamCMD Help"
 echo "================================="
+cd "${rootdir}/steamcmd"
 echo "./steamcmd.sh +login anonymous +help +quit"
 ./steamcmd.sh +login anonymous +help +quit > "${rootdir}/steamcmd_help.txt"
 echo "./steamcmd.sh +login anonymous +help login +quit"
