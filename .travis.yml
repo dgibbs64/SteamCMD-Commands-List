@@ -16,10 +16,10 @@ addons:
     - git
 
 script:
-  - bash ./steamcmdcommands.sh
+  - bash ./steamcmds.sh
 
 after_success:
-  - ./push.sh
+  - .travis/push.sh
 
 env:
   global:
