@@ -1,3 +1,4 @@
+
 # SteamCMD-Commands-List
 [![Build Status](https://travis-ci.org/dgibbs64/SteamCMD-Commands-List.svg?branch=master)](https://travis-ci.org/dgibbs64/SteamCMD-Commands-List)
 
@@ -7,15 +8,16 @@ SteamCMD does not have a "list all" command to get all command options within St
 Instead you have to use `find <string>`.
 This script outputs all the commands available and saves it to a file.
 
+## List
+You can get the output without using the script.
+
+[steamcmdcommands.txt](https://github.com/dgibbs64/SteamCMD-Commands-List/blob/master/steamcmdcommands.txt)
+> Travis-CI checks daily for updates and posts them to this repo. So this list will always be up-to-date.
+
 ## Usage
 
 Simply download the script and run it.
 
 	wget https://raw.githubusercontent.com/dgibbs64/SteamCMD-Commands-List/master/steamcmdcommands.sh;chmod +x steamcmdcommands.sh;./steamcmdcommands.sh
 
-## List
-You can get the output without using the script.
 
-https://github.com/dgibbs64/SteamCMD-Commands-List/blob/master/steamcmdcommands.txt
-
-> Travis-CI checks daily for updates and posts them to this repo. So this list will always be up-to-date.
