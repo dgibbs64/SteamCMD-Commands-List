@@ -33,6 +33,7 @@ mkdir "${rootdir}/tmp"
 cd "${rootdir}/steamcmd"
 for letter in {a..z}
 do
+	sleep 0.5
     echo "./steamcmd.sh +login anonymous +find ${letter} +quit"
 	./steamcmd.sh +login anonymous +find ${letter} +quit > "${rootdir}/tmp/${letter}"
 	echo "Creating list for letter ${letter}."
