@@ -38,3 +38,4 @@ It's likely you'll want to put all of the necessary calls into a script file
  quit
 
 
+CWorkThreadPool::~CWorkThreadPool: work processing queue not empty: 2 items discarded.

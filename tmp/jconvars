@@ -1,2 +1,0 @@
-[0m[1m             @nSiteLicenseProxyEnableP2P[0m = "0"          : If set, will have all connected clients join the same P2P download group
-[0m[1m        @bEnableFrameFuncOverageWarnings[0m = "0"          : This turns on the spew in SPEW_MISC at level 4, still need to adjust spew levels to see it.
