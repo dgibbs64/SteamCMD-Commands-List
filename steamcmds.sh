@@ -88,3 +88,7 @@ echo "./steamcmd.sh +login anonymous +help app_build +quit"
 ./steamcmd.sh +login anonymous +help app_build +quit > "${rootdir}/steamcmd_help.txt"
 echo "./steamcmd.sh +login anonymous +help app_update +quit"
 ./steamcmd.sh +login anonymous +help app_update +quit > "${rootdir}/steamcmd_help.txt"
+
+echo "Tidy up."
+rm -rf "${rootdir}/tmp"
+rm -rf "${rootdir}/steamcmd"
