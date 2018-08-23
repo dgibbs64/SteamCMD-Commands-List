@@ -33,11 +33,13 @@ mkdir "${rootdir}/tmp"
 cd "${rootdir}/steamcmd"
 for letter in {a..z}
 do
-	sleep 2
-    echo "./steamcmd.sh +login anonymous +find ${letter} +quit"
+	sleep 1
+    	echo "./steamcmd.sh +login anonymous +find ${letter} +quit"
 	./steamcmd.sh +login anonymous +find ${letter} +quit > "${rootdir}/tmp/${letter}"
+	sleep 1
 	echo "Creating list for letter ${letter}."
 	echo ""
+	
 	# Commands List
 	cat "${rootdir}/tmp/${letter}" > "${rootdir}/tmp/${letter}commands"
 	sed -i '1,/Commands:/d' "${rootdir}/tmp/${letter}commands"
@@ -46,7 +48,6 @@ do
 	#Convars List
 	cat "${rootdir}/tmp/${letter}" > "${rootdir}/tmp/${letter}convars"
 	sed -i '1,/ConVars:/d' "${rootdir}/tmp/${letter}convars"
-	#cat "${rootdir}/tmp/${letter}convars > "${rootdir}/tmp/${letter}convarscommands
 	sed -i '/Commands:/Q' "${rootdir}/tmp/${letter}convars"
 	cat "${rootdir}/tmp/${letter}convars" >> "${rootdir}/tmp/convarslistraw"
 done
