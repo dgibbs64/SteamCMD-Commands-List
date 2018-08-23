@@ -11,13 +11,13 @@ This script outputs all the commands available and saves it to a file.
 ## List
 You can get the output without using the script.
 
-[steamcmdcommands.txt](https://github.com/dgibbs64/SteamCMD-Commands-List/blob/master/steamcmdcommands.txt)
+[steamcmd_commands.txt](https://github.com/dgibbs64/SteamCMD-Commands-List/blob/master/steamcmd_commands.txt)
 > Travis-CI checks daily for updates and posts them to this repo. So this list will always be up-to-date.
 
 ## Usage
 
 Simply download the script and run it.
 
-	wget https://raw.githubusercontent.com/dgibbs64/SteamCMD-Commands-List/master/steamcmdcommands.sh;chmod +x steamcmdcommands.sh;./steamcmdcommands.sh
+	wget https://raw.githubusercontent.com/dgibbs64/SteamCMD-Commands-List/master/steamcmds.sh;chmod +x steamcmds.sh;./steamcmds.sh
 
 
