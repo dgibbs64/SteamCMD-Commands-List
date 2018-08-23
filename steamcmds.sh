@@ -33,7 +33,7 @@ mkdir "${rootdir}/tmp"
 cd "${rootdir}/steamcmd"
 for letter in {a..z}
 do
-	sleep 0.5
+	sleep 2
     echo "./steamcmd.sh +login anonymous +find ${letter} +quit"
 	./steamcmd.sh +login anonymous +find ${letter} +quit > "${rootdir}/tmp/${letter}"
 	echo "Creating list for letter ${letter}."
@@ -75,26 +75,34 @@ echo ""
 echo "Getting SteamCMD Help"
 echo "================================="
 cd "${rootdir}/steamcmd"
+sleep 2
 echo "./steamcmd.sh +login anonymous +help +quit"
 echo "help:" > "${rootdir}/steamcmd_help.txt"
 ./steamcmd.sh +login anonymous +help +quit >> "${rootdir}/steamcmd_help.txt"
+sleep 2
 echo "help Login:" >> "${rootdir}/steamcmd_help.txt"
 echo "./steamcmd.sh +login anonymous +help login +quit"
 ./steamcmd.sh +login anonymous +help login +quit >> "${rootdir}/steamcmd_help.txt"
+sleep 2
 echo "help Scripts:" >> "${rootdir}/steamcmd_help.txt"
 echo "./steamcmd.sh +login anonymous +help scripts +quit"
+sleep 2
 ./steamcmd.sh +login anonymous +help scripts +quit >> "${rootdir}/steamcmd_help.txt"
 echo "help commandline:" >> "${rootdir}/steamcmd_help.txt"
 echo "./steamcmd.sh +login anonymous +help commandline +quit"
+sleep 2
 ./steamcmd.sh +login anonymous +help commandline +quit >> "${rootdir}/steamcmd_help.txt"
 echo "./steamcmd.sh +login anonymous +help convars +quit"
 echo "help convars:" >> "${rootdir}/steamcmd_help.txt"
+sleep 2
 ./steamcmd.sh +login anonymous +help convars +quit >> "${rootdir}/steamcmd_help.txt"
 echo "help app_build:" >> "${rootdir}/steamcmd_help.txt"
 echo "./steamcmd.sh +login anonymous +help app_build +quit"
+sleep 2
 ./steamcmd.sh +login anonymous +help app_build +quit >> "${rootdir}/steamcmd_help.txt"
 echo "help app_update:" >> "${rootdir}/steamcmd_help.txt"
 echo "./steamcmd.sh +login anonymous +help app_update +quit"
+sleep 2
 ./steamcmd.sh +login anonymous +help app_update +quit >> "${rootdir}/steamcmd_help.txt"
 sed -i '/CWorkThreadPool/d' "${rootdir}/steamcmd_help.txt"
 echo ""
