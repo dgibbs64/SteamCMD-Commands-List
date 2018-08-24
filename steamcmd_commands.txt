@@ -194,8 +194,7 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
           workshop_items_update_interval = "900"        : 
 Commands:
                             app_info_print : Dumps app info for appID
-                     get_download_throttle : 
-                       install_folder_list : list all mounted Steam volumes
+                          async_disconnect : async disconnect
                              manifest_dump : <filename>
                         package_info_print : Dumps package info for packageID
                      set_download_throttle : set_download_throttle <kbps> <bPersistent = false>
