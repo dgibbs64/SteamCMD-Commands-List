@@ -7,7 +7,6 @@
 # Instead you have use find <string>
 # This script outputs all the commands available and saves it to a file
 
-
 rootdir="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
 
 echo ""
