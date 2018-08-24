@@ -36,10 +36,11 @@ do
 	sleep 1
     	echo "./steamcmd.sh +login anonymous +find ${letter} +quit"
 	./steamcmd.sh +login anonymous +find ${letter} +quit > "${rootdir}/tmp/${letter}"
+	cat "${rootdir}/tmp/${letter}"
 	sleep 1
 	echo "Creating list for letter ${letter}."
 	echo ""
-	
+
 	# Commands List
 	cat "${rootdir}/tmp/${letter}" > "${rootdir}/tmp/${letter}commands"
 	sed -i '1,/Commands:/d' "${rootdir}/tmp/${letter}commands"
