@@ -6,7 +6,8 @@ Steam Console Client (c) Valve Corporation
 -- type 'quit' to exit --
 Loading Steam API...OK.
 
-Connecting anonymously to Steam Public...Logged in OK
+Connecting anonymously to Steam Public...Retrying. . . 
+Logged in OK
 Waiting for user info...OK
 
 Usage:	steamcmd ["+COMMAND [ARG]..."]...
@@ -69,7 +70,8 @@ Steam Console Client (c) Valve Corporation
 -- type 'quit' to exit --
 Loading Steam API...OK.
 
-Connecting anonymously to Steam Public...Logged in OK
+Connecting anonymously to Steam Public...Retrying. . . 
+Logged in OK
 Waiting for user info...OK
 You can use the 'runscript' command to execute a text-file script. The file
 should have each desired command listed sequentially on a new line. The
@@ -169,7 +171,8 @@ Steam Console Client (c) Valve Corporation
 -- type 'quit' to exit --
 Loading Steam API...OK.
 
-Connecting anonymously to Steam Public...Logged in OK
+Connecting anonymously to Steam Public...Retrying. . . 
+Logged in OK
 Waiting for user info...OK
 -- Downloading and updating Steam applications installed on the local
 machine --
