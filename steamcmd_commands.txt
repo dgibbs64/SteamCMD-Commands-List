@@ -195,9 +195,9 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
 Commands:
                             app_info_print : Dumps app info for appID
                            build_installer : <project file> <target folder> [beta key] [beta pwd]
-                   device_authorize_status : prints device authorization status
                              manifest_dump : <filename>
                         package_info_print : Dumps package info for packageID
+                                      quit : Stops Steam client console
                      set_download_throttle : set_download_throttle <kbps> <bPersistent = false>
                       test_failnextconnect : Tests failing the next connection
                                api_logging : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
@@ -271,3 +271,4 @@ Commands:
                workshop_create_legacy_item : workshop_create_legacy_item <appid> <workshop file> : build a legacy workshop item
                     workshop_download_item : workshop_download_item <appid> <PublishedFileId> : download a workshop item
                            workshop_status : workshop_status <appId>
+completionportmanager_posix.cpp (352) : Assertion Failed: Async I/O on closed handle 25
