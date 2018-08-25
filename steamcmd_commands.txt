@@ -197,9 +197,8 @@ Commands:
                           async_disconnect : async disconnect
                            build_installer : <project file> <target folder> [beta key] [beta pwd]
                    device_authorize_status : prints device authorization status
-                     get_download_throttle : 
                        install_folder_list : list all mounted Steam volumes
-                        package_info_print : Dumps package info for packageID
+                             manifest_dump : <filename>
                                       quit : Stops Steam client console
                      set_download_throttle : set_download_throttle <kbps> <bPersistent = false>
                                api_logging : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
