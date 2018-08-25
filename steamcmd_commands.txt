@@ -197,12 +197,8 @@ Commands:
                             app_info_print : Dumps app info for appID
                           async_disconnect : async disconnect
                            build_installer : <project file> <target folder> [beta key] [beta pwd]
-                   device_authorize_status : prints device authorization status
-                     get_download_throttle : 
                              manifest_dump : <filename>
                         package_info_print : Dumps package info for packageID
-                     set_download_throttle : set_download_throttle <kbps> <bPersistent = false>
-                      test_failnextconnect : Tests failing the next connection
                                api_logging : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
                       app_build_all_depots : app_build_all_depots [-desc <text>] -depotconfigpath <folder> -contentroot <folder> -buildoutput <folder> <appid>  : Build all depots for one app
                             app_dlc_status : app_status <appId> <dlcId>
