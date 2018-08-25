@@ -196,8 +196,9 @@ Commands:
 
                             app_info_print : Dumps app info for appID
                           async_disconnect : async disconnect
+                           build_installer : <project file> <target folder> [beta key] [beta pwd]
+                   device_authorize_status : prints device authorization status
                      get_download_throttle : 
-                       install_folder_list : list all mounted Steam volumes
                              manifest_dump : <filename>
                         package_info_print : Dumps package info for packageID
                      set_download_throttle : set_download_throttle <kbps> <bPersistent = false>
