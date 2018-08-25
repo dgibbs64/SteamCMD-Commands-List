@@ -194,7 +194,9 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
           workshop_items_update_interval = "900"        : 
 Commands:
                             app_info_print : Dumps app info for appID
-                             manifest_dump : <filename>
+                          async_disconnect : async disconnect
+                   device_authorize_status : prints device authorization status
+                     get_download_throttle : 
                         package_info_print : Dumps package info for packageID
                       test_failnextconnect : Tests failing the next connection
                                api_logging : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
