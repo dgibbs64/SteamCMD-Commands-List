@@ -195,9 +195,7 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
 Commands:
 
                             app_info_print : Dumps app info for appID
-                          async_disconnect : async disconnect
-                   device_authorize_status : prints device authorization status
-                     get_download_throttle : 
+                           build_installer : <project file> <target folder> [beta key] [beta pwd]
                         package_info_print : Dumps package info for packageID
                                       quit : Stops Steam client console
                      set_download_throttle : set_download_throttle <kbps> <bPersistent = false>
