@@ -196,7 +196,6 @@ Commands:
                             app_info_print : Dumps app info for appID
                    device_authorize_status : prints device authorization status
                      get_download_throttle : 
-                       install_folder_list : list all mounted Steam volumes
                              manifest_dump : <filename>
                         package_info_print : Dumps package info for packageID
                                api_logging : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
