@@ -33,9 +33,36 @@ Steam Console Client (c) Valve Corporation
 Loading Steam API...OK.
 
 Connecting anonymously to Steam Public...Logged in OK
-Waiting for user info...help Scripts:
+Waiting for user info...OK
+-- Logging in to Steam --
+
+Connecting to your Steam account using steamcmd is similar to using the
+regular Steam client UI. You can login, logout, and set your Steam Guard
+email code. Any other account management should be done using the Steam
+client UI.
+
+The first time logging in to a given account on this machine, you'll need to
+specify the password. For subsequent sessions you can omit the password;
+using the 'logout' command will clear those cached credentials (your
+password is never stored locally) and require a password on the next login.
+If the password is required but not supplied as part of the 'login' command,
+you will be prompted for a password. To disable this prompt, first set the
+'@NoPromptForPassword' ConVar to 1 (see the help topic 'convars' for more
+info). If the prompt is disabled and the password is required, the login
+command will fail.
+
+Note: you may login anonymously using "login anonymous" if the content you
+wish to download is available for anonymous access.
+
+Common commands:
+
+               login : Login to Steam
+              logout : Disconnect from Steam
+set_steam_guard_code : Enter the Steam Guard code that was emailed to you
+for authorizing this machine
+
+help Scripts:
 Redirecting stderr to '/home/travis/Steam/logs/stderr.txt'
-Looks like steam didn't shutdown cleanly, scheduling immediate update check
 [  0%] Checking for available updates...
 [----] Verifying installation...
 Steam Console Client (c) Valve Corporation
