@@ -196,7 +196,6 @@ Commands:
 
                             app_info_print : Dumps app info for appID
                           async_disconnect : async disconnect
-                           build_installer : <project file> <target folder> [beta key] [beta pwd]
                      get_download_throttle : 
                              manifest_dump : <filename>
                         package_info_print : Dumps package info for packageID
