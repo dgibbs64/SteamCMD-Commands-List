@@ -195,7 +195,6 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
 Commands:
                             app_info_print : Dumps app info for appID
                           async_disconnect : async disconnect
-                           build_installer : <project file> <target folder> [beta key] [beta pwd]
                    device_authorize_status : prints device authorization status
                         package_info_print : Dumps package info for packageID
                       test_failnextconnect : Tests failing the next connection
