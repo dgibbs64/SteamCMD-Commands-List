@@ -2,9 +2,6 @@ language: bash
 dist: trusty
 sudo: required
 
-before_script:
-    - curl -L "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/shunit2/shunit2-2.1.6.tgz" | tar zx
-
 addons:
   apt:
     sources:
@@ -16,7 +13,7 @@ addons:
     - git
 
 script:
-  - bash ./steamcmds.sh
+  - bash ./steamcmd_commands.sh
 
 after_success:
   - .travis/push.sh
