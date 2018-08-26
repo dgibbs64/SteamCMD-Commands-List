@@ -18,6 +18,6 @@ You can get the output without using the script.
 
 Simply download the script and run it.
 
-	wget https://raw.githubusercontent.com/dgibbs64/SteamCMD-Commands-List/master/steamcmds.sh;chmod +x steamcmds.sh;./steamcmds.sh
+	wget https://raw.githubusercontent.com/dgibbs64/SteamCMD-Commands-List/master/steamcmd_commands.sh;chmod +x steamcmd_commands.sh;./steamcmd_commands.sh
 
 
