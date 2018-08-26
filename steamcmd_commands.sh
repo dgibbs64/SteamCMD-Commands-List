@@ -35,7 +35,6 @@ cd "${rootdir}/steamcmd"
 for letter in {a..z}
 do
     echo "./steamcmd.sh +login anonymous +find ${letter} +quit"
-    echo "creating ${letter}_raw.txt."
     ./steamcmd.sh +login anonymous +find ${letter} +quit > "${rootdir}/tmp/${letter}_raw.txt"
     # Remove ANSI characters
     sed -i 's/\x1b//g' "${rootdir}/tmp/${letter}_raw.txt"
