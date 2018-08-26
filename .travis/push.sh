@@ -7,7 +7,7 @@ git remote set-url origin https://dgibbs64:${GH_TOKEN}@github.com/dgibbs64/Steam
 
 git checkout ${TRAVIS_BRANCH}
 git add . steamcmd_commands.txt
-git add . steamcmd_help.txt
+git add . steamcmd_commands.md
 git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
 
 
