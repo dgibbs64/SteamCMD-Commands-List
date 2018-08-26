@@ -193,11 +193,12 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
                workshop_items_cache_days = "14"         : 
           workshop_items_update_interval = "900"        : 
 Commands:
+
                             app_info_print : Dumps app info for appID
-                       install_folder_list : list all mounted Steam volumes
-                             manifest_dump : <filename>
+                           build_installer : <project file> <target folder> [beta key] [beta pwd]
+                     get_download_throttle : 
                         package_info_print : Dumps package info for packageID
-                                      quit : Stops Steam client console
+                     set_download_throttle : set_download_throttle <kbps> <bPersistent = false>
                                api_logging : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
                       app_build_all_depots : app_build_all_depots [-desc <text>] -depotconfigpath <folder> -contentroot <folder> -buildoutput <folder> <appid>  : Build all depots for one app
                             app_dlc_status : app_status <appId> <dlcId>
