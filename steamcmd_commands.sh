@@ -75,10 +75,6 @@ cat "${rootdir}/tmp/convars_list.txt" >> "${rootdir}/steamcmd_commands.txt"
 echo "" >> "${rootdir}/steamcmd_commands.txt"
 echo "Commands:" >> "${rootdir}/steamcmd_commands.txt"
 cat  "${rootdir}/tmp/commands_list.txt" >> "${rootdir}/steamcmd_commands.txt"
-# Create md file
-echo -e "\`\`\`" > "${rootdir}/steamcmd_commands.md"
-cat "${rootdir}/steamcmd_commands.txt" >> "${rootdir}/steamcmd_commands.md"
-echo -e "\`\`\`" >> "${rootdir}/steamcmd_commands.md"
 cat "${rootdir}/steamcmd_commands.txt"
 
 echo "Tidy up."
