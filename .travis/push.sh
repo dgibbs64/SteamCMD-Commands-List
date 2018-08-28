@@ -9,5 +9,4 @@ git checkout ${TRAVIS_BRANCH}
 git add . steamcmd_commands.txt
 git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
 
-
 git push --set-upstream origin ${TRAVIS_BRANCH}
