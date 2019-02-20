@@ -21,6 +21,7 @@ ConVars:
           @bDepotBuilderReadBufferSizeKB = "8192"       : 
            @bDepotBuilderUnbufferedReads = "1"          : 
                  bDisableClientUIOverlay = "1"          : 
+             @bDisableDualStackDownloads = "0"          : 
                   bDisableTenFootOverlay = "0"          : 
         @bEnableFrameFuncOverageWarnings = "0"          : This turns on the spew in SPEW_MISC at level 4, still need to adjust spew levels to see it.
                   @bEnableMovieRecording = "0"          : 
