@@ -42,6 +42,7 @@ do
     sed -i 's/\[1m//g' "${rootdir}/tmp/${letter}_raw.txt"
     # Remove CWorkThreadPool errors
     sed -i '/CWorkThreadPool/d' "${rootdir}/tmp/${letter}_raw.txt"
+    sed -i '/workthreadpool.cpp/d' "${rootdir}/tmp/${letter}_raw.txt"
 
     # Separating commands and convars
     # Commands List
