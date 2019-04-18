@@ -13,6 +13,7 @@ ConVars:
         bBroadcastAlwaysUploadThumbnails = "1"          : 
                bCheckForFreeGamesOnLogin = "0"          : 
                       bCheckUGCIntegrity = "1"          : 
+     @bClientDownloadNiceNetworkThrottle = "1"          : 
         @bClientOpenCacheStickyRedirects = "1"          : 
            @bContentManifestUseProtobufs = "1"          : 
             @bCSClientRateLimitUseDelays = "0"          : 
@@ -20,6 +21,7 @@ ConVars:
                  bDelayGameUpdatesOnBeta = "0"          : Should we do scheduling of updates on Steam Beta? If not, they'll all be ASAP
           @bDepotBuilderReadBufferSizeKB = "8192"       : 
            @bDepotBuilderUnbufferedReads = "1"          : 
+                  bDepotDeltaPatchUseAPI = "0"          : 
                  bDisableClientUIOverlay = "1"          : 
              @bDisableDualStackDownloads = "0"          : 
                   bDisableTenFootOverlay = "0"          : 
@@ -42,7 +44,7 @@ ConVars:
              broadcast_upload_update_sec = "3"          : 
                    bShaderCacheDownloads = "1"          : Allow to download shader cache depots
             bShaderEnableCacheManagement = "1"          : 
-             bShaderEnableFossilizeLayer = "0"          : 
+             bShaderEnableFossilizeLayer = "1"          : 
                      bShaderEnableUpload = "1"          : 
                    bSingleFileUpdateMode = "1"          : 
                      @bSiteLicenseServer = "0"          : 
@@ -65,6 +67,7 @@ ConVars:
   @cNetEncryptionHandshakeWorkMax_LowPri = "2000"       : 
   @cNetEncryptionHandshakeWorkMax_MedPri = "4000"       : 
                        controller_interp = "0"          : 
+          controller_min_activation_time = "0.0333"     : 
 controller_momentum_num_excluded_samples = "1"          : 
 controller_momentum_num_included_samples = "5"          : 
               controller_momentum_smooth = "0"          : 
@@ -152,6 +155,7 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
                     @NoPromptForPassword = "0"          : 
               @nParentalSettingsLogLevel = "4"          : Control the amount of spew written to the parental log file
               nProductInfoUpdateInterval = "900"        : 
+         nRichPresenceUploadThrottleSecs = "5"          : 
             @nSiteLicenseProxyCacheMaxGB = "100"        : If local content cache is enabled, use up to this much disk space
              @nSiteLicenseProxyEnableP2P = "0"          : If set, will have all connected clients join the same P2P download group
                   @nSiteLicenseProxyPort = "0"          : Local content cache: set > 0 to enable, will listen on this port
@@ -206,6 +210,7 @@ Commands:
                             app_info_print : Dumps app info for appID
                           app_info_request : <AppID> - Issue an appinfo request for the given appid. Does not wait for results from the server.
                            app_info_update : [0|1] : trigger app info update, optionally for update all
+                        app_install_script : <AppID> [uninstall:0|1]- Runs app install script.
                        app_license_request : <AppID> - Requests a free licenses for this app if not already owned.
                                    app_run : <appId> [LaunchOptionIndex] [Arguments]
                             app_set_config : <AppID> <key> <value> - sets a config value for given app.
@@ -219,6 +224,7 @@ Commands:
                                 app_update : app_update <appid> [-validate] [-language <lang>] [-beta <betaname>] [-betapassword <pwd>] make sure a Steam application is up-to-date
                          app_update_cancel : <EAppUpdateError>
                           async_disconnect : async disconnect
+                              build_backup : <appid> <target folder> [max folder size MB]
                            build_installer : <project file> <target folder> [beta key] [beta pwd]
                                   ceg_wrap : ceg_wrap <appid> <orig filename> <stripped filename> <strips filename> : upload executable to back end for CEG wrapping
                            cm_force_change : Change CM List
