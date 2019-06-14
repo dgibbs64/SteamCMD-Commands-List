@@ -11,6 +11,7 @@ ConVars:
                           batterypercent = "0"          : 
                              batterytime = "0"          : 
         bBroadcastAlwaysUploadThumbnails = "1"          : 
+ bBroadcastUploadGameDataIntervalSeconds = "5"          : 
                bCheckForFreeGamesOnLogin = "0"          : 
                       bCheckUGCIntegrity = "1"          : 
      @bClientDownloadNiceNetworkThrottle = "1"          : 
@@ -22,7 +23,7 @@ ConVars:
                  bDelayGameUpdatesOnBeta = "0"          : Should we do scheduling of updates on Steam Beta? If not, they'll all be ASAP
           @bDepotBuilderReadBufferSizeKB = "8192"       : 
            @bDepotBuilderUnbufferedReads = "1"          : 
-                  bDepotDeltaPatchUseAPI = "0"          : 
+                  bDepotDeltaPatchUseAPI = "1"          : 
                  bDisableClientUIOverlay = "1"          : 
              @bDisableDualStackDownloads = "0"          : 
                   bDisableTenFootOverlay = "0"          : 
@@ -192,6 +193,7 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
                    @uDownloadLANPeerPort = "27038"      : If LAN p2p download enabled, will listen on this port for TCP connections from peers. Must be set consistently across all members of the group!
                         uForcePreloadApp = "0"          : 
                          UGCCDNReportPct = "100"        : 
+              unShaderHitCacheGeneration = "0"          : 
             unShaderMaxHeadersPerMessage = "1024"       : 
           unShaderMaxUploadMessageSizeKb = "256"        : 
            @uRemoteDiscoveryPortOverride = "0"          : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort
@@ -222,7 +224,6 @@ Commands:
                                    app_run : <appId> [LaunchOptionIndex] [Arguments]
                             app_set_config : <AppID> <key> <value> - sets a config value for given app.
                        app_set_update_flag : app_set_update_flag <appId>
-                       app_shader_manifest : app_shader_manifest <appId> <manifestid>
                             apps_installed : 
                               apps_running : displays information about running games tracked by Steam 
                                 app_status : app_status <appId>
@@ -261,6 +262,7 @@ Commands:
                                net_msgspew : Spews sent net messages
                                   p2p_info : usage: "p2p_info" Displays the current state of the P2P networking subsystem.
                         package_info_print : Dumps package info for packageID
+                                   profile : <seconds> profile for N seconds
                                       quit : Stops Steam client console
                     render_ipc_connections : usage: "render_ipc_connections
                         run_app_build_http : run_app_build_http : alias for run_app_build
