@@ -1,6 +1,4 @@
-language: bash
-dist: xenial
-sudo: required
+dist: bionic
 
 addons:
   apt:
