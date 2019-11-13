@@ -2,7 +2,7 @@
 # steamcmd_commands.sh
 # Author: Daniel Gibbs
 # Website: http://danielgibbs.co.uk
-# Version: 180826
+# Version: 191031
 # Description: SteamCMD does not have a "list all" command to get all command options within SteamCMD.
 # Instead you have use find <string>
 # This script outputs all the commands available and saves it to a file
@@ -79,7 +79,7 @@ cat "${rootdir}/tmp/convars_list.txt"
 echo ""
 echo "Commands:"
 cat  "${rootdir}/tmp/commands_list.txt"
-}
+} > "${rootdir}/steamcmd_commands.txt"
 cat "${rootdir}/steamcmd_commands.txt"
 
 echo "Tidy up."
