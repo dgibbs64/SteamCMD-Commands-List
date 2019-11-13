@@ -13,9 +13,9 @@ rootdir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 echo ""
 echo "Installing SteamCMD"
 echo "================================="
-cd "${rootdir}"
+cd "${rootdir}" || exit
 mkdir -pv "steamcmd"
-cd "steamcmd"
+cd "steamcmd" || exit
 if [ ! -f "steamcmd.sh" ]; then
     echo -e "downloading steamcmd_linux.tar.gz...\c"
     wget -N /dev/null http://media.steampowered.com/client/steamcmd_linux.tar.gz 2>&1 | grep -F HTTP | cut -c45-| uniq
@@ -30,7 +30,7 @@ echo ""
 echo "Getting SteamCMD Commands/Convars"
 echo "================================="
 mkdir "${rootdir}/tmp"
-cd "${rootdir}/steamcmd"
+cd "${rootdir}/steamcmd" || exit
 # Loop though each letter of the alphabet using find command
 for letter in {a..z}
 do
@@ -70,12 +70,16 @@ sort -n "${rootdir}/tmp/convars_list_raw.txt" > "${rootdir}/tmp/convars_list_sor
 uniq "${rootdir}/tmp/convars_list_sort.txt" > "${rootdir}/tmp/convars_list.txt"
 
 # Final Output
+rm "${rootdir}/steamcmd_commands.txt"
+touch "${rootdir}/steamcmd_commands.txt"
+{
 echo "Generating output."
-echo "ConVars:" > "${rootdir}/steamcmd_commands.txt"
-cat "${rootdir}/tmp/convars_list.txt" >> "${rootdir}/steamcmd_commands.txt"
-echo "" >> "${rootdir}/steamcmd_commands.txt"
-echo "Commands:" >> "${rootdir}/steamcmd_commands.txt"
-cat  "${rootdir}/tmp/commands_list.txt" >> "${rootdir}/steamcmd_commands.txt"
+echo "ConVars:"
+cat "${rootdir}/tmp/convars_list.txt"
+echo ""
+echo "Commands:"
+cat  "${rootdir}/tmp/commands_list.txt"
+}
 cat "${rootdir}/steamcmd_commands.txt"
 
 echo "Tidy up."
