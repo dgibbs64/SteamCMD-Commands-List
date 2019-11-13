@@ -1,4 +1,3 @@
-
 # SteamCMD Commands List
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5361c93a6c0c405b8f07937eec466585)](https://www.codacy.com/manual/dgibbs64/SteamCMD-Commands-List?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dgibbs64/SteamCMD-Commands-List&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/dgibbs64/SteamCMD-Commands-List.svg?branch=master)](https://travis-ci.org/dgibbs64/SteamCMD-Commands-List)
@@ -20,7 +19,7 @@ You can get the output without using the script.
 ## Usage
 
 Simply download the script and run it.
-
-	wget https://raw.githubusercontent.com/dgibbs64/SteamCMD-Commands-List/master/steamcmd_commands.sh;chmod +x steamcmd_commands.sh;./steamcmd_commands.sh
-
+```bash
+wget https://raw.githubusercontent.com/dgibbs64/SteamCMD-Commands-List/master/steamcmd_commands.sh; chmod +x steamcmd_commands.sh; ./steamcmd_commands.sh
+```
 
