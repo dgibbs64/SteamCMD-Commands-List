@@ -22,4 +22,3 @@ Simply download the script and run it.
 ```bash
 wget https://raw.githubusercontent.com/dgibbs64/SteamCMD-Commands-List/master/steamcmd_commands.sh; chmod +x steamcmd_commands.sh; ./steamcmd_commands.sh
 ```
-
