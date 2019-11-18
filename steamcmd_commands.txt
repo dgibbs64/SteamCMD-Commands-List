@@ -16,6 +16,7 @@ ConVars:
                bCheckForFreeGamesOnLogin = "0"          : 
                       bCheckUGCIntegrity = "1"          : 
      @bClientDownloadNiceNetworkThrottle = "1"          : 
+                @bClientDownloadUseHTTPS = "0"          : Set this to use HTTPS on supported download servers
         @bClientOpenCacheStickyRedirects = "1"          : 
                 bClientPingCSesForCellID = "0"          : 
            @bContentManifestUseProtobufs = "1"          : 
@@ -85,6 +86,7 @@ controller_momentum_num_included_samples = "5"          :
                cPreallocateMinimumSizeKB = "256"        : 
           @csecCSRequestProcessorTimeOut = "300"        : 
               @csecDurationControlPeriod = "0"          : Override default duration-control / anti-indulgence time period. If nonzero, initial playtime threshold is this value in seconds, final threshold is 2x this value.
+           @csecDurationControlSimulated = "0"          : Simulate having already played this many seconds of playtime.
        @csecFavoriteGameAccountCacheTime = "86400"      : Control how often we refresh the account IDs in the game server favorites list
              @csecIncomingDataRatePeriod = "1"          : 
              csecManifestDownloadTimeout = "120"        : 
@@ -103,19 +105,20 @@ controller_momentum_num_included_samples = "5"          :
                   @DepotBuilderEnableVZd = "1"          : 
     @DepotBuilderMaxParallelUploadChunks = "24"         : 
                   @DepotBuilderNoReslist = "0"          : 
-        @DepotBuilderNumHTTPSocketsToMDS = "12"         : 
+        @DepotBuilderNumHTTPSocketsToMDS = "36"         : 
                  @DepotBuilderOutputRoot = ""           : 
        @DepotBuilderParallelUploadChunks = "6"          : 
             @DepotBuilderProgressTimeout = "1000"       : 
                 @DepotBuilderVZdMinRatio = "0.4"        : 
             @DepotBuilderXORMatchPercent = "95"         : 
-                       DepotDeltaPatches = "1"          : 
+                       DepotDeltaPatches = "2"          : 
             DepotDownloadProgressTimeout = "120"        : 
              DepotReconstructionBadChunk = "0"          : 
               DepotReconstructionLowPrio = "1"          : 
          DepotReconstructionNumIOThreads = "1"          : 
             DepotUseAlternatingReadWrite = "1"          : 
                                developer = "0"          : 
+              @durationControlNightCheck = "1"          : Enable time of day check for duration-control feature
                        @EnableUDPHistory = "0"          : 
 @fDownloadRateImprovementToAddAnotherConnection = "1.2"        : 
 @fMinDataRateToAttemptTwoConnectionsMbps = "1.5"        : 
@@ -132,19 +135,19 @@ controller_momentum_num_included_samples = "5"          :
                             musiclogging = "0"          : 
           nBroadcastSessionMaxDropFrames = "100"        : 
 nClientBackgroundAutoUpdateRecentlyPlayedThresholdHours = "168"        : If you've played the game more recently than this, we'll schedule the background update sooner.
-   nClientBackgroundAutoUpdateTargetHour = "6"          : Target hour, in local time, for auto-scheduled app updates. Will be spread around this point via the convar below.
+   nClientBackgroundAutoUpdateTargetHour = "4"          : Target hour, in local time, for auto-scheduled app updates. Will be spread around this point via the convar below.
 nClientBackgroundAutoUpdateTimeSpreadMinutes = "360"        : Spread of time around the above target hour - this is the +/- 2-sigma window, so half this on either side.
 @nClientCMUDPPingTimeGoodEnoughThresholdMS = "50"         : 
  @nClientCMUDPPingTimeoutUseGoodEnoughMS = "250"        : 
   @nClientDownloadPreferredServerMaxLoad = "85"         : Once preferred servers reach this load, we'll continue to use non-preferred servers in the list after them
 @nClientServiceMethodForDownloadListPercent = "100"        : 
-            nCloudDownloadMinIntervalSec = "60"         : 
+            nCloudDownloadMinIntervalSec = "15"         : 
       nCloudFileCompressionMinFileSizeKB = "16"         : 
 nCloudFileCompressionMinFileSizeKBSharedFile = "128"        : 
       nCloudFileCompressionPercentageMin = "10"         : 
 nCloudFileCompressionPercentageMinSharedFile = "50"         : 
                    nCloudSyncIntervalSec = "30"         : 
-              nCloudUploadMinIntervalSec = "1800"       : 
+              nCloudUploadMinIntervalSec = "60"         : 
            nContentDownloadsToOtherDrive = "1"          : Allow to download updates to other drives then install folder is on
              nContentStatsReportInterval = "72"         : In Hours
                  @nCSClientRateLimitKbps = "0"          : 
@@ -179,7 +182,7 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
                  @nTCPLargeSendBufSizeMB = "16"         : 
                       p2p_connecttimeout = "15"         : 
                        p2p_unusedtimeout = "120"        : 
- rtime32EarliestSubscribedFileToDownload = "1348857570" : 
+ rtime32EarliestSubscribedFileToDownload = "1354389910" : 
                  @sCSDSVirtualHostHeader = ""           : 
                 @sForceLocalContentCache = ""           : 
                 @ShutdownOnFailedCommand = "1"          : Exit steamcmd immediately upon any failed build-related command
@@ -195,7 +198,7 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
                        testappcloudpaths = "0"          : 
                    @uDownloadLANPeerPort = "27038"      : If LAN p2p download enabled, will listen on this port for TCP connections from peers. Must be set consistently across all members of the group!
                          UGCCDNReportPct = "100"        : 
-              unShaderHitCacheGeneration = "0"          : 
+              unShaderHitCacheGeneration = "1"          : 
             unShaderMaxHeadersPerMessage = "1024"       : 
           unShaderMaxUploadMessageSizeKb = "256"        : 
            @uRemoteDiscoveryPortOverride = "0"          : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort
@@ -208,7 +211,7 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
                       voice_outputdevice = "0"          : 0=>Miles 1=>XAudio2
                         voice_outputfile = ""           : causes output from voice system to be written out to the specified file
                         voice_preprocess = "0"          : enables voice cleanup on incoming microphone data
-                           voice_quality = "4"          : 
+                           voice_quality = "6"          : 
                   voice_resample_quality = "1"          : 
                       voice_silk_bitrate = "30000"      : 
                workshop_items_cache_days = "14"         : 
@@ -238,6 +241,22 @@ Commands:
                            build_installer : <project file> <target folder> [beta key] [beta pwd]
                                   ceg_wrap : ceg_wrap <appid> <orig filename> <stripped filename> <strips filename> : upload executable to back end for CEG wrapping
                            cm_force_change : Change CM List
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.1AVTkY
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.ACCYm9
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.BdECBu
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.EJgfyk
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.EJYK9j
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.GEmh5O
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.M0Rliq
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.Mqcqcy
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.So1I7C
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.SZ7wn3
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.Ubkr6z
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.UjlDlh
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.wbOCeT
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.wLoSz5
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.Y1YFkT
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.YE4piC
                    device_authorize_status : prints device authorization status
                             download_depot : download_depot <appid> <depotid> [<target manifestid>] [<delta manifestid>] [<depot flags filter>]: download a single depot
                           download_sources : Dumps list of download sources
@@ -261,7 +280,7 @@ Commands:
                              manifest_dump : <filename>
                                  mem_stats : Dump memory stats
                                net_msgdump : Dumps list of sent net messages
-                               net_msgspew : Spews sent net messages
+                               net_msgspew : Spews sent and recv net messages
                                   p2p_info : usage: "p2p_info" Displays the current state of the P2P networking subsystem.
                         package_info_print : Dumps package info for packageID
                                    profile : <seconds> profile for N seconds
@@ -278,6 +297,7 @@ Commands:
                               test_dropcon : Tests dropping a connection
                       test_failnextconnect : Tests failing the next connection
                     test_opus_voice_encode : test an opus voice encode
+                            test_reconnect : Reconnect after using test_failnextconnect&test_dropcon
                          test_voice_encode : test a voice encode
                   upload_controller_config : upload_controller_config <appid> <filename> : upload controller config to cloud
                               user_friends : Dumps list of friends
