@@ -241,20 +241,26 @@ Commands:
                            build_installer : <project file> <target folder> [beta key] [beta pwd]
                                   ceg_wrap : ceg_wrap <appid> <orig filename> <stripped filename> <strips filename> : upload executable to back end for CEG wrapping
                            cm_force_change : Change CM List
-CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.2Rmtli
-CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.7kyNcS
-CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.DcCTTS
-CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.fE1fJk
-CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.itm5zO
-CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.klpfHy
-CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.LFThg9
-CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.NlnQ36
-CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.qmEErk
-CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.sLEK9J
-CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.T5Be40
-CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.UW4ipw
-CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.VZU2PO
-CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.xsYrPc
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.3h1kd4
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.cJJSal
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.cmguFe
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.dB5hhr
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.E8KVrg
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.ecOcOC
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.FbpM27
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.iQVdcx
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.kTMnZX
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.MocN6Y
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.nlzqny
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.oNYsza
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.OTeojH
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.pQ5mEA
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.QkVc8M
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.rJbi1U
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.SMifcp
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.uxZRTl
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.vGYXnl
+CProcessWorkItem: thread is exiting, terminate /home/travis/build/dgibbs64/SteamCMD-Commands-List/steamcmd/linux32/steam-runtime/amd64/usr/bin/steam-runtime-system-info > /tmp/runtime-info.txt.wcagw8
                    device_authorize_status : prints device authorization status
                             download_depot : download_depot <appid> <depotid> [<target manifestid>] [<delta manifestid>] [<depot flags filter>]: download a single depot
                           download_sources : Dumps list of download sources
