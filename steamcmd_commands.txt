@@ -9,6 +9,7 @@ ConVars:
               AsyncFileIOMaxPendingWin32 = "64"         : 
               AsyncFileIOReadHandleCache = "4"          : 
              AsyncFileIOWriteHandleCache = "4"          : 
+                         batterycharging = "0"          : 
                           batterypercent = "0"          : 
                              batterytime = "0"          : 
         bBroadcastAlwaysUploadThumbnails = "1"          : 
@@ -40,9 +41,11 @@ ConVars:
               @bEnforceValidEmailDomains = "1"          : Enable valid email domains in BIsValidEmailAddress
               bFinishStagedDepotVersions = "1"          : 
              @bForceStreamUnsupportedApp = "0"          : 
+     @bHttpClientRecordHostnameDimension = "0"          : Group HTTP metrics by hostname.  Careful, the cardinality of your in-memory map might be large.
                    bInstallscriptReports = "1"          : send reports about broken install scripts
            @bLANPeerConnectionTimeoutSec = "5"          : 
                    bLogLegacyDiskDetails = "0"          : 
+                        @bMetricsEnabled = "1"          : Enabling allows jobs to collect and report metrics through IMetricsReporters.
                           @bMsgErrorDump = "0"          : 
              @bRequireOfflineLogonTicket = "1"          : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
                broadcast_upload_drop_sec = "6"          : 
@@ -85,8 +88,10 @@ controller_momentum_num_included_samples = "5"          :
                              countrycode = ""           : 
                cPreallocateMinimumSizeKB = "256"        : 
           @csecCSRequestProcessorTimeOut = "300"        : 
-              @csecDurationControlPeriod = "0"          : Override default duration-control / anti-indulgence time period. If nonzero, initial playtime threshold is this value in seconds, final threshold is 2x this value.
+              @csecDurationControlPeriod = "0"          : Override default duration-control / anti-indulgence time period. If nonzero, initial playtime threshold is this value in seconds
+         @csecDurationControlPeriodToday = "0"          : Override default duration-control / anti-indulgence time period. If nonzero, per-day playtime threshold is this value in seconds
            @csecDurationControlSimulated = "0"          : Simulate having already played this many seconds of playtime.
+  @csecDurationControlSimulatedNonRecent = "0"          : Simulate having already played this many seconds of playtime today, but not recently.
        @csecFavoriteGameAccountCacheTime = "86400"      : Control how often we refresh the account IDs in the game server favorites list
              @csecIncomingDataRatePeriod = "1"          : 
              csecManifestDownloadTimeout = "120"        : 
@@ -118,17 +123,22 @@ controller_momentum_num_included_samples = "5"          :
          DepotReconstructionNumIOThreads = "1"          : 
             DepotUseAlternatingReadWrite = "1"          : 
                                developer = "0"          : 
-              @durationControlNightCheck = "1"          : Enable time of day check for duration-control feature
+              @durationControlNightCheck = "1"          : Time of day check for duration-control feature. 1 = normal. 2 = force night-time. 0 = disable checks, only enabled for age verified accounts
                        @EnableUDPHistory = "0"          : 
 @fDownloadRateImprovementToAddAnotherConnection = "1.2"        : 
 @fMinDataRateToAttemptTwoConnectionsMbps = "1.5"        : 
                    @ForceContentServerID = ""           : 
                          @GCNameOverride = ""           : 
+                  @influxBlacklistedTags = "steamid"    : Comma separated list of tag names known to cause cardinality problems for Influx.  We drop those tags but emit the others per-metrics.
                      @LocalContentServer = ""           : 
                       @LogFileFolderName = ""           : Use something other than 'logs' as the folder for log files
                   log_files_always_flush = "0"          : 
                log_matchmaking_callbacks = "0"          : 
            @MaxOutstandingSendThreadItem = "1000"       : 
+              @metricsDisabledOperations = ""           : Comma separated list of metrics operations - disable list
+                 @metricsEnabledCatalogs = ""           : Comma separated list of metrics catalogs - enable list.  Inclusion in this list bypasses operation whitelist.  Probably every catalog other than job_metrics should be in here.
+               @metricsEnabledOperations = "CInfluxClient::SendCurrentBatchAsync" : Comma separated list of metrics operations - enable list
+                @metricsLegacyJobMetrics = "CInfluxClient::SendCurrentBatchAsync,UpdateAppJobReport,perf,ExternalStorageTransferReport,ChatRoom.RelaySendChatMessage#1,DownloadRates,DownloadRatesPerServer,AppBranchUpdateStats,Trust.FullAccountUpdate#1,Trust.OnAccountChanged#1,Trust.OnAccountLabeled : Comma separated list of Operation names that predate preaggregated job metrics.
                             mic_autogain = "16000"      : automatic gain control level for microphone input
                            mic_inputfile = ""           : causes voice data to be read from the specified file instead of from the microphone
                           mic_outputfile = ""           : causes microphone data to be written out to the specified file
@@ -245,12 +255,14 @@ Commands:
                             download_depot : download_depot <appid> <depotid> [<target manifestid>] [<delta manifestid>] [<depot flags filter>]: download a single depot
                           download_sources : Dumps list of download sources
                                   drm_wrap : drm_wrap <appid> <input filename> <output filename> <toolname> <flags> : upload executable to back end for DRM wrapping
+                              dump_box_ips : dump the list of detected local box IP addresses
                   dump_scheduled_functions : usage: "dump_scheduled_functions" Displays internal Steam function callback timers
                                       exit : Stops Steam client console
                                       find : find substrings in console commands
                          force_install_dir : force_install_dir <directory>
                      get_download_throttle : 
                                       help : Show help information
+                                 http_test : <optional_url> test HTTP connectivity via specified URL
                                       info : Dump various Steam info
                        install_folder_list : list all mounted Steam volumes
                           licenses_for_app : <appid> : shows active licenses for appid
