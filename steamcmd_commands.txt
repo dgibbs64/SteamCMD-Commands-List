@@ -6,7 +6,7 @@ ConVars:
                  AsyncFileIODisableWrite = "0"          : 
           AsyncFileIOExpectOutstandingIO = "6"          : 
                AsyncFileIOForceGenericIO = "0"          : 
-              AsyncFileIOMaxPendingWin32 = "64"         : 
+              AsyncFileIOMaxPendingWin32 = "256"        : 
               AsyncFileIOReadHandleCache = "4"          : 
              AsyncFileIOWriteHandleCache = "4"          : 
                          batterycharging = "0"          : 
@@ -66,7 +66,7 @@ ConVars:
           bSubscribedFilesPollForUpdates = "0"          : 
         bSubscribedFilesUseRangeRequests = "0"          : 
                      bVerifyAllDownloads = "0"          : 
-                  cAppUpdateWorkingSetMB = "128"        : 
+                  cAppUpdateWorkingSetMB = "512"        : 
                @cbPartnerUploadChunkSize = "1000000"    : Chunk size to use for POSTing partner uploads
           @cCSClientMaxNumSocketsPerHost = "4"          : 
 @cCSClientMaxNumSocketsPerHostForCachingProxy = "32"         : 
