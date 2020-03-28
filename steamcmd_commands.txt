@@ -16,7 +16,7 @@ ConVars:
  bBroadcastUploadGameDataIntervalSeconds = "5"          : 
                bCheckForFreeGamesOnLogin = "0"          : 
                       bCheckUGCIntegrity = "1"          : 
-     @bClientDownloadNiceNetworkThrottle = "1"          : 
+     @bClientDownloadNiceNetworkThrottle = "0"          : 
                 @bClientDownloadUseHTTPS = "0"          : Set this to use HTTPS on supported download servers
         @bClientOpenCacheStickyRedirects = "1"          : 
                 bClientPingCSesForCellID = "0"          : 
@@ -144,11 +144,14 @@ controller_momentum_num_included_samples = "5"          :
                           mic_outputfile = ""           : causes microphone data to be written out to the specified file
                             musiclogging = "0"          : 
           nBroadcastSessionMaxDropFrames = "100"        : 
+nClientBackgroundAutoUpdateLessRecentlyPlayedThresholdHours = "168"        : If you've played the game more recently than this, we'll schedule the background update sooner.
+nClientBackgroundAutoUpdateNotPlayedTimeSpreadDays = "14"         : If the user hasn't played this game in a while, pick a morning up to this many days out to update.
 nClientBackgroundAutoUpdateRecentlyPlayedThresholdHours = "72"         : If you've played the game more recently than this, we'll schedule the background update sooner.
    nClientBackgroundAutoUpdateTargetHour = "4"          : Target hour, in local time, for auto-scheduled app updates. Will be spread around this point via the convar below.
 nClientBackgroundAutoUpdateTimeSpreadMinutes = "360"        : Spread of time around the above target hour - this is the +/- 2-sigma window, so half this on either side.
 @nClientCMUDPPingTimeGoodEnoughThresholdMS = "50"         : 
  @nClientCMUDPPingTimeoutUseGoodEnoughMS = "250"        : 
+@nClientDownloadNiceNetworkThrottlePercentage = "85"         : 
   @nClientDownloadPreferredServerMaxLoad = "85"         : Once preferred servers reach this load, we'll continue to use non-preferred servers in the list after them
 @nClientServiceMethodForDownloadListPercent = "100"        : 
             nCloudDownloadMinIntervalSec = "15"         : 
@@ -161,6 +164,7 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
            nContentDownloadsToOtherDrive = "1"          : Allow to download updates to other drives then install folder is on
              nContentStatsReportInterval = "72"         : In Hours
                  @nCSClientRateLimitKbps = "0"          : 
+@nDownloadGlobalThrottlingDaytimeStartHour = "0"          : 
            @nDownloadLANChunkCacheSizeMB = "128"        : 
                   @nDownloadLANPeerGroup = "0"          : 
               @net_backlog_bytes_allowed = "12000000"   : 
@@ -285,6 +289,7 @@ Commands:
                         run_app_build_http : run_app_build_http : alias for run_app_build
                              run_app_build : run_app_build [-preview] [-desc <text>] <appbuildfile> : run app depot build as specified in appbuildfile
                                  runscript : <scriptfile> - runs a console command script
+                     set_app_beta_password : set_app_beta_password <appid> -betapassword <pwd>  -- opt-in to the app beta with the given password
                      set_download_throttle : set_download_throttle <kbps> <bPersistent = false>
                                   set_spew : <group> <level> <loglevel> set spew levels for the given group
                             set_spew_level : <SpewLevel LogLevel> Sets spew and log level for all groups
