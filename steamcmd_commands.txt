@@ -20,6 +20,7 @@ ConVars:
                 @bClientDownloadUseHTTPS = "0"          : Set this to use HTTPS on supported download servers
         @bClientOpenCacheStickyRedirects = "1"          : 
                 bClientPingCSesForCellID = "0"          : 
+bCloudAcceptUnexpectedAutoCloudFileChanges = "1"          : 
            @bContentManifestUseProtobufs = "1"          : 
             @bCSClientRateLimitUseDelays = "0"          : 
                         @bCSForceNoCache = "0"          : 
@@ -65,6 +66,7 @@ ConVars:
       bSubscribedFilesDecompressOnClient = "1"          : 
           bSubscribedFilesPollForUpdates = "0"          : 
         bSubscribedFilesUseRangeRequests = "0"          : 
+       @bUseWebMicrotxnPathInSteamClient = "0"          : 
                      bVerifyAllDownloads = "0"          : 
                   cAppUpdateWorkingSetMB = "512"        : 
                @cbPartnerUploadChunkSize = "1000000"    : Chunk size to use for POSTing partner uploads
@@ -103,7 +105,6 @@ controller_momentum_num_included_samples = "5"          :
                @CSInterfaceProxyUsername = ""           : 
                         @cUDPSendRetries = "8"          : 
           @CustomBinaryRequestRetryTimes = "20"         : 
-             @DepotBuilderAppInfoTimeout = "120"        : 
                  @DepotBuilderConfigRoot = "./depotscripts" : 
                 @DepotBuilderContentRoot = ""           : 
              @DepotBuilderDeltaMaxChunks = "20000"      : 
