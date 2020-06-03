@@ -1,5 +1,6 @@
 Generating output.
 ConVars:
+                        appcloudsessions = "220,570,736260" : 
                        app_info_http_min = "0"          : 
                app_info_http_num_sockets = "8"          : 
            AsyncFileIOAlternateReadWrite = "1"          : 
@@ -51,6 +52,8 @@ bCloudAcceptUnexpectedAutoCloudFileChanges = "1"          :
              @bRequireOfflineLogonTicket = "1"          : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
                broadcast_upload_drop_sec = "6"          : 
              broadcast_upload_update_sec = "3"          : 
+                      bShaderAllowReplay = "1"          : 
+     bShaderAlwaysProcessWhenRunningGame = "0"          : 
                    bShaderCacheDownloads = "1"          : Allow to download shader cache depots
             bShaderEnableCacheManagement = "1"          : 
              bShaderEnableFossilizeLayer = "1"          : 
@@ -80,6 +83,8 @@ bCloudAcceptUnexpectedAutoCloudFileChanges = "1"          :
  @cNetEncryptionHandshakeWorkMax_HighPri = "8000"       : 
   @cNetEncryptionHandshakeWorkMax_LowPri = "2000"       : 
   @cNetEncryptionHandshakeWorkMax_MedPri = "4000"       : 
+          controller_base_rotation_angle = "0"          : 
+                  controller_edge_cutoff = "0"          : 
                        controller_interp = "0"          : 
           controller_min_activation_time = "0.0333"     : 
 controller_momentum_num_excluded_samples = "1"          : 
@@ -135,7 +140,7 @@ controller_momentum_num_included_samples = "5"          :
                       @LogFileFolderName = ""           : Use something other than 'logs' as the folder for log files
                   log_files_always_flush = "0"          : 
                log_matchmaking_callbacks = "0"          : 
-           @MaxOutstandingSendThreadItem = "1000"       : 
+           @MaxOutstandingSendThreadItem = "5000"       : 
               @metricsDisabledOperations = ""           : Comma separated list of metrics operations - disable list
                  @metricsEnabledCatalogs = ""           : Comma separated list of metrics catalogs - enable list.  Inclusion in this list bypasses operation whitelist.  Probably every catalog other than job_metrics should be in here.
                @metricsEnabledOperations = "CInfluxClient::SendCurrentBatchAsync" : Comma separated list of metrics operations - enable list
@@ -214,6 +219,8 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
                        testappcloudpaths = "0"          : 
                    @uDownloadLANPeerPort = "27038"      : If LAN p2p download enabled, will listen on this port for TCP connections from peers. Must be set consistently across all members of the group!
                          UGCCDNReportPct = "100"        : 
+     unShaderBackgroundProcessingThreads = "0"          : 
+   unShaderHighPriorityProcessingThreads = "0"          : 
               unShaderHitCacheGeneration = "1"          : 
             unShaderMaxHeadersPerMessage = "1024"       : 
           unShaderMaxUploadMessageSizeKb = "256"        : 
@@ -275,7 +282,7 @@ Commands:
                             licenses_print : display users's Steam3 licenses
                              log_callbacks : usage: "log_callbacks <first callbackID> [last callbackID]
                                      login : <username> [<password>] [<Steam guard code>] - login to Steam
-                                   log_ipc : usage: "log_ipc [counts|verbose] <filter>" Enables IPC logging. Specifying "counts" or "verbose" is optional, defaulting to counts.
+                                   log_ipc : usage: "log_ipc [counts|verbose|#maxcount] <filter>" Enables IPC logging. Specifying "counts" or "verbose" is optional, defaulting to counts.
                                     logoff : Disconnect from Steam
                                      logon : see 'login'
                                     logout : Disconnect from Steam
@@ -302,6 +309,9 @@ Commands:
                     test_opus_voice_encode : test an opus voice encode
                             test_reconnect : Reconnect after using test_failnextconnect&test_dropcon
                          test_voice_encode : test a voice encode
+                  timed_trial_add_playtime : timed_trial_add_playtime <appId> <seconds>: add trial app playtime (developer only)
+                timed_trial_reset_playtime : timed_trial_reset_playtime <appId> : reset trial app playtime (developer only)
+                        timed_trial_status : timed_trial_status <appId> : show time trial app status
                   upload_controller_config : upload_controller_config <appid> <filename> : upload controller config to cloud
                               user_friends : Dumps list of friends
                         verify_chunk_store : verify_chunk_store <appid> <depotid> <datafile> : run app depot build as specified in appbuildfile
