@@ -1,6 +1,6 @@
 Generating output.
 ConVars:
-                        appcloudsessions = "220,570,736260" : 
+                        appcloudsessions = "220,570,736260,646570,881100" : 
                        app_info_http_min = "0"          : 
                app_info_http_num_sockets = "8"          : 
            AsyncFileIOAlternateReadWrite = "1"          : 
@@ -140,7 +140,7 @@ controller_momentum_num_included_samples = "5"          :
                       @LogFileFolderName = ""           : Use something other than 'logs' as the folder for log files
                   log_files_always_flush = "0"          : 
                log_matchmaking_callbacks = "0"          : 
-           @MaxOutstandingSendThreadItem = "5000"       : 
+           @MaxOutstandingSendThreadItem = "10000"      : 
               @metricsDisabledOperations = ""           : Comma separated list of metrics operations - disable list
                  @metricsEnabledCatalogs = ""           : Comma separated list of metrics catalogs - enable list.  Inclusion in this list bypasses operation whitelist.  Probably every catalog other than job_metrics should be in here.
                @metricsEnabledOperations = "CInfluxClient::SendCurrentBatchAsync" : Comma separated list of metrics operations - enable list
