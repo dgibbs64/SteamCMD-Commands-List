@@ -1,6 +1,6 @@
 Generating output.
 ConVars:
-                        appcloudsessions = "220,570,736260,646570,881100" : 
+                        appcloudsessions = "all"        : 
                        app_info_http_min = "0"          : 
                app_info_http_num_sockets = "8"          : 
            AsyncFileIOAlternateReadWrite = "1"          : 
@@ -85,6 +85,7 @@ bCloudAcceptUnexpectedAutoCloudFileChanges = "1"          :
   @cNetEncryptionHandshakeWorkMax_MedPri = "4000"       : 
           controller_base_rotation_angle = "0"          : 
                   controller_edge_cutoff = "0"          : 
+                 controller_gyro_x_scale = "16000"      : 
                        controller_interp = "0"          : 
           controller_min_activation_time = "0.0333"     : 
 controller_momentum_num_excluded_samples = "1"          : 
@@ -171,11 +172,12 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
            nContentDownloadsToOtherDrive = "1"          : Allow to download updates to other drives then install folder is on
              nContentStatsReportInterval = "72"         : In Hours
                  @nCSClientRateLimitKbps = "0"          : 
+                 @nCSJob404ResponseLimit = "25"         : 
 @nDownloadGlobalThrottlingDaytimeStartHour = "0"          : 
            @nDownloadLANChunkCacheSizeMB = "128"        : 
                   @nDownloadLANPeerGroup = "0"          : 
-              @net_backlog_bytes_allowed = "12000000"   : 
-           @net_backlog_time_allowed_sec = "5"          : 
+              @net_backlog_bytes_allowed = "18000000"   : 
+           @net_backlog_time_allowed_sec = "8"          : 
             @NetConnectionBufferMsgLimit = "1000"       : Max # of message that will be buffered into a single zipped packet
             @NetConnectionBufferThreaded = "1"          : 
                        net_incomingcheck = "1"          : 
@@ -274,6 +276,7 @@ Commands:
                                       find : find substrings in console commands
                          force_install_dir : force_install_dir <directory>
                      get_download_throttle : 
+                 get_swarm_bucket_manifest : <appid> <bucket_hw_id> <bucket_sw_id> - query Swarm bucket depot manifest, if depot built
                                       help : Show help information
                                  http_test : <optional_url> test HTTP connectivity via specified URL
                                       info : Dump various Steam info
