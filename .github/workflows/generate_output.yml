@@ -1,0 +1,29 @@
+# This workflow generates the output and pushes it to master branch
+
+name: Generate Output
+
+on:
+  schedule:
+    - cron:  '0 0 * * *'
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run steamcmd_commands.sh
+      run: ./steamcmd_commands.sh
+
+    - name: Push to master branch
+      uses: Automattic/action-commit-to-branch@master
+      with:
+        branch: 'master'
+        commit_message: 'GitHub Actions Build master'
+      env:
+        GITHUB_TOKEN: ${{ secrets.STEAMCMD_APPID_LIST }} # Required
