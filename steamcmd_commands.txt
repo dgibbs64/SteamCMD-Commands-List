@@ -74,6 +74,7 @@ bCloudAcceptUnexpectedAutoCloudFileChanges = "1"          :
                      bVerifyAllDownloads = "0"          : 
                   cAppUpdateWorkingSetMB = "512"        : 
                @cbPartnerUploadChunkSize = "1000000"    : Chunk size to use for POSTing partner uploads
+                  cChunkValidationMaxLog = "100"        : 
           @cCSClientMaxNumSocketsPerHost = "8"          : 
 @cCSClientMaxNumSocketsPerHostForCachingProxy = "32"         : 
        @cDepotBuilderFileChunkingThreads = "4"          : 
