@@ -53,7 +53,7 @@ bCloudAcceptUnexpectedAutoCloudFileChanges = "1"          :
                broadcast_upload_drop_sec = "6"          : 
              broadcast_upload_update_sec = "3"          : 
                       bShaderAllowReplay = "1"          : 
-              bShaderAllowReplayOnNVIDIA = "0"          : 
+              bShaderAllowReplayOnNVIDIA = "1"          : 
      bShaderAlwaysProcessWhenRunningGame = "0"          : 
                    bShaderCacheDownloads = "1"          : Allow to download shader cache depots
             bShaderEnableCacheManagement = "1"          : 
@@ -177,6 +177,7 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
              nContentStatsReportInterval = "72"         : In Hours
                  @nCSClientRateLimitKbps = "0"          : 
                  @nCSJob404ResponseLimit = "100"        : 
+                 nDepotSafeCorruptChunks = "0"          : 
 @nDownloadGlobalThrottlingDaytimeStartHour = "0"          : 
            @nDownloadLANChunkCacheSizeMB = "128"        : 
                   @nDownloadLANPeerGroup = "0"          : 
@@ -292,7 +293,7 @@ Commands:
                                     logoff : Disconnect from Steam
                                      logon : see 'login'
                                     logout : Disconnect from Steam
-                             manifest_dump : <filename>
+                             manifest_dump : <filename> [0|1: include chunks]
                                  mem_stats : Dump memory stats
                                net_msgdump : Dumps list of sent net messages
                                net_msgspew : Spews sent and recv net messages
