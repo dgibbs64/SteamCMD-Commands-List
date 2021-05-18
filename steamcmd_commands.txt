@@ -53,6 +53,7 @@ bCloudAcceptUnexpectedAutoCloudFileChanges = "1"          :
              @bRequireOfflineLogonTicket = "1"          : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
                broadcast_upload_drop_sec = "6"          : 
              broadcast_upload_update_sec = "3"          : 
+          @bScreenshotsLegacyCloudUpload = "1"          : If set, use the legacy Steam Cloud upload path for screenshot uploads
                       bShaderAllowReplay = "1"          : 
               bShaderAllowReplayOnNVIDIA = "1"          : 
      bShaderAlwaysProcessWhenRunningGame = "0"          : 
