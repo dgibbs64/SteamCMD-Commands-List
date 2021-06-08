@@ -34,6 +34,7 @@ bCloudAcceptUnexpectedAutoCloudFileChanges = "1"          :
              @bDisableDualStackDownloads = "0"          : 
                   bDisableTenFootOverlay = "0"          : 
         @bEnableFrameFuncOverageWarnings = "0"          : This turns on the spew in SPEW_MISC at level 4, still need to adjust spew levels to see it.
+          @bEnableHTTP2OnAllCHTTPClients = "0"          : Enable HTTP/2 on all CHTTPClients automatically for SSL connections
                       @bEnableLogTearOff = "1"          : 
                   @bEnableMovieRecording = "0"          : 
               @bEnableOfflineLogonTicket = "1"          : If true, an offline logon ticket will be requested during logon if none is cached
@@ -50,6 +51,7 @@ bCloudAcceptUnexpectedAutoCloudFileChanges = "1"          :
                    bLogLegacyDiskDetails = "0"          : 
                         @bMetricsEnabled = "1"          : Enabling allows jobs to collect and report metrics through IMetricsReporters.
                           @bMsgErrorDump = "0"          : 
+                bPrefetchDownloadDetails = "1"          : Prefetch download size before actual update happens
              @bRequireOfflineLogonTicket = "1"          : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
                broadcast_upload_drop_sec = "6"          : 
              broadcast_upload_update_sec = "3"          : 
@@ -73,7 +75,7 @@ bCloudAcceptUnexpectedAutoCloudFileChanges = "1"          :
           bSubscribedFilesPollForUpdates = "0"          : 
         bSubscribedFilesUseRangeRequests = "0"          : 
        @bUseWebMicrotxnPathInSteamClient = "1"          : 
-                     bVerifyAllDownloads = "0"          : 
+                     bVerifyAllDownloads = "0"          : Verify all files after downloading an update
                   cAppUpdateWorkingSetMB = "512"        : 
                @cbPartnerUploadChunkSize = "1000000"    : Chunk size to use for POSTing partner uploads
                   cChunkValidationMaxLog = "100"        : 
@@ -184,7 +186,7 @@ nCloudFileCompressionPercentageMinSharedFile = "50"         :
              nContentStatsReportInterval = "72"         : In Hours
                  @nCSClientRateLimitKbps = "0"          : 
                  @nCSJob404ResponseLimit = "100"        : 
-                 nDepotSafeCorruptChunks = "0"          : 
+                 nDepotSaveCorruptChunks = "0"          : 
 @nDownloadGlobalThrottlingDaytimeStartHour = "0"          : 
            @nDownloadLANChunkCacheSizeMB = "128"        : 
                   @nDownloadLANPeerGroup = "0"          : 
@@ -270,7 +272,7 @@ Commands:
                               apps_running : displays information about running games tracked by Steam 
                                 app_status : app_status <appId>
                                   app_stop : <appid> [force:0|1] stop this running app
-                             app_uninstall : [-complete] <appId>
+                             app_uninstall : <appId>
                                 app_update : app_update <appid> [-validate] [-language <lang>] [-beta <betaname>] [-betapassword <pwd>] make sure a Steam application is up-to-date
                          app_update_cancel : <EAppUpdateError>
                           async_disconnect : async disconnect
@@ -292,7 +294,7 @@ Commands:
                                       help : Show help information
                                  http_test : <optional_url> test HTTP connectivity via specified URL
                                       info : Dump various Steam info
-                       install_folder_list : list all mounted Steam volumes
+                       library_folder_list : list all mounted Steam volumes
                           licenses_for_app : <appid> : shows active licenses for appid
                             licenses_print : display users's Steam3 licenses
                              log_callbacks : usage: "log_callbacks <first callbackID> [last callbackID]
