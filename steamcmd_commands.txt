@@ -1,342 +1,347 @@
 Generating output.
 ConVars:
+                               developer = "0"          : 
+                             batterytime = "0"          : 
+                             countrycode = ""           : 
+                            mic_autogain = "16000"      : automatic gain control level for microphone input
+                            musiclogging = "0"          : 
+                            voice_minabs = "0.15"       : 
+                            voice_minavg = "1.0"        : 
+                           @net_loopback = "1"          : 
+                           mic_inputfile = ""           : causes voice data to be read from the specified file instead of from the microphone
+                           voice_quality = "6"          : 
+                          @bMsgErrorDump = "0"          : 
+                          batterypercent = "0"          : 
+                          mic_outputfile = ""           : causes microphone data to be written out to the specified file
+                          voice_autogain = "0"          : 
+                          voice_fakeloss = "0"          : 
+                         @GCNameOverride = ""           : 
+                         @sStartupScript = ""           : Exec contents of this convar as a script at startup
+                         UGCCDNReportPct = "100"        : 
+                         batterycharging = "0"          : 
+                         controller_rate = "2000"       : 
+                        @bCSForceNoCache = "0"          : 
+                        @bMetricsEnabled = "1"          : Enabling allows jobs to collect and report metrics through IMetricsReporters.
+                        @cUDPSendRetries = "8"          : 
                         appcloudsessions = "all"        : 
+                        voice_outputfile = ""           : causes output from voice system to be written out to the specified file
+                        voice_preprocess = "0"          : enables voice cleanup on incoming microphone data
+                       @EnableUDPHistory = "0"          : 
+                       @StreamClientArgs = ""           : 
+                       @nIOCPThreadCount = "1"          : 
+                       DepotDeltaPatches = "2"          : 
                        app_force_preload = "0"          : force this app into preload mode
                        app_info_http_min = "0"          : 
-               app_info_http_num_sockets = "8"          : 
-           AsyncFileIOAlternateReadWrite = "1"          : 
-                 AsyncFileIODisableWrite = "0"          : 
-          AsyncFileIOExpectOutstandingIO = "6"          : 
-               AsyncFileIOForceGenericIO = "0"          : 
-              AsyncFileIOMaxPendingWin32 = "256"        : 
-              AsyncFileIOReadHandleCache = "4"          : 
-             AsyncFileIOWriteHandleCache = "4"          : 
-                         batterycharging = "0"          : 
-                          batterypercent = "0"          : 
-                             batterytime = "0"          : 
-        bBroadcastAlwaysUploadThumbnails = "1"          : 
- bBroadcastUploadGameDataIntervalSeconds = "5"          : 
-               bCheckForFreeGamesOnLogin = "0"          : 
-                      bCheckUGCIntegrity = "1"          : 
-     @bClientDownloadNiceNetworkThrottle = "0"          : 
-                @bClientDownloadUseHTTPS = "0"          : Set this to use HTTPS on supported download servers
-        @bClientOpenCacheStickyRedirects = "1"          : 
-                bClientPingCSesForCellID = "0"          : 
-bCloudAcceptUnexpectedAutoCloudFileChanges = "1"          : 
-           @bContentManifestUseProtobufs = "1"          : 
-            @bCSClientRateLimitUseDelays = "0"          : 
-                        @bCSForceNoCache = "0"          : 
-                 bDelayGameUpdatesOnBeta = "0"          : Should we do scheduling of updates on Steam Beta? If not, they'll all be ASAP
-          @bDepotBuilderReadBufferSizeKB = "8192"       : 
-           @bDepotBuilderUnbufferedReads = "1"          : 
-                  bDepotDeltaPatchUseAPI = "1"          : 
-                 bDisableClientUIOverlay = "1"          : 
-             @bDisableDualStackDownloads = "0"          : 
-                  bDisableTenFootOverlay = "0"          : 
-        @bEnableFrameFuncOverageWarnings = "0"          : This turns on the spew in SPEW_MISC at level 4, still need to adjust spew levels to see it.
-          @bEnableHTTP2OnAllCHTTPClients = "0"          : Enable HTTP/2 on all CHTTPClients automatically for SSL connections
-                      @bEnableLogTearOff = "1"          : 
-                  @bEnableMovieRecording = "0"          : 
-              @bEnableOfflineLogonTicket = "1"          : If true, an offline logon ticket will be requested during logon if none is cached
-              @bEnableSiteLicenseConnect = "1"          : 
-       @bEnableSiteLicenseConsoleLogging = "0"          : 
-                    @bEnableSpewThrottle = "1"          : 
-          bEnableSubscribedFileListCache = "1"          : 
-              @bEnforceValidEmailDomains = "1"          : Enable valid email domains in BIsValidEmailAddress
-              bFinishStagedDepotVersions = "1"          : 
-             @bForceStreamUnsupportedApp = "0"          : 
-     @bHttpClientRecordHostnameDimension = "0"          : Group HTTP metrics by hostname.  Careful, the cardinality of your in-memory map might be large.
-                   bInstallscriptReports = "1"          : send reports about broken install scripts
-           @bLANPeerConnectionTimeoutSec = "5"          : 
-                   bLogLegacyDiskDetails = "0"          : 
-                        @bMetricsEnabled = "1"          : Enabling allows jobs to collect and report metrics through IMetricsReporters.
-                          @bMsgErrorDump = "0"          : 
-                bPrefetchDownloadDetails = "1"          : Prefetch download size before actual update happens
-             @bRequireOfflineLogonTicket = "1"          : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
-               broadcast_upload_drop_sec = "6"          : 
-             broadcast_upload_update_sec = "3"          : 
-          @bScreenshotsLegacyCloudUpload = "1"          : If set, use the legacy Steam Cloud upload path for screenshot uploads
-                      bShaderAllowReplay = "1"          : 
-              bShaderAllowReplayOnNVIDIA = "1"          : 
-     bShaderAlwaysProcessWhenRunningGame = "0"          : 
-                   bShaderCacheDownloads = "1"          : Allow to download shader cache depots
-            bShaderEnableCacheManagement = "1"          : 
-             bShaderEnableFossilizeLayer = "1"          : 
-                     bShaderEnableUpload = "1"          : 
-                   bSingleFileUpdateMode = "1"          : 
-@bSiteLicenseAllowCachedClientCredentials = "0"          : Allow Steam clients that associate to this site to save username and auth credentials locally
-@bSiteLicenseProxyCacheIsExternalProcess = "0"          : If set, the caching content proxy will be handled by some process other than steamcmd. You probably also should set @sSiteLicenseProxyExplicitIP.
-            @bSiteLicenseProxyEnableIPv6 = "0"          : If set, we will enable ipv6 communications to the Steam servers
-                     @bSiteLicenseServer = "0"          : 
-                  @bSiteLicenseServerGUI = "0"          : 
-                bSteam3LimitedUserEnable = "1"          : 
-                      bSteamLoaderEnable = "1"          : 
-      bSubscribedFilesDecompressOnClient = "1"          : 
-          bSubscribedFilesPollForUpdates = "0"          : 
-        bSubscribedFilesUseRangeRequests = "0"          : 
-       @bUseWebMicrotxnPathInSteamClient = "1"          : 
-                     bVerifyAllDownloads = "0"          : Verify all files after downloading an update
-                  cAppUpdateWorkingSetMB = "512"        : 
-               @cbPartnerUploadChunkSize = "1000000"    : Chunk size to use for POSTing partner uploads
-                  cChunkValidationMaxLog = "100"        : 
-          @cCSClientMaxNumSocketsPerHost = "8"          : 
-@cCSClientMaxNumSocketsPerHostForCachingProxy = "32"         : 
-       @cDepotBuilderFileChunkingThreads = "4"          : 
-                   cFileValidationMaxLog = "100"        : 
-            ClientStatsUploadRateSeconds = "10"         : 
-            @cMaxContentServersToRequest = "20"         : 
-             @cMaxInitialDownloadSources = "-1"         : 
- @cNetEncryptionHandshakeWorkMax_HighPri = "8000"       : 
-  @cNetEncryptionHandshakeWorkMax_LowPri = "2000"       : 
-  @cNetEncryptionHandshakeWorkMax_MedPri = "4000"       : 
-          controller_base_rotation_angle = "0"          : 
-                  controller_edge_cutoff = "0"          : 
-                 controller_gyro_x_scale = "16000"      : 
                        controller_interp = "0"          : 
-          controller_min_activation_time = "0.0333"     : 
-             controller_momentum_min_vel = "0"          : 
-controller_momentum_num_excluded_samples = "1"          : 
-controller_momentum_num_included_samples = "5"          : 
-              controller_momentum_smooth = "0"          : 
+                       net_incomingcheck = "1"          : 
+                       p2p_unusedtimeout = "120"        : 
+                       testappcloudpaths = "0"          : 
+                      @LogFileFolderName = ""           : Use something other than 'logs' as the folder for log files
+                      @bEnableLogTearOff = "1"          : 
+                      bCheckUGCIntegrity = "1"          : 
+                      bShaderAllowReplay = "1"          : 
+                      bSteamLoaderEnable = "1"          : 
                       controller_newpoll = "1"          : 
-                         controller_rate = "2000"       : 
-                             countrycode = ""           : 
-               cPreallocateMinimumSizeKB = "256"        : 
-          @csecCSRequestProcessorTimeOut = "300"        : 
-              @csecDurationControlPeriod = ""           : Override default duration-control / anti-indulgence time period. If nonzero, initial playtime threshold is this value in seconds
-         @csecDurationControlPeriodToday = ""           : Override default duration-control / anti-indulgence time period. If nonzero, per-day playtime threshold is this value in seconds
-  @csecDurationControlSimulatedNonRecent = ""           : Simulate having already played this many seconds of playtime today, but not recently.
-           @csecDurationControlSimulated = ""           : Simulate having already played this many seconds of playtime.
-       @csecFavoriteGameAccountCacheTime = "86400"      : Control how often we refresh the account IDs in the game server favorites list
-             @csecIncomingDataRatePeriod = "1"          : 
-             csecManifestDownloadTimeout = "120"        : 
-           @csecSiteLicenseProxyStatsLog = "60"         : Log proxy stats this often
-        @csecSiteLicenseProxyStatsUpdate = "1"          : update proxy stats internally this often
-    @csecUpdateTargetNumConnectionsEpoch = "10"         : 
+                      p2p_connecttimeout = "15"         : 
+                      voice_outputdevice = "0"          : 0=>Miles 1=>XAudio2
+                      voice_silk_bitrate = "30000"      : 
+                     @LocalContentServer = ""           : 
+                     @bSiteLicenseServer = "0"          : 
+                     @strCSNoCacheHeader = "no-cache"   : 
+                     bShaderEnableUpload = "1"          : 
+                     bVerifyAllDownloads = "0"          : Verify all files after downloading an update
+                    @NoPromptForPassword = "0"          : 
+                    @bEnableSpewThrottle = "1"          : 
+                    DepotMinWriteGapSize = "64"         : 
+                    spew_controller_loss = "0"          : 
+                   @ForceContentServerID = ""           : 
+                   @uDownloadLANPeerPort = "27038"      : If LAN p2p download enabled, will listen on this port for TCP connections from peers. Must be set consistently across all members of the group!
+                   bInstallscriptReports = "1"          : send reports about broken install scripts
+                   bLogLegacyDiskDetails = "0"          : 
+                   bShaderCacheDownloads = "1"          : Allow to download shader cache depots
+                   bSingleFileUpdateMode = "1"          : 
+                   cFileValidationMaxLog = "100"        : 
+                   nCloudSyncIntervalSec = "30"         : 
+                   voice_api_optimalrate = "24000"      : 
+                  @DepotBuilderEnableVZd = "1"          : 
+                  @DepotBuilderNoReslist = "0"          : 
+                  @bEnableMovieRecording = "0"          : 
+                  @bSiteLicenseServerGUI = "0"          : 
+                  @influxBlacklistedTags = "steamid"    : Comma separated list of tag names known to cause cardinality problems for Influx.  We drop those tags but emit the others per-metrics.
+                  @nDownloadLANPeerGroup = "0"          : 
+                  @nLANPeerRateLimitKbps = "0"          : 
+                  @nSiteLicenseProxyPort = "0"          : Local content cache: set > 0 to enable, will listen on this port
+                  @nSpewThrottlePeriodMs = "1000"       : 
+                  bDepotDeltaPatchUseAPI = "1"          : 
+                  bDisableTenFootOverlay = "0"          : 
+                  cAppUpdateWorkingSetMB = "512"        : 
+                  cChunkValidationMaxLog = "100"        : 
+                  controller_edge_cutoff = "0"          : 
+                  log_files_always_flush = "0"          : 
+                  net_maxresendsperframe = "32"         : 
+                  voice_resample_quality = "1"          : 
+                 @DepotBuilderConfigRoot = "./depotscripts" : 
+                 @DepotBuilderOutputRoot = ""           : 
+                 @metricsEnabledCatalogs = ""           : Comma separated list of metrics catalogs - enable list.  Inclusion in this list bypasses operation whitelist.  Probably every catalog other than job_metrics should be in here.
+                 @nCSClientRateLimitKbps = "0"          : 
+                 @nCSJob404ResponseLimit = "100"        : 
+                 @nLANPeerMaxConnections = "24"         : 
+                 @nTCPLargeSendBufSizeMB = "16"         : 
+                 @sCSDSVirtualHostHeader = ""           : 
+                 AsyncFileIODisableWrite = "0"          : 
+                 bDelayGameUpdatesOnBeta = "0"          : Should we do scheduling of updates on Steam Beta? If not, they'll all be ASAP
+                 bDisableClientUIOverlay = "1"          : 
+                 controller_gyro_x_scale = "16000"      : 
+                 nDepotSaveCorruptChunks = "0"          : 
+                @DepotBuilderContentRoot = ""           : 
+                @DepotBuilderVZdMinRatio = "0.4"        : 
+                @ShutdownOnFailedCommand = "1"          : Exit steamcmd immediately upon any failed build-related command
+                @bClientDownloadUseHTTPS = "0"          : Set this to use HTTPS on supported download servers
                 @cSecUploadDownloadRates = "300"        : 
+                @metricsLegacyJobMetrics = "CInfluxClient::SendCurrentBatchAsync,UpdateAppJobReport,perf,ExternalStorageTransferReport,ChatRoom.RelaySendChatMessage#1,DownloadRates,DownloadRatesPerServer,AppBranchUpdateStats,Trust.FullAccountUpdate#1,Trust.OnAccountChanged#1,Trust.OnAccountLabeled : Comma separated list of Operation names that predate preaggregated job metrics.
+                @nScreenshotSaveMaxWidth = "9999"       : 
+                @sForceLocalContentCache = ""           : 
+                bClientPingCSesForCellID = "0"          : 
+                bPrefetchDownloadDetails = "1"          : Prefetch download size before actual update happens
+                bSteam3LimitedUserEnable = "1"          : 
                @CSInterfaceProxyPassword = ""           : 
                @CSInterfaceProxyUsername = ""           : 
-                        @cUDPSendRetries = "8"          : 
-          @CustomBinaryRequestRetryTimes = "20"         : 
-                 @DepotBuilderConfigRoot = "./depotscripts" : 
-                @DepotBuilderContentRoot = ""           : 
-             @DepotBuilderDeltaMaxChunks = "20000"      : 
-                  @DepotBuilderEnableVZd = "1"          : 
-    @DepotBuilderMaxParallelUploadChunks = "72"         : 
-                  @DepotBuilderNoReslist = "0"          : 
-        @DepotBuilderNumHTTPSocketsToMDS = "36"         : 
-                 @DepotBuilderOutputRoot = ""           : 
-       @DepotBuilderParallelUploadChunks = "6"          : 
-            @DepotBuilderProgressTimeout = "1000"       : 
-                @DepotBuilderVZdMinRatio = "0.4"        : 
-            @DepotBuilderXORMatchPercent = "95"         : 
-                       DepotDeltaPatches = "2"          : 
-            DepotDownloadProgressTimeout = "900"        : 
-                    DepotMinWriteGapSize = "64"         : 
-             DepotReconstructionBadChunk = "0"          : 
-              DepotReconstructionLowPrio = "1"          : 
-         DepotReconstructionNumIOThreads = "1"          : 
-            DepotUseAlternatingReadWrite = "1"          : 
-                               developer = "0"          : 
+               @cbPartnerUploadChunkSize = "1000000"    : Chunk size to use for POSTing partner uploads
+               @metricsEnabledOperations = "CInfluxClient::SendCurrentBatchAsync" : Comma separated list of metrics operations - enable list
+               AsyncFileIOForceGenericIO = "0"          : 
+               app_info_http_num_sockets = "8"          : 
+               bCheckForFreeGamesOnLogin = "0"          : 
+               broadcast_upload_drop_sec = "6"          : 
+               cPreallocateMinimumSizeKB = "256"        : 
+               log_matchmaking_callbacks = "0"          : 
+               workshop_items_cache_days = "14"         : 
+              @bEnableOfflineLogonTicket = "1"          : If true, an offline logon ticket will be requested during logon if none is cached
+              @bEnableSiteLicenseConnect = "1"          : 
+              @bEnforceValidEmailDomains = "1"          : Enable valid email domains in BIsValidEmailAddress
+              @csecDurationControlPeriod = ""           : Override default duration-control / anti-indulgence time period. If nonzero, initial playtime threshold is this value in seconds
               @durationControlNightCheck = "1"          : Time of day check for duration-control feature. 1 = normal. 2 = force night-time. 0 = disable checks, only enabled for age verified accounts
-                       @EnableUDPHistory = "0"          : 
+              @metricsDisabledOperations = ""           : Comma separated list of metrics operations - disable list
+              @nParentalSettingsLogLevel = "4"          : Control the amount of spew written to the parental log file
+              @net_backlog_bytes_allowed = "18000000"   : 
+              AsyncFileIOMaxPendingWin32 = "256"        : 
+              AsyncFileIOReadHandleCache = "4"          : 
+              DepotReconstructionLowPrio = "1"          : 
+              bFinishStagedDepotVersions = "1"          : 
+              bShaderAllowReplayOnNVIDIA = "1"          : 
+              controller_momentum_smooth = "0"          : 
+              nCloudUploadMinIntervalSec = "60"         : 
+              nProductInfoUpdateInterval = "900"        : 
+              unShaderHitCacheGeneration = "2"          : 
+             @DepotBuilderDeltaMaxChunks = "20000"      : 
+             @bDisableDualStackDownloads = "0"          : 
+             @bForceStreamUnsupportedApp = "0"          : 
+             @bRequireOfflineLogonTicket = "1"          : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
+             @cMaxInitialDownloadSources = "-1"         : 
+             @csecIncomingDataRatePeriod = "1"          : 
+             @nLANPeerGroupRateLimitKbps = "0"          : 
+             @nSiteLicenseProxyEnableP2P = "0"          : If set, will have all connected clients join the same P2P download group
+             @sSteamCmdForcePlatformType = ""           : Must be one of: [windows | macos | linux | android]
+             AsyncFileIOWriteHandleCache = "4"          : 
+             DepotReconstructionBadChunk = "0"          : 
+             bShaderEnableFossilizeLayer = "1"          : 
+             broadcast_upload_update_sec = "3"          : 
+             controller_momentum_min_vel = "0"          : 
+             csecManifestDownloadTimeout = "120"        : 
+             nContentStatsReportInterval = "72"         : In Hours
+            @DepotBuilderProgressTimeout = "1000"       : 
+            @DepotBuilderXORMatchPercent = "95"         : 
+            @NetConnectionBufferMsgLimit = "1000"       : Max # of message that will be buffered into a single zipped packet
+            @NetConnectionBufferThreaded = "1"          : 
+            @bCSClientRateLimitUseDelays = "0"          : 
+            @bSiteLicenseProxyEnableIPv6 = "0"          : If set, we will enable ipv6 communications to the Steam servers
+            @cMaxContentServersToRequest = "20"         : 
+            @nSiteLicenseProxyCacheMaxGB = "100"        : If local content cache is enabled, use up to this much disk space
+            @nSpewThrottleNagFrequencyMs = "5000"       : 
+            @sSiteLicenseProxyExplicitIP = ""           : Local content cache: if not blank, will instruct clients to go to this IP for the content cache.
+            ClientStatsUploadRateSeconds = "10"         : 
+            DepotDownloadProgressTimeout = "900"        : 
+            DepotUseAlternatingReadWrite = "1"          : 
+            bShaderEnableCacheManagement = "1"          : 
+            nCloudDownloadMinIntervalSec = "15"         : 
+            ugc_query_default_cache_time = "300"        : 
+            unShaderMaxHeadersPerMessage = "1024"       : 
+           @MaxOutstandingSendThreadItem = "10000"      : 
+           @bContentManifestUseProtobufs = "1"          : 
+           @bDepotBuilderUnbufferedReads = "1"          : 
+           @bLANPeerConnectionTimeoutSec = "5"          : 
+           @csecDurationControlSimulated = ""           : Simulate having already played this many seconds of playtime.
+           @csecSiteLicenseProxyStatsLog = "60"         : Log proxy stats this often
+           @nDownloadLANChunkCacheSizeMB = "128"        : 
+           @nNetConnectionBufferZipLevel = "1"          : 
+           @nSpewThrottleResumeThreshold = "3"          : 
+           @net_backlog_time_allowed_sec = "8"          : 
+           @uRemoteDiscoveryPortOverride = "0"          : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort
+           @uRemoteDiscoveryPortTransmit = "0"          : If non-zero, will transmit outgoing broadcasts on this port instead of on the listen port
+           AsyncFileIOAlternateReadWrite = "1"          : 
+           nContentDownloadsToOtherDrive = "1"          : Allow to download updates to other drives then install folder is on
+          @CustomBinaryRequestRetryTimes = "20"         : 
+          @bDepotBuilderReadBufferSizeKB = "8192"       : 
+          @bEnableHTTP2OnAllCHTTPClients = "0"          : Enable HTTP/2 on all CHTTPClients automatically for SSL connections
+          @bScreenshotsLegacyCloudUpload = "0"          : If set, use the legacy Steam Cloud upload path for screenshot uploads
+          @cCSClientMaxNumSocketsPerHost = "8"          : 
+          @csecCSRequestProcessorTimeOut = "300"        : 
+          @nSpewThrottleTriggerThreshold = "10"         : 
+          @sSteamCmdForcePlatformBitness = ""           : Must be one of: [32 | 64]
+          @sTrustedLocalContentCacheName = ""           : Set this to the machine name where a trusted local Steam download cache is hosted, and we'll use it if available.
+          AsyncFileIOExpectOutstandingIO = "6"          : 
+          bEnableSubscribedFileListCache = "1"          : 
+          bSubscribedFilesPollForUpdates = "0"          : 
+          controller_base_rotation_angle = "0"          : 
+          controller_min_activation_time = "0.0333"     : 
+          nBroadcastSessionMaxDropFrames = "100"        : 
+          unShaderMaxUploadMessageSizeKb = "256"        : 
+          workshop_items_update_interval = "900"        : 
+         @csecDurationControlPeriodToday = ""           : Override default duration-control / anti-indulgence time period. If nonzero, per-day playtime threshold is this value in seconds
+         @nContentUpdateAutoVerifyEnable = "1"          : 0 = disabled; 1 = enabled all clients; 2 = enabled public Beta clients only
+         DepotReconstructionNumIOThreads = "1"          : 
+         nRichPresenceUploadThrottleSecs = "5"          : 
+        @DepotBuilderNumHTTPSocketsToMDS = "36"         : 
+        @bClientOpenCacheStickyRedirects = "1"          : 
+        @bEnableFrameFuncOverageWarnings = "0"          : This turns on the spew in SPEW_MISC at level 4, still need to adjust spew levels to see it.
+        @csecSiteLicenseProxyStatsUpdate = "1"          : update proxy stats internally this often
+        @sSiteLicenseProxyCacheDirectory = "appcache/slscache" : If local content cache is enabled, use this path for disk cache
+        bBroadcastAlwaysUploadThumbnails = "1"          : 
+        bSubscribedFilesUseRangeRequests = "0"          : 
+       @DepotBuilderParallelUploadChunks = "6"          : 
+       @bEnableSiteLicenseConsoleLogging = "0"          : 
+       @bUseWebMicrotxnPathInSteamClient = "1"          : 
+       @cDepotBuilderFileChunkingThreads = "4"          : 
+       @csecFavoriteGameAccountCacheTime = "86400"      : Control how often we refresh the account IDs in the game server favorites list
+       @nClientCloudMaxMBParallelUploads = "64"         : 
+      @nClientCloudMaxNumParallelDeletes = "10"         : 
+      @nClientCloudMaxNumParallelUploads = "10"         : 
+      bSubscribedFilesDecompressOnClient = "1"          : 
+      nCloudFileCompressionMinFileSizeKB = "16"         : 
+      nCloudFileCompressionPercentageMin = "10"         : 
+     @bClientDownloadNiceNetworkThrottle = "0"          : 
+     @bHttpClientRecordHostnameDimension = "0"          : Group HTTP metrics by hostname.  Careful, the cardinality of your in-memory map might be large.
+     @nClientCloudMaxMBParallelDownloads = "64"         : 
+     @nSpewThrottleUnconditionalResumeMs = "5000"       : 
+     bShaderAlwaysProcessWhenRunningGame = "0"          : 
+     unShaderBackgroundProcessingThreads = "0"          : 
+    @DepotBuilderMaxParallelUploadChunks = "72"         : 
+    @csecUpdateTargetNumConnectionsEpoch = "10"         : 
+    @nClientCloudMaxNumParallelDownloads = "10"         : 
+   nClientBackgroundAutoUpdateTargetHour = "4"          : Target hour, in local time, for auto-scheduled app updates. Will be spread around this point via the convar below.
+   unShaderHighPriorityProcessingThreads = "0"          : 
+  @cNetEncryptionHandshakeWorkMax_LowPri = "2000"       : 
+  @cNetEncryptionHandshakeWorkMax_MedPri = "4000"       : 
+  @csecDurationControlSimulatedNonRecent = ""           : Simulate having already played this many seconds of playtime today, but not recently.
+  @nClientDownloadPreferredServerMaxLoad = "85"         : Once preferred servers reach this load, we'll continue to use non-preferred servers in the list after them
+  nSubscribedAutoDownloadMaxSimultaneous = "8"          : 
+ @cNetEncryptionHandshakeWorkMax_HighPri = "8000"       : 
+ @nClientCMUDPPingTimeoutUseGoodEnoughMS = "250"        : 
+ @nSpewThrottleUnconditionalTriggerCount = "50"         : 
+ bBroadcastUploadGameDataIntervalSeconds = "5"          : 
+ rtime32EarliestSubscribedFileToDownload = "1354389910" : 
+@bSiteLicenseAllowCachedClientCredentials = "0"          : Allow Steam clients that associate to this site to save username and auth credentials locally
+@bSiteLicenseProxyCacheIsExternalProcess = "0"          : If set, the caching content proxy will be handled by some process other than steamcmd. You probably also should set @sSiteLicenseProxyExplicitIP.
+@cCSClientMaxNumSocketsPerHostForCachingProxy = "32"         : 
 @fDownloadRateImprovementToAddAnotherConnection = "1.2"        : 
 @fMinDataRateToAttemptTwoConnectionsMbps = "1.5"        : 
-                   @ForceContentServerID = ""           : 
-                         @GCNameOverride = ""           : 
-                  @influxBlacklistedTags = "steamid"    : Comma separated list of tag names known to cause cardinality problems for Influx.  We drop those tags but emit the others per-metrics.
-                     @LocalContentServer = ""           : 
-                      @LogFileFolderName = ""           : Use something other than 'logs' as the folder for log files
-                  log_files_always_flush = "0"          : 
-               log_matchmaking_callbacks = "0"          : 
-           @MaxOutstandingSendThreadItem = "10000"      : 
-              @metricsDisabledOperations = ""           : Comma separated list of metrics operations - disable list
-                 @metricsEnabledCatalogs = ""           : Comma separated list of metrics catalogs - enable list.  Inclusion in this list bypasses operation whitelist.  Probably every catalog other than job_metrics should be in here.
-               @metricsEnabledOperations = "CInfluxClient::SendCurrentBatchAsync" : Comma separated list of metrics operations - enable list
-                @metricsLegacyJobMetrics = "CInfluxClient::SendCurrentBatchAsync,UpdateAppJobReport,perf,ExternalStorageTransferReport,ChatRoom.RelaySendChatMessage#1,DownloadRates,DownloadRatesPerServer,AppBranchUpdateStats,Trust.FullAccountUpdate#1,Trust.OnAccountChanged#1,Trust.OnAccountLabeled : Comma separated list of Operation names that predate preaggregated job metrics.
-                            mic_autogain = "16000"      : automatic gain control level for microphone input
-                           mic_inputfile = ""           : causes voice data to be read from the specified file instead of from the microphone
-                          mic_outputfile = ""           : causes microphone data to be written out to the specified file
-                            musiclogging = "0"          : 
-          nBroadcastSessionMaxDropFrames = "100"        : 
+@nClientCMUDPPingTimeGoodEnoughThresholdMS = "50"         : 
+@nClientDownloadNiceNetworkThrottlePercentage = "85"         : 
+@nClientServiceMethodForDownloadListPercent = "100"        : 
+@nContentDeltaChunkAppendChunksAfterProtobufSizeThresholdMB = "33"         : 
+@nContentUpdateAutoVerifyCleanBytesThresholdMB = "256"        : How many clean MB must we verify before backing off on auto-verifies
+@nContentUpdateAutoVerifyPostThresholdOdds = "10"         : 1 in X chance we auto-verify this update even if you've reached the clean-data threshold
+@nDownloadGlobalThrottlingDaytimeStartHour = "0"          : 
+bCloudAcceptUnexpectedAutoCloudFileChanges = "1"          : 
+controller_momentum_num_excluded_samples = "1"          : 
+controller_momentum_num_included_samples = "5"          : 
 nClientBackgroundAutoUpdateLessRecentlyPlayedThresholdHours = "168"        : If you've played the game more recently than this, we'll schedule the background update sooner.
 nClientBackgroundAutoUpdateNotPlayedTimeSpreadDays = "14"         : If the user hasn't played this game in a while, pick a morning up to this many days out to update.
 nClientBackgroundAutoUpdateRecentlyPlayedThresholdHours = "72"         : If you've played the game more recently than this, we'll schedule the background update sooner.
-   nClientBackgroundAutoUpdateTargetHour = "4"          : Target hour, in local time, for auto-scheduled app updates. Will be spread around this point via the convar below.
 nClientBackgroundAutoUpdateTimeSpreadMinutes = "360"        : Spread of time around the above target hour - this is the +/- 2-sigma window, so half this on either side.
-     @nClientCloudMaxMBParallelDownloads = "64"         : 
-       @nClientCloudMaxMBParallelUploads = "64"         : 
-      @nClientCloudMaxNumParallelDeletes = "10"         : 
-    @nClientCloudMaxNumParallelDownloads = "10"         : 
-      @nClientCloudMaxNumParallelUploads = "10"         : 
-@nClientCMUDPPingTimeGoodEnoughThresholdMS = "50"         : 
- @nClientCMUDPPingTimeoutUseGoodEnoughMS = "250"        : 
-@nClientDownloadNiceNetworkThrottlePercentage = "85"         : 
-  @nClientDownloadPreferredServerMaxLoad = "85"         : Once preferred servers reach this load, we'll continue to use non-preferred servers in the list after them
-@nClientServiceMethodForDownloadListPercent = "100"        : 
-            nCloudDownloadMinIntervalSec = "15"         : 
-      nCloudFileCompressionMinFileSizeKB = "16"         : 
 nCloudFileCompressionMinFileSizeKBSharedFile = "128"        : 
-      nCloudFileCompressionPercentageMin = "10"         : 
 nCloudFileCompressionPercentageMinSharedFile = "50"         : 
-                   nCloudSyncIntervalSec = "30"         : 
-              nCloudUploadMinIntervalSec = "60"         : 
-@nContentDeltaChunkAppendChunksAfterProtobufSizeThresholdMB = "33"         : 
-           nContentDownloadsToOtherDrive = "1"          : Allow to download updates to other drives then install folder is on
-             nContentStatsReportInterval = "72"         : In Hours
-                 @nCSClientRateLimitKbps = "0"          : 
-                 @nCSJob404ResponseLimit = "100"        : 
-                 nDepotSaveCorruptChunks = "0"          : 
-@nDownloadGlobalThrottlingDaytimeStartHour = "0"          : 
-           @nDownloadLANChunkCacheSizeMB = "128"        : 
-                  @nDownloadLANPeerGroup = "0"          : 
-              @net_backlog_bytes_allowed = "18000000"   : 
-           @net_backlog_time_allowed_sec = "8"          : 
-            @NetConnectionBufferMsgLimit = "1000"       : Max # of message that will be buffered into a single zipped packet
-            @NetConnectionBufferThreaded = "1"          : 
-                       net_incomingcheck = "1"          : 
-                           @net_loopback = "1"          : 
-                  net_maxresendsperframe = "32"         : 
-                       @nIOCPThreadCount = "1"          : 
-             @nLANPeerGroupRateLimitKbps = "0"          : 
-                 @nLANPeerMaxConnections = "24"         : 
-                  @nLANPeerRateLimitKbps = "0"          : 
-           @nNetConnectionBufferZipLevel = "1"          : 
-                    @NoPromptForPassword = "0"          : 
-              @nParentalSettingsLogLevel = "4"          : Control the amount of spew written to the parental log file
-              nProductInfoUpdateInterval = "900"        : 
-         nRichPresenceUploadThrottleSecs = "5"          : 
-            @nSiteLicenseProxyCacheMaxGB = "100"        : If local content cache is enabled, use up to this much disk space
-             @nSiteLicenseProxyEnableP2P = "0"          : If set, will have all connected clients join the same P2P download group
-                  @nSiteLicenseProxyPort = "0"          : Local content cache: set > 0 to enable, will listen on this port
-            @nSpewThrottleNagFrequencyMs = "5000"       : 
-                  @nSpewThrottlePeriodMs = "1000"       : 
-           @nSpewThrottleResumeThreshold = "3"          : 
-          @nSpewThrottleTriggerThreshold = "10"         : 
-     @nSpewThrottleUnconditionalResumeMs = "5000"       : 
- @nSpewThrottleUnconditionalTriggerCount = "50"         : 
-  nSubscribedAutoDownloadMaxSimultaneous = "8"          : 
-                 @nTCPLargeSendBufSizeMB = "16"         : 
-                      p2p_connecttimeout = "15"         : 
-                       p2p_unusedtimeout = "120"        : 
- rtime32EarliestSubscribedFileToDownload = "1354389910" : 
-                 @sCSDSVirtualHostHeader = ""           : 
-                @sForceLocalContentCache = ""           : 
-                @ShutdownOnFailedCommand = "1"          : Exit steamcmd immediately upon any failed build-related command
-                    spew_controller_loss = "0"          : 
-        @sSiteLicenseProxyCacheDirectory = "appcache/slscache" : If local content cache is enabled, use this path for disk cache
-            @sSiteLicenseProxyExplicitIP = ""           : Local content cache: if not blank, will instruct clients to go to this IP for the content cache.
-                         @sStartupScript = ""           : Exec contents of this convar as a script at startup
-          @sSteamCmdForcePlatformBitness = ""           : Must be one of: [32 | 64]
-             @sSteamCmdForcePlatformType = ""           : Must be one of: [windows | macos | linux | android]
-                     @strCSNoCacheHeader = "no-cache"   : 
-                       @StreamClientArgs = ""           : 
-          @sTrustedLocalContentCacheName = ""           : Set this to the machine name where a trusted local Steam download cache is hosted, and we'll use it if available.
-                       testappcloudpaths = "0"          : 
-                   @uDownloadLANPeerPort = "27038"      : If LAN p2p download enabled, will listen on this port for TCP connections from peers. Must be set consistently across all members of the group!
-                         UGCCDNReportPct = "100"        : 
-     unShaderBackgroundProcessingThreads = "0"          : 
-   unShaderHighPriorityProcessingThreads = "0"          : 
-              unShaderHitCacheGeneration = "2"          : 
-            unShaderMaxHeadersPerMessage = "1024"       : 
-          unShaderMaxUploadMessageSizeKb = "256"        : 
-           @uRemoteDiscoveryPortOverride = "0"          : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort
-           @uRemoteDiscoveryPortTransmit = "0"          : If non-zero, will transmit outgoing broadcasts on this port instead of on the listen port
-                   voice_api_optimalrate = "24000"      : 
-                          voice_autogain = "0"          : 
-                          voice_fakeloss = "0"          : 
-                            voice_minabs = "0.15"       : 
-                            voice_minavg = "1.0"        : 
-                      voice_outputdevice = "0"          : 0=>Miles 1=>XAudio2
-                        voice_outputfile = ""           : causes output from voice system to be written out to the specified file
-                        voice_preprocess = "0"          : enables voice cleanup on incoming microphone data
-                           voice_quality = "6"          : 
-                  voice_resample_quality = "1"          : 
-                      voice_silk_bitrate = "30000"      : 
-               workshop_items_cache_days = "14"         : 
-          workshop_items_update_interval = "900"        : 
 
 Commands:
-                               api_logging : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
-                      app_build_all_depots : app_build_all_depots [-desc <text>] -depotconfigpath <folder> -contentroot <folder> -buildoutput <folder> <appid>  : Build all depots for one app
-                            app_dlc_status : app_status <appId> <dlcId>
-                            app_info_print : Dumps app info for appID
-                          app_info_request : <AppID> - Issue an appinfo request for the given appid. Does not wait for results from the server.
-                           app_info_update : [0|1] : trigger app info update, optionally for update all
-                        app_install_script : <AppID> [uninstall:0|1]- Runs app install script.
-                       app_license_request : <AppID> - Requests a free licenses for this app if not already owned.
-                                   app_run : <appId> [LaunchOptionIndex] [Arguments]
-                            app_set_config : <AppID> <key> <value> - sets a config value for given app.
-                       app_set_update_flag : app_set_update_flag <appId>
-                            apps_installed : 
-                              apps_running : displays information about running games tracked by Steam 
-                                app_status : app_status <appId>
-                                  app_stop : <appid> [force:0|1] stop this running app
-                             app_uninstall : <appId>
-                                app_update : app_update <appid> [-validate] [-language <lang>] [-beta <betaname>] [-betapassword <pwd>] make sure a Steam application is up-to-date
-                         app_update_cancel : <EAppUpdateError>
-                          async_disconnect : async disconnect
-                              build_backup : <appid> <target folder> [max folder size MB]
-                           build_installer : <project file> <target folder> [beta key] [beta pwd]
-                                  ceg_wrap : ceg_wrap <appid> <orig filename> <stripped filename> <strips filename> : upload executable to back end for CEG wrapping
-                           cm_force_change : Change CM List
-                   device_authorize_status : prints device authorization status
-                            download_chunk : download_chunk <appid> <depotid> <sha>: download a single chunk from a depot
-                            download_depot : download_depot <appid> <depotid> [<target manifestid>] [<delta manifestid>] [<depot flags filter>]: download a single depot
-                          download_sources : Dumps list of download sources
-                                  drm_wrap : drm_wrap <appid> <input filename> <output filename> <toolname> <flags> : upload executable to back end for DRM wrapping
-                              dump_box_ips : dump the list of detected local box IP addresses
-                  dump_scheduled_functions : usage: "dump_scheduled_functions" Displays internal Steam function callback timers
                                       exit : Stops Steam client console
                                       find : find substrings in console commands
-                         force_install_dir : force_install_dir <directory>
-                     get_download_throttle : 
                                       help : Show help information
-                                 http_test : <optional_url> test HTTP connectivity via specified URL
                                       info : Dump various Steam info
-                       library_folder_list : list all mounted Steam volumes
-                          licenses_for_app : <appid> : shows active licenses for appid
-                            licenses_print : display users's Steam3 licenses
-                             log_callbacks : usage: "log_callbacks <first callbackID> [last callbackID]
+                                      quit : Stops Steam client console
                                      login : <username> [<password>] [<Steam guard code>] - login to Steam
-                                   log_ipc : usage: "log_ipc [counts|verbose|#maxcount] <filter>" Enables IPC logging. Specifying "counts" or "verbose" is optional, defaulting to counts.
-                                    logoff : Disconnect from Steam
                                      logon : see 'login'
+                                    logoff : Disconnect from Steam
                                     logout : Disconnect from Steam
-                             manifest_dump : <filename> [0|1: include chunks]
+                                   app_run : <appId> [LaunchOptionIndex] [Arguments]
+                                   log_ipc : usage: "log_ipc [counts|verbose|#maxcount] <filter>" Enables IPC logging. Specifying "counts" or "verbose" is optional, defaulting to counts.
+                                   profile : <seconds> profile for N seconds
+                                  app_stop : <appid> [force:0|1] stop this running app
+                                  ceg_wrap : ceg_wrap <appid> <orig filename> <stripped filename> <strips filename> : upload executable to back end for CEG wrapping
+                                  drm_wrap : drm_wrap <appid> <input filename> <output filename> <toolname> <flags> : upload executable to back end for DRM wrapping
+                                  p2p_info : usage: "p2p_info" Displays the current state of the P2P networking subsystem.
+                                  set_spew : <group> <level> <loglevel> set spew levels for the given group
+                                 http_test : <optional_url> test HTTP connectivity via specified URL
                                  mem_stats : Dump memory stats
+                                 runscript : <scriptfile> - runs a console command script
+                                app_status : app_status <appId>
+                                app_update : app_update <appid> [-validate] [-language <lang>] [-beta <betaname>] [-betapassword <pwd>] make sure a Steam application is up-to-date
+                                verify_vpk : verify_vpk <datafile> : verifies content of given VPK
+                               api_logging : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
                                net_msgdump : Dumps list of sent net messages
                                net_msgspew : Spews sent and recv net messages
-                                  p2p_info : usage: "p2p_info" Displays the current state of the P2P networking subsystem.
-                        package_info_print : Dumps package info for packageID
-                                   profile : <seconds> profile for N seconds
-                                      quit : Stops Steam client console
-                    render_ipc_connections : usage: "render_ipc_connections
-                        run_app_build_http : run_app_build_http : alias for run_app_build
+                              apps_running : displays information about running games tracked by Steam 
+                              build_backup : <appid> <target folder> [max folder size MB]
+                              dump_box_ips : dump the list of detected local box IP addresses
+                              test_dropcon : Tests dropping a connection
+                              user_friends : Dumps list of friends
+                             app_uninstall : <appId>
+                             log_callbacks : usage: "log_callbacks <first callbackID> [last callbackID]
+                             manifest_dump : <filename> [0|1: include chunks]
                              run_app_build : run_app_build [-preview] [-desc <text>] <appbuildfile> : run app depot build as specified in appbuildfile
-                                 runscript : <scriptfile> - runs a console command script
+                             swarm_tc_loop : <src_bucket_hw_id> <src_bucketsw_id> <dst_bucket_hw_id> <dst_bucket_sw_id> <work_dir> <tool_appid> <entrypoint> <src_file> <dst_file>
+                            app_dlc_status : app_status <appId> <dlcId>
+                            app_info_print : Dumps app info for appID
+                            app_set_config : <AppID> <key> <value> - sets a config value for given app.
+                            apps_installed : 
+                            download_chunk : download_chunk <appid> <depotid> <sha>: download a single chunk from a depot
+                            download_depot : download_depot <appid> <depotid> [<target manifestid>] [<delta manifestid>] [<depot flags filter>]: download a single depot
+                            licenses_print : display users's Steam3 licenses
+                            set_spew_level : <SpewLevel LogLevel> Sets spew and log level for all groups
+                            test_reconnect : Reconnect after using test_failnextconnect&test_dropcon
+                           app_info_update : [0|1] : trigger app info update, optionally for update all
+                           build_installer : <project file> <target folder> [beta key] [beta pwd]
+                           cm_force_change : Change CM List
+                           workshop_status : workshop_status <appId>
+                          app_info_request : <AppID> - Issue an appinfo request for the given appid. Does not wait for results from the server.
+                          async_disconnect : async disconnect
+                          download_sources : Dumps list of download sources
+                          licenses_for_app : <appid> : shows active licenses for appid
+                          voice_game_usage : displays information about the game's use of Steam voice
+                         app_update_cancel : <EAppUpdateError>
+                         force_install_dir : force_install_dir <directory>
+                         test_voice_encode : test a voice encode
+                        app_install_script : <AppID> [uninstall:0|1]- Runs app install script.
+                        package_info_print : Dumps package info for packageID
+                        run_app_build_http : run_app_build_http : alias for run_app_build
+                        timed_trial_status : timed_trial_status <appId> : show time trial app status
+                        verify_chunk_store : verify_chunk_store <appid> <depotid> <datafile> : run app depot build as specified in appbuildfile
+                       app_license_request : <AppID> - Requests a free licenses for this app if not already owned.
+                       app_set_update_flag : app_set_update_flag <appId>
+                       library_folder_list : list all mounted Steam volumes
+                       sign_install_script : sign_install_script <appid> <input filename> <output filename> : upload install script to back end for signing
+                       workshop_build_item : workshop_build_item <build config filename> : build a workshop item
+                      app_build_all_depots : app_build_all_depots [-desc <text>] -depotconfigpath <folder> -contentroot <folder> -buildoutput <folder> <appid>  : Build all depots for one app
+                      set_steam_guard_code : <code> - authorize this computer by adding the Steam Guard email code
+                      test_failnextconnect : Tests failing the next connection
+                     get_download_throttle : 
                      set_app_beta_password : set_app_beta_password <appid> -betapassword <pwd>  -- opt-in to the app beta with the given password
                      set_download_throttle : set_download_throttle <kbps> <bPersistent = false>
-                                  set_spew : <group> <level> <loglevel> set spew levels for the given group
-                            set_spew_level : <SpewLevel LogLevel> Sets spew and log level for all groups
-                      set_steam_guard_code : <code> - authorize this computer by adding the Steam Guard email code
-                       sign_install_script : sign_install_script <appid> <input filename> <output filename> : upload install script to back end for signing
-                 swarm_get_bucket_manifest : <appid> <bucket_hw_id> <bucket_sw_id> - query Swarm bucket depot manifest, if depot built
-                             swarm_tc_loop : <src_bucket_hw_id> <src_bucketsw_id> <dst_bucket_hw_id> <dst_bucket_sw_id> <work_dir> <tool_appid> <entrypoint> <src_file> <dst_file>
-                              test_dropcon : Tests dropping a connection
-                      test_failnextconnect : Tests failing the next connection
+                    render_ipc_connections : usage: "render_ipc_connections
                     test_opus_voice_encode : test an opus voice encode
-                            test_reconnect : Reconnect after using test_failnextconnect&test_dropcon
-                         test_voice_encode : test a voice encode
-                  timed_trial_add_playtime : timed_trial_add_playtime <appId> <seconds>: add trial app playtime (developer only)
-                timed_trial_reset_playtime : timed_trial_reset_playtime <appId> : reset trial app playtime (developer only)
-                        timed_trial_status : timed_trial_status <appId> : show time trial app status
-                  upload_controller_config : upload_controller_config <appid> <filename> : upload controller config to cloud
-                              user_friends : Dumps list of friends
-                        verify_chunk_store : verify_chunk_store <appid> <depotid> <datafile> : run app depot build as specified in appbuildfile
-                                verify_vpk : verify_vpk <datafile> : verifies content of given VPK
-                          voice_game_usage : displays information about the game's use of Steam voice
-                       workshop_build_item : workshop_build_item <build config filename> : build a workshop item
-               workshop_create_legacy_item : workshop_create_legacy_item <appid> <workshop file> : build a legacy workshop item
                     workshop_download_item : workshop_download_item <appid> <PublishedFileId> : download a workshop item
-                           workshop_status : workshop_status <appId>
+                   device_authorize_status : prints device authorization status
+                  dump_scheduled_functions : usage: "dump_scheduled_functions" Displays internal Steam function callback timers
+                  timed_trial_add_playtime : timed_trial_add_playtime <appId> <seconds>: add trial app playtime (developer only)
+                  upload_controller_config : upload_controller_config <appid> <filename> : upload controller config to cloud
+                 swarm_get_bucket_manifest : <appid> <bucket_hw_id> <bucket_sw_id> - query Swarm bucket depot manifest, if depot built
+                timed_trial_reset_playtime : timed_trial_reset_playtime <appId> : reset trial app playtime (developer only)
+               workshop_create_legacy_item : workshop_create_legacy_item <appid> <workshop file> : build a legacy workshop item
