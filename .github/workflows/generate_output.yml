@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Run steamcmd_commands.sh
-      run: ./steamcmd_commands.sh
+      run: chmod +x steamcmd_commands.sh; ./steamcmd_commands.sh
 
     - name: Push to master branch
       uses: Automattic/action-commit-to-branch@master
