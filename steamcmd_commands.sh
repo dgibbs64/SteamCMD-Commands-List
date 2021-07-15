@@ -65,16 +65,18 @@ sed -i 's/\[1m//g' "${rootdir}/tmp/convars_list_raw.txt"
 # Sorting lists
 echo "Sorting lists."
 #sort -n "${rootdir}/tmp/commands_list_raw.txt" > "${rootdir}/tmp/commands_list_sort.txt"
-sort "${rootdir}/tmp/commands_list_raw.txt" | tee "${rootdir}/tmp/commands_list_sort.txt"
+sort "${rootdir}/tmp/commands_list_raw.txt" | sed ‘s/^ *//g’ | tee "${rootdir}/tmp/commands_list_sort.txt"
 uniq "${rootdir}/tmp/commands_list_sort.txt" | tee "${rootdir}/tmp/commands_list_uniq.txt"
 sort "${rootdir}/tmp/commands_list_uniq.txt" | tee "${rootdir}/tmp/commands_list.txt"
 
 
 #sort -n "${rootdir}/tmp/convars_list_raw.txt" > "${rootdir}/tmp/convars_list_sort.txt"
-sort "${rootdir}/tmp/convars_list_raw.txt" | tee "${rootdir}/tmp/convars_list_sort.txt"
+sort "${rootdir}/tmp/convars_list_raw.txt"  | sed ‘s/^ *//g’ | tee "${rootdir}/tmp/convars_list_sort.txt"
 uniq "${rootdir}/tmp/convars_list_sort.txt" | tee "${rootdir}/tmp/convars_list_uniq.txt"
 sort "${rootdir}/tmp/convars_list_uniq.txt" | tee "${rootdir}/tmp/convars_list.txt"
 
+
+ 
 
 # Final Output
 rm "${rootdir}/steamcmd_commands.txt"
