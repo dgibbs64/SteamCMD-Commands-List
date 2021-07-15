@@ -345,4 +345,3 @@ Commands:
                  swarm_get_bucket_manifest : <appid> <bucket_hw_id> <bucket_sw_id> - query Swarm bucket depot manifest, if depot built
                 timed_trial_reset_playtime : timed_trial_reset_playtime <appId> : reset trial app playtime (developer only)
                workshop_create_legacy_item : workshop_create_legacy_item <appid> <workshop file> : build a legacy workshop item
-Work thread 'CHTTPClientThreadPool:1' is marked exited, but we could not immediately join prior to deleting -- proceeding without join
