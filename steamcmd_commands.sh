@@ -64,10 +64,12 @@ sed -i 's/\[1m//g' "${rootdir}/tmp/convars_list_raw.txt"
 
 # Sorting lists
 echo "Sorting lists."
-sort -n "${rootdir}/tmp/commands_list_raw.txt" > "${rootdir}/tmp/commands_list_sort.txt"
+#sort -n "${rootdir}/tmp/commands_list_raw.txt" > "${rootdir}/tmp/commands_list_sort.txt"
+sort "${rootdir}/tmp/commands_list_raw.txt" > "${rootdir}/tmp/commands_list_sort.txt"
 uniq "${rootdir}/tmp/commands_list_sort.txt" > "${rootdir}/tmp/commands_list.txt"
 
-sort -n "${rootdir}/tmp/convars_list_raw.txt" > "${rootdir}/tmp/convars_list_sort.txt"
+#sort -n "${rootdir}/tmp/convars_list_raw.txt" > "${rootdir}/tmp/convars_list_sort.txt"
+sort "${rootdir}/tmp/convars_list_raw.txt" > "${rootdir}/tmp/convars_list_sort.txt"
 uniq "${rootdir}/tmp/convars_list_sort.txt" > "${rootdir}/tmp/convars_list.txt"
 
 # Final Output
