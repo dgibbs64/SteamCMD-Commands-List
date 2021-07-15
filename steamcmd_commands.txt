@@ -1,4 +1,3 @@
-Generating output.
 ConVars:
                                developer = "0"          : 
                              batterytime = "0"          : 
