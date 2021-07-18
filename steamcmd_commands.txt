@@ -98,7 +98,7 @@ ConVars:
 @nClientDownloadPreferredServerMaxLoad = "85" : Once preferred servers reach this load, we'll continue to use non-preferred servers in the list after them
 @nClientServiceMethodForDownloadListPercent = "100" :
 @nContentDeltaChunkAppendChunksAfterProtobufSizeThresholdMB = "33" :
-@nContentUpdateAutoVerifyCleanBytesThresholdMB = "256" : How many clean MB must we verify before backing off on auto-verifies
+@nContentUpdateAutoVerifyCleanBytesThresholdMB = "1024" : How many clean MB must we verify before backing off on auto-verifies
 @nContentUpdateAutoVerifyEnable = "1" : 0 = disabled; 1 = enabled all clients; 2 = enabled public Beta clients only
 @nContentUpdateAutoVerifyPostThresholdOdds = "10" : 1 in X chance we auto-verify this update even if you've reached the clean-data threshold
 @nDownloadGlobalThrottlingDaytimeStartHour = "0" :
