@@ -261,6 +261,7 @@ workshop_items_cache_days = "14" :
 workshop_items_update_interval = "900" :
 
 Commands:
+Work thread 'CHTTPClientThreadPool:1' is marked exited, but we could not immediately join prior to deleting -- proceeding without join
 api_logging : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
 app_build_all_depots : app_build_all_depots [-desc <text>] -depotconfigpath <folder> -contentroot <folder> -buildoutput <folder> <appid> : Build all depots for one app
 app_dlc_status : app_status <appId> <dlcId>
