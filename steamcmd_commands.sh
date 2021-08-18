@@ -45,7 +45,8 @@ do
     sed -i '/workthreadpool.cpp/d' "${rootdir}/tmp/${letter}_raw.txt"
     sed -i '/CProcessWorkItem/d' "${rootdir}/tmp/${letter}_raw.txt"
     sed -i '/CHTTPClientThreadPool/d' "${rootdir}/tmp/${letter}_raw.txt"
-    
+    sed -i '/CJobMgr::m_WorkThreadPool:1/d' "${rootdir}/tmp/${letter}_raw.txt"
+
     # Separating commands and convars
     # Commands List
     cat "${rootdir}/tmp/${letter}_raw.txt" > "${rootdir}/tmp/${letter}_commands.txt"
