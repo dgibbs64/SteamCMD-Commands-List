@@ -136,7 +136,7 @@ ConVars:
 @uDownloadLANPeerPort = "27038" : If LAN p2p download enabled, will listen on this port for TCP connections from peers. Must be set consistently across all members of the group!
 @uRemoteDiscoveryPortOverride = "0" : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort
 @uRemoteDiscoveryPortTransmit = "0" : If non-zero, will transmit outgoing broadcasts on this port instead of on the listen port
-AsyncFileIOAlternateReadWrite = "1" :
+AsyncFileIOAlternateReadWrite = "0" :
 AsyncFileIODisableWrite = "0" :
 AsyncFileIOExpectOutstandingIO = "6" :
 AsyncFileIOForceGenericIO = "0" :
