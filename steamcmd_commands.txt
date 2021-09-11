@@ -47,6 +47,7 @@ ConVars:
 @bHttpClientRecordHostnameDimension = "0" : Group HTTP metrics by hostname. Careful, the cardinality of your in-memory map might be large.
 @bLANPeerConnectionTimeoutSec = "5" :
 @bMetricsEnabled = "1" : Enabling allows jobs to collect and report metrics through IMetricsReporters.
+@bMetricsUseMemPool = "1" : If true, we'll use the mempool. If false, just use malloc.
 @bMsgErrorDump = "0" :
 @bRequireOfflineLogonTicket = "1" : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
 @bScreenshotsLegacyCloudUpload = "0" : If set, use the legacy Steam Cloud upload path for screenshot uploads
@@ -97,6 +98,7 @@ ConVars:
 @nClientDownloadNiceNetworkThrottlePercentage = "85" :
 @nClientDownloadPreferredServerMaxLoad = "85" : Once preferred servers reach this load, we'll continue to use non-preferred servers in the list after them
 @nClientServiceMethodForDownloadListPercent = "100" :
+@nCloudClientUseGetAppFileChangelist = "1" : Should the client use the new GetAppFileChangelist API - 0 = no, 1 = yes, 2 = beta clients
 @nContentDeltaChunkAppendChunksAfterProtobufSizeThresholdMB = "33" :
 @nContentUpdateAutoVerifyCleanBytesThresholdMB = "2048" : How many clean MB must we verify before backing off on auto-verifies
 @nContentUpdateAutoVerifyEnable = "1" : 0 = disabled; 1 = enabled all clients; 2 = enabled public Beta clients only
@@ -104,10 +106,15 @@ ConVars:
 @nDownloadGlobalThrottlingDaytimeStartHour = "0" :
 @nDownloadLANChunkCacheSizeMB = "128" :
 @nDownloadLANPeerGroup = "0" :
+@nHTPPServerLogLevelAccessLine200 = "3" : Log level to use for one-line access-log-style for each http server request returning 200
+@nHTPPServerLogLevelAccessLineNon200 = "2" : Log level to use for one-line access-log-style for each http server request that returns != 200
+@nHTPPServerLogLevelDetails200 = "4" : Log level to use for full details of any http server request returning 200. This will probably fill up the log if you leave it on.
+@nHTPPServerLogLevelDetailsNon200 = "4" : Log level to use for full details of any http server request returning != 200
 @nIOCPThreadCount = "1" :
 @nLANPeerGroupRateLimitKbps = "0" :
 @nLANPeerMaxConnections = "24" :
 @nLANPeerRateLimitKbps = "0" :
+@nLegalDictionaryUpdateRateInSeconds = "600" :
 @nNetConnectionBufferZipLevel = "1" :
 @nParentalSettingsLogLevel = "4" : Control the amount of spew written to the parental log file
 @nScreenshotSaveMaxWidth = "9999" :
@@ -141,15 +148,15 @@ AsyncFileIODisableWrite = "0" :
 AsyncFileIOExpectOutstandingIO = "6" :
 AsyncFileIOForceGenericIO = "0" :
 AsyncFileIOMaxPendingWin32 = "256" :
-AsyncFileIOReadHandleCache = "4" :
-AsyncFileIOWriteHandleCache = "4" :
+AsyncFileIOReadHandleCache = "64" :
+AsyncFileIOWriteHandleCache = "64" :
 ClientStatsUploadRateSeconds = "10" :
 DepotDeltaPatches = "2" :
 DepotDownloadProgressTimeout = "900" :
 DepotMinWriteGapSize = "64" :
 DepotReconstructionBadChunk = "0" :
 DepotReconstructionLowPrio = "1" :
-DepotReconstructionNumIOThreads = "1" :
+DepotReconstructionNumIOThreads = "32" :
 DepotUseAlternatingReadWrite = "1" :
 UGCCDNReportPct = "100" :
 app_force_preload = "0" : force this app into preload mode
