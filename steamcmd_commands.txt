@@ -6,9 +6,9 @@ ConVars:
 @DepotBuilderContentRoot = "" :
 @DepotBuilderDeltaMaxChunks = "20000" :
 @DepotBuilderEnableVZd = "1" :
-@DepotBuilderMaxParallelUploadChunks = "72" :
+@DepotBuilderMaxParallelUploadChunks = "96" :
 @DepotBuilderNoReslist = "0" :
-@DepotBuilderNumHTTPSocketsToMDS = "36" :
+@DepotBuilderNumHTTPSocketsToMDS = "48" :
 @DepotBuilderOutputRoot = "" :
 @DepotBuilderParallelUploadChunks = "6" :
 @DepotBuilderProgressTimeout = "1000" :
