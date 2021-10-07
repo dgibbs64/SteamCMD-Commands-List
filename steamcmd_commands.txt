@@ -47,7 +47,6 @@ ConVars:
 @bHttpClientRecordHostnameDimension = "0" : Group HTTP metrics by hostname. Careful, the cardinality of your in-memory map might be large.
 @bLANPeerConnectionTimeoutSec = "5" :
 @bMetricsEnabled = "1" : Enabling allows jobs to collect and report metrics through IMetricsReporters.
-@bMetricsUseMemPool = "1" : If true, we'll use the mempool. If false, just use malloc.
 @bMsgErrorDump = "0" :
 @bRequireOfflineLogonTicket = "1" : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
 @bScreenshotsLegacyCloudUpload = "0" : If set, use the legacy Steam Cloud upload path for screenshot uploads
@@ -171,7 +170,6 @@ bClientPingCSesForCellID = "0" :
 bCloudAcceptUnexpectedAutoCloudFileChanges = "1" :
 bDelayGameUpdatesOnBeta = "0" : Should we do scheduling of updates on Steam Beta? If not, they'll all be ASAP
 bDepotDeltaPatchUseAPI = "1" :
-bDisableClientUIOverlay = "1" :
 bDisableTenFootOverlay = "0" :
 bEnableSubscribedFileListCache = "1" :
 bFinishStagedDepotVersions = "1" :
@@ -221,13 +219,13 @@ mic_autogain = "16000" : automatic gain control level for microphone input
 mic_inputfile = "" : causes voice data to be read from the specified file instead of from the microphone
 mic_outputfile = "" : causes microphone data to be written out to the specified file
 musiclogging = "0" :
+nAppCheersAggregationDelayMS = "1000" :
 nBroadcastSessionMaxDropFrames = "100" :
 nClientBackgroundAutoUpdateLessRecentlyPlayedThresholdHours = "168" : If you've played the game more recently than this, we'll schedule the background update sooner.
 nClientBackgroundAutoUpdateNotPlayedTimeSpreadDays = "14" : If the user hasn't played this game in a while, pick a morning up to this many days out to update.
 nClientBackgroundAutoUpdateRecentlyPlayedThresholdHours = "72" : If you've played the game more recently than this, we'll schedule the background update sooner.
 nClientBackgroundAutoUpdateTargetHour = "4" : Target hour, in local time, for auto-scheduled app updates. Will be spread around this point via the convar below.
 nClientBackgroundAutoUpdateTimeSpreadMinutes = "360" : Spread of time around the above target hour - this is the +/- 2-sigma window, so half this on either side.
-nCloudDownloadMinIntervalSec = "30" :
 nCloudFileCompressionMinFileSizeKB = "16" :
 nCloudFileCompressionMinFileSizeKBSharedFile = "128" :
 nCloudFileCompressionPercentageMin = "10" :
@@ -275,6 +273,7 @@ app_info_print : Dumps app info for appID
 app_info_request : <AppID> - Issue an appinfo request for the given appid. Does not wait for results from the server.
 app_info_update : [0|1] : trigger app info update, optionally for update all
 app_install_script : <AppID> [uninstall:0|1]- Runs app install script.
+app_launch : <appId> [LaunchOptionIndex] [Arguments]
 app_license_request : <AppID> - Requests a free licenses for this app if not already owned.
 app_run : <appId> [LaunchOptionIndex] [Arguments]
 app_set_config : <AppID> <key> <value> - sets a config value for given app.
@@ -294,6 +293,7 @@ cm_force_change : Change CM List
 device_authorize_status : prints device authorization status
 download_chunk : download_chunk <appid> <depotid> <sha>: download a single chunk from a depot
 download_depot : download_depot <appid> <depotid> [<target manifestid>] [<delta manifestid>] [<depot flags filter>]: download a single depot
+download_item : download_item <appid> <PublishedFileId> : download a workshop item directly
 download_sources : Dumps list of download sources
 drm_wrap : drm_wrap <appid> <input filename> <output filename> <toolname> <flags> : upload executable to back end for DRM wrapping
 dump_box_ips : dump the list of detected local box IP addresses
@@ -349,5 +349,5 @@ verify_vpk : verify_vpk <datafile> : verifies content of given VPK
 voice_game_usage : displays information about the game's use of Steam voice
 workshop_build_item : workshop_build_item <build config filename> : build a workshop item
 workshop_create_legacy_item : workshop_create_legacy_item <appid> <workshop file> : build a legacy workshop item
-workshop_download_item : workshop_download_item <appid> <PublishedFileId> : download a workshop item
+workshop_download_item : workshop_download_item <appid> <PublishedFileId> : download an item using the workshop system
 workshop_status : workshop_status <appId>
