@@ -348,7 +348,9 @@ set_steam_guard_code : <code> - authorize this computer by adding the Steam Guar
 shader_process : shader_process <appId> <bucketID> <optionalOverrideBasePath>
 sign_install_script : sign_install_script <appid> <input filename> <output filename> : upload install script to back end for signing
 swarm_get_bucket_manifest : <appid> <bucket_hw_id> <bucket_sw_id> - query Swarm bucket depot manifest, if depot built
-swarm_shader_loop : <work_dir>
+swarm_shader_compile : <work_dir>
+swarm_shader_download : <work_dir>
+swarm_shader_upload : <work_dir>
 swarm_tc_download : swarm_tc_download <src_bucket_hw_id> <src_bucketsw_id> <work_dir>
 swarm_tc_loop : <src_bucket_hw_id> <src_bucketsw_id> <dst_bucket_hw_id> <dst_bucket_sw_id> <work_dir> <tool_appid> <entrypoint> <src_file> <dst_file>
 swarm_tc_upload : <src_bucket_hw_id> <src_bucketsw_id> <dst_bucket_hw_id> <dst_bucket_sw_id> <work_dir> <appid> <bucketid>
