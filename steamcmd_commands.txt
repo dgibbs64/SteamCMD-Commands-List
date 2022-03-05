@@ -23,7 +23,7 @@ ConVars:
 @NetConnectionBufferMsgLimit = "1000" : Max # of message that will be buffered into a single zipped packet
 @NetConnectionBufferThreaded = "1" :
 @NoPromptForPassword = "0" :
-@ShutdownOnFailedCommand = "1" : Exit steamcmd immediately upon any failed build-related command
+@ShutdownOnFailedCommand = "1" : Exit steamcmd immediately upon any failed console command
 @StreamClientArgs = "" :
 @bCSClientRateLimitUseDelays = "0" :
 @bCSForceNoCache = "0" :
@@ -67,6 +67,7 @@ ConVars:
 @cSecUploadDownloadRates = "300" :
 @cUDPSendRetries = "8" :
 @cbPartnerUploadChunkSize = "1000000" : Chunk size to use for POSTing partner uploads
+@cloud_testdynamicsyncapp = "0" :
 @csecCSRequestProcessorTimeOut = "300" :
 @csecDurationControlPeriod = "" : Override default duration-control / anti-indulgence time period. If nonzero, initial playtime threshold is this value in seconds
 @csecDurationControlPeriodToday = "" : Override default duration-control / anti-indulgence time period. If nonzero, per-day playtime threshold is this value in seconds
@@ -87,6 +88,8 @@ ConVars:
 @metricsLegacyJobMetrics = "CInfluxClient::SendCurrentBatchAsync,UpdateAppJobReport,perf,ExternalStorageTransferReport,ChatRoom.RelaySendChatMessage#1,DownloadRates,DownloadRatesPerServer,AppBranchUpdateStats,Trust.FullAccountUpdate#1,Trust.OnAccountChanged#1,Trust.OnAccountLabeled : Comma separated list of Operation names that predate preaggregated job metrics.
 @nCSClientRateLimitKbps = "0" :
 @nCSJob404ResponseLimit = "100" :
+@nCSJob5xyResponseLimit = "10" :
+@nClientCMDirectoryResultLoadPercentDither = "10" : Dither to apply to CM server loads received by CMDirectory query
 @nClientCMUDPPingTimeGoodEnoughThresholdMS = "50" :
 @nClientCMUDPPingTimeoutUseGoodEnoughMS = "250" :
 @nClientCloudMaxMBParallelDownloads = "64" :
@@ -96,7 +99,7 @@ ConVars:
 @nClientCloudMaxNumParallelUploads = "10" :
 @nClientDownloadNiceNetworkThrottlePercentage = "85" :
 @nClientDownloadPreferredServerMaxLoad = "85" : Once preferred servers reach this load, we'll continue to use non-preferred servers in the list after them
-@nClientQueryCMDirectoryBeforeConnect = "2" : Use CMDirectory webapi to get fresh CM list on connect - 0=disabled, 1=enabled, 2=main/dev/beta clients only
+@nClientQueryCMDirectoryBeforeConnect = "1" : Use CMDirectory webapi to get fresh CM list on connect - 0=disabled, 1=enabled, 2=main/dev/beta clients only
 @nClientServiceMethodForDownloadListPercent = "100" :
 @nCloudClientUseGetAppFileChangelist = "1" : Should the client use the new GetAppFileChangelist API - 0 = no, 1 = yes, 2 = beta clients
 @nContentDeltaChunkAppendChunksAfterProtobufSizeThresholdMB = "33" :
@@ -117,6 +120,7 @@ ConVars:
 @nLegalDictionaryUpdateRateInSeconds = "600" :
 @nNetConnectionBufferZipLevel = "1" :
 @nParentalSettingsLogLevel = "4" : Control the amount of spew written to the parental log file
+@nRoamingConfigReconnectCloudSyncWindowSec = "7200" :
 @nScreenshotSaveMaxWidth = "9999" :
 @nSiteLicenseProxyCacheMaxGB = "100" : If local content cache is enabled, use up to this much disk space
 @nSiteLicenseProxyEnableP2P = "0" : If set, will have all connected clients join the same P2P download group
@@ -132,6 +136,7 @@ ConVars:
 @net_backlog_time_allowed_sec = "8" :
 @net_loopback = "1" :
 @sCSDSVirtualHostHeader = "" :
+@sDeprecatedServiceMethods = "Player.GetFriendsAppsActivity#1" : Comma separated list of deprecated/removed service method requests
 @sForceLocalContentCache = "" :
 @sSiteLicenseProxyCacheDirectory = "appcache/slscache" : If local content cache is enabled, use this path for disk cache
 @sSiteLicenseProxyExplicitIP = "" : Local content cache: if not blank, will instruct clients to go to this IP for the content cache.
@@ -140,6 +145,8 @@ ConVars:
 @sSteamCmdForcePlatformType = "" : Must be one of: [windows | macos | linux | android]
 @sTrustedLocalContentCacheName = "" : Set this to the machine name where a trusted local Steam download cache is hosted, and we'll use it if available.
 @strCSNoCacheHeader = "no-cache" :
+@test_bCloudForceSyncConflict = "0" : If @test_nCloudForceSyncFailureAppID is set, then set this so that the failure case is 'file conflict' instead of generic failure
+@test_nCloudForceSyncFailureAppID = "0" : Set this to a non-zero App ID to test cloud sync failure. The next sync request will fail.
 @uDownloadLANPeerPort = "27038" : If LAN p2p download enabled, will listen on this port for TCP connections from peers. Must be set consistently across all members of the group!
 @uRemoteDiscoveryPortOverride = "0" : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort
 @uRemoteDiscoveryPortTransmit = "0" : If non-zero, will transmit outgoing broadcasts on this port instead of on the listen port
@@ -168,8 +175,8 @@ app_info_http_num_sockets = "8" :
 appcloudsessions = "all" :
 bBroadcastAlwaysUploadThumbnails = "1" :
 bBroadcastUploadGameDataIntervalSeconds = "5" :
-bCheckForFreeGamesOnLogin = "0" :
 bCheckUGCIntegrity = "1" :
+bClientConvar601DEACE = "1" :
 bClientPingCSesForCellID = "0" :
 bCloudAcceptUnexpectedAutoCloudFileChanges = "1" :
 bDelayGameUpdatesOnBeta = "0" : Should we do scheduling of updates on Steam Beta? If not, they'll all be ASAP
@@ -179,7 +186,6 @@ bEnableSubscribedFileListCache = "1" :
 bFinishStagedDepotVersions = "1" :
 bInstallscriptReports = "1" : send reports about broken install scripts
 bLogLegacyDiskDetails = "0" :
-bPrecompiledRADVCache = "0" :
 bPrefetchDownloadDetails = "1" : Prefetch download size before actual update happens
 bShaderAllowReplay = "1" :
 bShaderAllowReplayOnNVIDIA = "1" :
@@ -190,6 +196,8 @@ bShaderEnableCacheManagement = "1" :
 bShaderEnableFossilizeLayer = "1" :
 bShaderEnableUpload = "1" :
 bShaderFossilizeFastMerge = "1" :
+bShaderPrecompiledCache = "1" :
+bShaderVerboseLogs = "0" :
 bSingleFileUpdateMode = "1" :
 bSteam3LimitedUserEnable = "1" :
 bSteamLoaderEnable = "1" :
@@ -217,7 +225,7 @@ controller_momentum_num_included_samples = "5" :
 controller_momentum_smooth = "0" :
 controller_newpoll = "1" :
 controller_rate = "2000" :
-controller_spew_level = "2" :
+controller_spew_level = "3" :
 countrycode = "" :
 csecManifestDownloadTimeout = "120" :
 developer = "0" :
@@ -227,7 +235,6 @@ mic_autogain = "16000" : automatic gain control level for microphone input
 mic_inputfile = "" : causes voice data to be read from the specified file instead of from the microphone
 mic_outputfile = "" : causes microphone data to be written out to the specified file
 musiclogging = "0" :
-nAppCheersAggregationDelayMS = "1000" :
 nBroadcastSessionMaxDropFrames = "100" :
 nClientBackgroundAutoUpdateLessRecentlyPlayedThresholdHours = "168" : If you've played the game more recently than this, we'll schedule the background update sooner.
 nClientBackgroundAutoUpdateNotPlayedTimeSpreadDays = "14" : If the user hasn't played this game in a while, pick a morning up to this many days out to update.
@@ -238,7 +245,6 @@ nCloudFileCompressionMinFileSizeKB = "16" :
 nCloudFileCompressionMinFileSizeKBSharedFile = "128" :
 nCloudFileCompressionPercentageMin = "10" :
 nCloudFileCompressionPercentageMinSharedFile = "50" :
-nCloudSyncIntervalSec = "1800" :
 nCloudUploadMinIntervalSec = "600" :
 nContentDownloadsToOtherDrive = "1" : Allow to download updates to other drives then install folder is on
 nContentStatsReportInterval = "72" : In Hours
@@ -252,11 +258,6 @@ p2p_connecttimeout = "15" :
 p2p_unusedtimeout = "120" :
 rtime32EarliestSubscribedFileToDownload = "1354389910" :
 spew_controller_loss = "0" :
-sysmgr_ac_idle_backlight_seconds = "300" :
-sysmgr_ac_idle_suspend_seconds = "3600" :
-sysmgr_battery_idle_backlight_seconds = "60" :
-sysmgr_battery_idle_suspend_seconds = "180" :
-sysmgr_idle_backlight_value = "0.01" :
 testappcloudpaths = "0" :
 ugc_query_default_cache_time = "300" :
 unShaderBackgroundProcessingThreads = "0" :
@@ -329,6 +330,7 @@ logon : see 'login'
 logout : Disconnect from Steam
 manifest_dump : <filename> [0|1: include chunks]
 mem_stats : Dump memory stats
+net_fake_state : {normal|NoLAN|CaptivePortal_Redirected|CaptivePortal_InPlace|NoInternet|NoSteam} Simulate network conditions
 net_msgdump : Dumps list of sent net messages
 net_msgspew : Spews sent and recv net messages
 p2p_info : usage: "p2p_info" Displays the current state of the P2P networking subsystem.
@@ -340,7 +342,6 @@ run_app_build : run_app_build [-preview] [-desc <text>] <appbuildfile> : run app
 run_app_build_http : run_app_build_http : alias for run_app_build
 runscript : <scriptfile> - runs a console command script
 set_app_beta_password : set_app_beta_password <appid> -betapassword <pwd> -- opt-in to the app beta with the given password
-set_depot_key : set_depot_key <depotid> <hexkey> : alias for run_app_build
 set_download_throttle : set_download_throttle <kbps> <bPersistent = false>
 set_spew : <group> <level> <loglevel> set spew levels for the given group
 set_spew_level : <SpewLevel LogLevel> Sets spew and log level for all groups
@@ -348,11 +349,10 @@ set_steam_guard_code : <code> - authorize this computer by adding the Steam Guar
 shader_process : shader_process <appId> <bucketID> <optionalOverrideBasePath>
 sign_install_script : sign_install_script <appid> <input filename> <output filename> : upload install script to back end for signing
 swarm_get_bucket_manifest : <appid> <bucket_hw_id> <bucket_sw_id> - query Swarm bucket depot manifest, if depot built
-swarm_shader_compile : <work_dir>
+swarm_shader_compile : <work_dir> <threadCount>
 swarm_shader_download : <work_dir>
 swarm_shader_upload : <work_dir>
 swarm_tc_download : swarm_tc_download <src_bucket_hw_id> <src_bucketsw_id> <work_dir>
-swarm_tc_loop : <src_bucket_hw_id> <src_bucketsw_id> <dst_bucket_hw_id> <dst_bucket_sw_id> <work_dir> <tool_appid> <entrypoint> <src_file> <dst_file>
 swarm_tc_upload : <src_bucket_hw_id> <src_bucketsw_id> <dst_bucket_hw_id> <dst_bucket_sw_id> <work_dir> <appid> <bucketid>
 test_dropcon : Tests dropping a connection
 test_failnextconnect : Tests failing the next connection
