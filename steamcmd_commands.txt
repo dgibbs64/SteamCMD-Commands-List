@@ -15,7 +15,7 @@ ConVars:
 @DepotBuilderVZdMinRatio = "0.4" :
 @DepotBuilderXORMatchPercent = "95" :
 @EnableUDPHistory = "0" :
-@ForceContentServerID = "" :
+@ForceContentServer = "" :
 @GCNameOverride = "" :
 @LocalContentServer = "" :
 @LogFileFolderName = "" : Use something other than 'logs' as the folder for log files
@@ -136,7 +136,6 @@ ConVars:
 @net_backlog_time_allowed_sec = "8" :
 @net_loopback = "1" :
 @sCSDSVirtualHostHeader = "" :
-@sDeprecatedServiceMethods = "Player.GetFriendsAppsActivity#1" : Comma separated list of deprecated/removed service method requests
 @sForceLocalContentCache = "" :
 @sSiteLicenseProxyCacheDirectory = "appcache/slscache" : If local content cache is enabled, use this path for disk cache
 @sSiteLicenseProxyExplicitIP = "" : Local content cache: if not blank, will instruct clients to go to this IP for the content cache.
@@ -185,7 +184,6 @@ bDisableTenFootOverlay = "0" :
 bEnableSubscribedFileListCache = "1" :
 bFinishStagedDepotVersions = "1" :
 bInstallscriptReports = "1" : send reports about broken install scripts
-bLogLegacyDiskDetails = "0" :
 bPrefetchDownloadDetails = "1" : Prefetch download size before actual update happens
 bShaderAllowReplay = "1" :
 bShaderAllowReplayOnNVIDIA = "1" :
@@ -228,7 +226,15 @@ controller_rate = "2000" :
 controller_spew_level = "3" :
 countrycode = "" :
 csecManifestDownloadTimeout = "120" :
+deck_mouse_haptic_tick_dist = "9000" :
+deck_mouse_leftside_filter = "30500" :
 developer = "0" :
+haptic_click_gain_modifier = "0" :
+haptic_intensity = "8000" :
+haptic_intensity_old = "2500" :
+haptic_new = "0" :
+haptic_off_divisor = "5.0f" :
+haptic_tick_gain_modifier = "0" :
 log_files_always_flush = "0" :
 log_matchmaking_callbacks = "0" :
 mic_autogain = "16000" : automatic gain control level for microphone input
@@ -282,6 +288,7 @@ workshop_items_update_interval = "900" :
 Commands:
 api_logging : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
 app_build_all_depots : app_build_all_depots [-desc <text>] -depotconfigpath <folder> -contentroot <folder> -buildoutput <folder> <appid> : Build all depots for one app
+app_delay_update : <appid> <seconds> force delay update
 app_dlc_status : app_status <appId> <dlcId>
 app_info_print : Dumps app info for appID
 app_info_request : <AppID> - Issue an appinfo request for the given appid. Does not wait for results from the server.
@@ -317,6 +324,7 @@ find : find substrings in console commands
 force_install_dir : force_install_dir <directory>
 get_download_throttle :
 help : Show help information
+http_cache_clearall : Delete all data from internal HTTP client and CEF browser
 http_test : <optional_url> test HTTP connectivity via specified URL
 info : Dump various Steam info
 library_folder_list : list all mounted Steam volumes
