@@ -61,6 +61,7 @@ ConVars:
 @cDepotBuilderFileChunkingThreads = "4" :
 @cMaxContentServersToRequest = "20" :
 @cMaxInitialDownloadSources = "-1" :
+@cMinimumJobTimeoutsToCheckPerFrame = "100" :
 @cNetEncryptionHandshakeWorkMax_HighPri = "8000" :
 @cNetEncryptionHandshakeWorkMax_LowPri = "2000" :
 @cNetEncryptionHandshakeWorkMax_MedPri = "4000" :
@@ -89,6 +90,7 @@ ConVars:
 @nCSClientRateLimitKbps = "0" :
 @nCSJob404ResponseLimit = "100" :
 @nCSJob5xyResponseLimit = "10" :
+@nCallerDeadlineHopLatencyMS = "10" : When we send a message expecting a reply from a job with a deadline, set the timeout on the message to [current time remaining in this job] - N ms. A negative value prevents propagating caller deadlines down the chain
 @nClientCMDirectoryResultLoadPercentDither = "10" : Dither to apply to CM server loads received by CMDirectory query
 @nClientCMUDPPingTimeGoodEnoughThresholdMS = "50" :
 @nClientCMUDPPingTimeoutUseGoodEnoughMS = "250" :
