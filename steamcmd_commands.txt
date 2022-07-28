@@ -38,6 +38,7 @@ ConVars:
 @bEnableHTTP2OnAllCHTTPClients = "0" : Enable HTTP/2 on all CHTTPClients automatically for SSL connections
 @bEnableLogTearOff = "1" :
 @bEnableMovieRecording = "0" :
+@bEnableNetworkJobsOwnStartList = "1" :
 @bEnableOfflineLogonTicket = "1" : If true, an offline logon ticket will be requested during logon if none is cached
 @bEnableSiteLicenseConnect = "1" :
 @bEnableSiteLicenseConsoleLogging = "0" :
@@ -46,6 +47,7 @@ ConVars:
 @bForceStreamUnsupportedApp = "0" :
 @bHttpClientRecordHostnameDimension = "0" : Group HTTP metrics by hostname. Careful, the cardinality of your in-memory map might be large.
 @bLANPeerConnectionTimeoutSec = "5" :
+@bLogMessageToProtobufClass = "1" : We we first discover the protobuf class used for a particular EMsg, log it
 @bMetricsEnabled = "1" : Enabling allows jobs to collect and report metrics through IMetricsReporters.
 @bMsgErrorDump = "0" :
 @bRequireOfflineLogonTicket = "1" : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
@@ -300,7 +302,6 @@ app_launch : <appId> [LaunchOptionIndex] [Arguments]
 app_license_request : <AppID> - Requests a free licenses for this app if not already owned.
 app_run : <appId> [LaunchOptionIndex] [Arguments]
 app_set_config : <AppID> <key> <value> - sets a config value for given app.
-app_set_update_flag : app_set_update_flag <appId>
 app_status : app_status <appId>
 app_stop : <appid> [force:0|1] stop this running app
 app_uninstall : <appId>
@@ -373,7 +374,6 @@ test_voice_encode : test a voice encode
 timed_trial_add_playtime : timed_trial_add_playtime <appId> <seconds>: add trial app playtime (developer only)
 timed_trial_reset_playtime : timed_trial_reset_playtime <appId> : reset trial app playtime (developer only)
 timed_trial_status : timed_trial_status <appId> : show time trial app status
-upload_controller_config : upload_controller_config <appid> <filename> : upload controller config to cloud
 user_friends : Dumps list of friends
 verify_chunk_store : verify_chunk_store <appid> <depotid> <datafile> : run app depot build as specified in appbuildfile
 verify_vpk : verify_vpk <datafile> : verifies content of given VPK
