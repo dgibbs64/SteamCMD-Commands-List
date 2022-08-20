@@ -118,6 +118,8 @@ ConVars:
 @nHTPPServerLogLevelDetails200 = "4" : Log level to use for full details of any http server request returning 200. This will probably fill up the log if you leave it on.
 @nHTPPServerLogLevelDetailsNon200 = "4" : Log level to use for full details of any http server request returning != 200
 @nIOCPThreadCount = "1" :
+@nJobInteryieldMillisecondsAlertThreshold = "200" :
+@nJobInteryieldMillisecondsLogThreshold = "100" :
 @nLANPeerGroupRateLimitKbps = "0" :
 @nLANPeerMaxConnections = "24" :
 @nLANPeerRateLimitKbps = "0" :
@@ -233,6 +235,7 @@ csecManifestDownloadTimeout = "120" :
 deck_mouse_haptic_tick_dist = "9000" :
 deck_mouse_leftside_filter = "30500" :
 developer = "0" :
+g_yawNudgeTowardMeanFactor = "0.0001" :
 haptic_click_gain_modifier = "0" :
 haptic_intensity = "8000" :
 haptic_intensity_old = "2500" :
