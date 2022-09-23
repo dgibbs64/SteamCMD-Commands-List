@@ -57,7 +57,6 @@ ConVars:
 @bSiteLicenseProxyEnableIPv6 = "0" : If set, we will enable ipv6 communications to the Steam servers
 @bSiteLicenseServer = "0" :
 @bSiteLicenseServerGUI = "0" :
-@bUseWebMicrotxnPathInSteamClient = "1" :
 @cCSClientMaxNumSocketsPerHost = "8" :
 @cCSClientMaxNumSocketsPerHostForCachingProxy = "32" :
 @cDepotBuilderFileChunkingThreads = "4" :
@@ -235,7 +234,7 @@ csecManifestDownloadTimeout = "120" :
 deck_mouse_haptic_tick_dist = "9000" :
 deck_mouse_leftside_filter = "30500" :
 developer = "0" :
-g_yawNudgeTowardMeanFactor = "0.0001" :
+g_yawNudgeTowardMeanFactor = "0.0" :
 haptic_click_gain_modifier = "0" :
 haptic_intensity = "8000" :
 haptic_intensity_old = "2500" :
