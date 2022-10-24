@@ -19,8 +19,8 @@ jobs:
       - name: Setup SteamCMD
         uses: CyberAndrii/setup-steamcmd@v1.1.4
 
-      - name: Run steamcmd_help.sh
-        run: ./steamcmd_help.sh
+      - name: Run steamcmd_commands.sh
+        run: ./steamcmd_commands.sh
 
       - name: Get current date
         id: date
