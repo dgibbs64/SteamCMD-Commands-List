@@ -1,5 +1,5 @@
 ---
-# This workflow generates the output and pushes it to master branch
+# This workflow generates the output and pushes it to main branch
 
 name: Generate Output
 
@@ -7,26 +7,29 @@ on:
   schedule:
     - cron: "0 0 * * *"
   push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+    branches: ["main"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Setup steamcmd
-        uses: CyberAndrii/setup-steamcmd@v1
-      - name: Run steamcmd_commands.sh
-        run: chmod +x steamcmd_commands.sh; ./steamcmd_commands.sh
+      - name: Setup SteamCMD
+        uses: CyberAndrii/setup-steamcmd@v1.1.4
 
-      - name: Push to master branch
+      - name: Run steamcmd_help.sh
+        run: ./steamcmd_help.sh
+
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+      - name: Push to main branch
         uses: Automattic/action-commit-to-branch@master
         with:
-          branch: "master"
-          commit_message: "GitHub Actions Build master"
+          branch: "main"
+          commit_message: "GitHub Actions build: ${{ steps.date.outputs.date }}"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
