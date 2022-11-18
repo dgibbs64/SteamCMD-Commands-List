@@ -23,10 +23,15 @@ ConVars:
 @NetConnectionBufferMsgLimit = "1000" : Max # of message that will be buffered into a single zipped packet
 @NetConnectionBufferThreaded = "1" :
 @NoPromptForPassword = "0" :
+@PeerContentClientMode = "0" : 0 = off, 1 = only me, 2 = everybody on LAN
+@PeerContentServerLZMA = "0" : use LZMA for LAN downloads
+@PeerContentServerMode = "0" : 0 = off, 1 = only me, 2 = everybody on LAN
+@PeerContentServerPort = "27040" : If peer content server, will listen on this port for TCP connections from peers
+@PeerContentServerRetryDelay = "60" : seconds before retring peer content server
 @ShutdownOnFailedCommand = "1" : Exit steamcmd immediately upon any failed console command
 @StreamClientArgs = "" :
-@bCSClientRateLimitUseDelays = "0" :
 @bCSForceNoCache = "0" :
+@bCallerDeadlineAbortJobDisableWhenHTTPReqStart = "1" :
 @bClientDownloadNiceNetworkThrottle = "0" :
 @bClientDownloadUseHTTPS = "0" : Set this to use HTTPS on supported download servers
 @bClientOpenCacheStickyRedirects = "1" :
@@ -119,6 +124,7 @@ ConVars:
 @nIOCPThreadCount = "1" :
 @nJobInteryieldMillisecondsAlertThreshold = "200" :
 @nJobInteryieldMillisecondsLogThreshold = "100" :
+@nJobNetSendsInsaneThreshold = "15000" :
 @nLANPeerGroupRateLimitKbps = "0" :
 @nLANPeerMaxConnections = "24" :
 @nLANPeerRateLimitKbps = "0" :
@@ -220,7 +226,6 @@ cPreallocateMinimumSizeKB = "256" :
 controller_base_rotation_angle = "0" :
 controller_edge_cutoff = "0" :
 controller_gyro_x_scale = "16000" :
-controller_interp = "0" :
 controller_min_activation_time = "0.0333" :
 controller_momentum_min_vel = "0" :
 controller_momentum_num_excluded_samples = "1" :
@@ -359,6 +364,7 @@ set_download_throttle : set_download_throttle <kbps> <bPersistent = false>
 set_spew : <group> <level> <loglevel> set spew levels for the given group
 set_spew_level : <SpewLevel LogLevel> Sets spew and log level for all groups
 set_steam_guard_code : <code> - authorize this computer by adding the Steam Guard email code
+set_var : <name> <value>- Set the value of a Cvar
 shader_process : shader_process <appId> <bucketID> <optionalOverrideBasePath>
 sign_install_script : sign_install_script <appid> <input filename> <output filename> : upload install script to back end for signing
 swarm_get_bucket_manifest : <appid> <bucket_hw_id> <bucket_sw_id> - query Swarm bucket depot manifest, if depot built
