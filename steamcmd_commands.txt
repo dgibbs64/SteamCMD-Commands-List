@@ -277,6 +277,7 @@ rtime32EarliestSubscribedFileToDownload = "1354389910" :
 spew_controller_loss = "0" :
 testappcloudpaths = "0" :
 ugc_query_default_cache_time = "300" :
+ugc_query_max_get_details = "1000" :
 unShaderBackgroundProcessingThreads = "0" :
 unShaderHighPriorityProcessingThreads = "0" :
 unShaderHitCacheGeneration = "4" :
