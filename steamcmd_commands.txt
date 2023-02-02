@@ -16,6 +16,8 @@ ConVars:
 @DepotBuilderXORMatchPercent = "95" :
 @EnableUDPHistory = "0" :
 @ForceContentServer = "" :
+@ForceContentServerHTTPS = "0" :
+@ForceContentServerType = "" :
 @GCNameOverride = "" :
 @LocalContentServer = "" :
 @LogFileFolderName = "" : Use something other than 'logs' as the folder for log files
@@ -23,11 +25,10 @@ ConVars:
 @NetConnectionBufferMsgLimit = "1000" : Max # of message that will be buffered into a single zipped packet
 @NetConnectionBufferThreaded = "1" :
 @NoPromptForPassword = "0" :
-@PeerContentClientMode = "0" : 0 = off, 1 = only me, 2 = everybody on LAN
 @PeerContentServerLZMA = "0" : use LZMA for LAN downloads
-@PeerContentServerMode = "0" : 0 = off, 1 = only me, 2 = everybody on LAN
+@PeerContentServerMaxClients = "8" : limit number of peers connected
 @PeerContentServerPort = "27040" : If peer content server, will listen on this port for TCP connections from peers
-@PeerContentServerRetryDelay = "60" : seconds before retring peer content server
+@PeerContentServerRetryDelay = "60" : seconds before retrying peer content server
 @ShutdownOnFailedCommand = "1" : Exit steamcmd immediately upon any failed console command
 @StreamClientArgs = "" :
 @bCSForceNoCache = "0" :
@@ -75,6 +76,7 @@ ConVars:
 @cUDPSendRetries = "8" :
 @cbPartnerUploadChunkSize = "1000000" : Chunk size to use for POSTing partner uploads
 @cloud_testdynamicsyncapp = "0" :
+@csecCSJobSuccessfulRequestTimeWindow = "60" :
 @csecCSRequestProcessorTimeOut = "300" :
 @csecDurationControlPeriod = "" : Override default duration-control / anti-indulgence time period. If nonzero, initial playtime threshold is this value in seconds
 @csecDurationControlPeriodToday = "" : Override default duration-control / anti-indulgence time period. If nonzero, per-day playtime threshold is this value in seconds
@@ -88,11 +90,10 @@ ConVars:
 @durationControlNightCheck = "1" : Time of day check for duration-control feature. 1 = normal. 2 = force night-time. 0 = disable checks, only enabled for age verified accounts
 @fDownloadRateImprovementToAddAnotherConnection = "1.2" :
 @fMinDataRateToAttemptTwoConnectionsMbps = "1.5" :
-@influxBlacklistedTags = "steamid" : Comma separated list of tag names known to cause cardinality problems for Influx. We drop those tags but emit the others per-metrics.
-@metricsDisabledOperations = "" : Comma separated list of metrics operations - disable list
-@metricsEnabledCatalogs = "" : Comma separated list of metrics catalogs - enable list. Inclusion in this list bypasses operation whitelist. Probably every catalog other than job_metrics should be in here.
-@metricsEnabledOperations = "CInfluxClient::SendCurrentBatchAsync" : Comma separated list of metrics operations - enable list
-@metricsLegacyJobMetrics = "CInfluxClient::SendCurrentBatchAsync,UpdateAppJobReport,perf,ExternalStorageTransferReport,ChatRoom.RelaySendChatMessage#1,DownloadRates,DownloadRatesPerServer,AppBranchUpdateStats,Trust.FullAccountUpdate#1,Trust.OnAccountChanged#1,Trust.OnAccountLabeled : Comma separated list of Operation names that predate preaggregated job metrics.
+@metricsDisabledCatalogs = "" : Comma separated list of metrics catalogs to disable. This is the last check.
+@metricsDisabledOperations = "" : Comma separated list of metrics operations that are disabled. This setting has highest priority
+@metricsEnabledOperations = "" : Comma separated list of metrics operations. Overrides disabled catalogs
+@metricsLegacyJobMetrics = "UpdateAppJobReport,perf,ExternalStorageTransferReport,ChatRoom.RelaySendChatMessage#1,DownloadRates,DownloadRatesPerServer,AppBranchUpdateStats,Trust.FullAccountUpdate#1,Trust.OnAccountChanged#1,Trust.OnAccountLabeled#1,Trust.OnAccountLicenseAdded#1,Play : Comma separated list of Operation names that predate preaggregated job metrics.
 @nCSClientRateLimitKbps = "0" :
 @nCSJob404ResponseLimit = "100" :
 @nCSJob5xyResponseLimit = "10" :
@@ -105,8 +106,13 @@ ConVars:
 @nClientCloudMaxNumParallelDeletes = "10" :
 @nClientCloudMaxNumParallelDownloads = "10" :
 @nClientCloudMaxNumParallelUploads = "10" :
+@nClientDownloadEnableHTTP2PlatformWindows = "1" : Enable HTTP/2 connections on Windows clients
+@nClientDownloadEnableHTTP2RelBranch = "1" : Only enable HTTP/2 on enabled platforms on rel branch client if this is set
+@nClientDownloadInitWindowSizeHTTP2Connection = "10000000" : Init per-connection window size for HTTP/2.
+@nClientDownloadInitWindowSizeHTTP2Stream = "2000000" : Init per-stream window size for HTTP/2.
 @nClientDownloadNiceNetworkThrottlePercentage = "85" :
 @nClientDownloadPreferredServerMaxLoad = "85" : Once preferred servers reach this load, we'll continue to use non-preferred servers in the list after them
+@nClientEnableHTTP2PlatformWindows = "0" : Enable HTTP/2 connections on Windows clients
 @nClientQueryCMDirectoryBeforeConnect = "1" : Use CMDirectory webapi to get fresh CM list on connect - 0=disabled, 1=enabled, 2=main/dev/beta clients only
 @nClientServiceMethodForDownloadListPercent = "100" :
 @nCloudClientUseGetAppFileChangelist = "1" : Should the client use the new GetAppFileChangelist API - 0 = no, 1 = yes, 2 = beta clients
@@ -192,6 +198,7 @@ bCloudAcceptUnexpectedAutoCloudFileChanges = "1" :
 bDelayGameUpdatesOnBeta = "0" : Should we do scheduling of updates on Steam Beta? If not, they'll all be ASAP
 bDepotDeltaPatchUseAPI = "1" :
 bDisableTenFootOverlay = "0" :
+bEnableMHRCAsyncFileReadLog = "0" :
 bEnableSubscribedFileListCache = "1" :
 bFinishStagedDepotVersions = "1" :
 bInstallscriptReports = "1" : send reports about broken install scripts
@@ -222,6 +229,7 @@ broadcast_upload_update_sec = "3" :
 cAppUpdateWorkingSetMB = "256" :
 cChunkValidationMaxLog = "100" :
 cFileValidationMaxLog = "100" :
+cMaxDecryptThreadsOverride = "0" :
 cPreallocateMinimumSizeKB = "256" :
 controller_base_rotation_angle = "0" :
 controller_edge_cutoff = "0" :
@@ -240,6 +248,9 @@ deck_mouse_haptic_tick_dist = "9000" :
 deck_mouse_leftside_filter = "30500" :
 developer = "0" :
 g_yawNudgeTowardMeanFactor = "0.0" :
+gyro_drift_calibration_debug = "0" :
+gyro_raw_deadzone = "6.0" :
+gyro_stationary_calibration_debug = "0" :
 haptic_click_gain_modifier = "0" :
 haptic_intensity = "8000" :
 haptic_intensity_old = "2500" :
@@ -266,6 +277,7 @@ nCloudUploadMinIntervalSec = "600" :
 nContentDownloadsToOtherDrive = "1" : Allow to download updates to other drives then install folder is on
 nContentStatsReportInterval = "72" : In Hours
 nDepotSaveCorruptChunks = "0" :
+nPeerContentDefaultMode = "0" : 0 = off, 1 = only me, 2 = only friends, 3 = anyone
 nProductInfoUpdateInterval = "900" :
 nRichPresenceUploadThrottleSecs = "5" :
 nSubscribedAutoDownloadMaxSimultaneous = "8" :
@@ -337,6 +349,7 @@ get_download_throttle :
 help : Show help information
 http_cache_clearall : Delete all data from internal HTTP client and CEF browser
 http_test : <optional_url> test HTTP connectivity via specified URL
+httpclients : [cMaxPerCnx] Dump HTTP client stats, optionally limiting the # of in-flight requests to spew per connection
 info : Dump various Steam info
 library_folder_list : list all mounted Steam volumes
 licenses_for_app : <appid> : shows active licenses for appid
@@ -354,6 +367,7 @@ net_msgdump : Dumps list of sent net messages
 net_msgspew : Spews sent and recv net messages
 p2p_info : usage: "p2p_info" Displays the current state of the P2P networking subsystem.
 package_info_print : Dumps package info for packageID
+peer_content_server_status : Dumps status of peer content server
 profile : <seconds> profile for N seconds
 quit : Stops Steam client console
 render_ipc_connections : usage: "render_ipc_connections
