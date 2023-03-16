@@ -25,7 +25,7 @@ ConVars:
 @NetConnectionBufferMsgLimit = "1000" : Max # of message that will be buffered into a single zipped packet
 @NetConnectionBufferThreaded = "1" :
 @NoPromptForPassword = "0" :
-@PeerContentServerLZMA = "0" : use LZMA for LAN downloads
+@PeerContentClientMaxJobs = "1" : number of peer sources used at the same time
 @PeerContentServerMaxClients = "8" : limit number of peers connected
 @PeerContentServerPort = "27040" : If peer content server, will listen on this port for TCP connections from peers
 @PeerContentServerRetryDelay = "60" : seconds before retrying peer content server
@@ -58,6 +58,7 @@ ConVars:
 @bMsgErrorDump = "0" :
 @bRequireOfflineLogonTicket = "1" : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
 @bScreenshotsLegacyCloudUpload = "0" : If set, use the legacy Steam Cloud upload path for screenshot uploads
+@bShaderClientGetBucketManifestUseWebAPI = "1" :
 @bSiteLicenseAllowCachedClientCredentials = "0" : Allow Steam clients that associate to this site to save username and auth credentials locally
 @bSiteLicenseProxyCacheIsExternalProcess = "0" : If set, the caching content proxy will be handled by some process other than steamcmd. You probably also should set @sSiteLicenseProxyExplicitIP.
 @bSiteLicenseProxyEnableIPv6 = "0" : If set, we will enable ipv6 communications to the Steam servers
@@ -93,7 +94,6 @@ ConVars:
 @metricsDisabledCatalogs = "" : Comma separated list of metrics catalogs to disable. This is the last check.
 @metricsDisabledOperations = "" : Comma separated list of metrics operations that are disabled. This setting has highest priority
 @metricsEnabledOperations = "" : Comma separated list of metrics operations. Overrides disabled catalogs
-@metricsLegacyJobMetrics = "UpdateAppJobReport,perf,ExternalStorageTransferReport,ChatRoom.RelaySendChatMessage#1,DownloadRates,DownloadRatesPerServer,AppBranchUpdateStats,Trust.FullAccountUpdate#1,Trust.OnAccountChanged#1,Trust.OnAccountLabeled#1,Trust.OnAccountLicenseAdded#1,Play : Comma separated list of Operation names that predate preaggregated job metrics.
 @nCSClientRateLimitKbps = "0" :
 @nCSJob404ResponseLimit = "100" :
 @nCSJob5xyResponseLimit = "10" :
@@ -106,13 +106,15 @@ ConVars:
 @nClientCloudMaxNumParallelDeletes = "10" :
 @nClientCloudMaxNumParallelDownloads = "10" :
 @nClientCloudMaxNumParallelUploads = "10" :
+@nClientDownloadEnableHTTP2PlatformLinux = "1" : Enable HTTP/2 connections on Linux clients
 @nClientDownloadEnableHTTP2PlatformWindows = "1" : Enable HTTP/2 connections on Windows clients
 @nClientDownloadEnableHTTP2RelBranch = "1" : Only enable HTTP/2 on enabled platforms on rel branch client if this is set
 @nClientDownloadInitWindowSizeHTTP2Connection = "10000000" : Init per-connection window size for HTTP/2.
 @nClientDownloadInitWindowSizeHTTP2Stream = "2000000" : Init per-stream window size for HTTP/2.
 @nClientDownloadNiceNetworkThrottlePercentage = "85" :
 @nClientDownloadPreferredServerMaxLoad = "85" : Once preferred servers reach this load, we'll continue to use non-preferred servers in the list after them
-@nClientEnableHTTP2PlatformWindows = "0" : Enable HTTP/2 connections on Windows clients
+@nClientEnableHTTP2PlatformLinux = "1" : Enable HTTP/2 connections on Linux clients
+@nClientEnableHTTP2PlatformWindows = "1" : Enable HTTP/2 connections on Windows clients
 @nClientQueryCMDirectoryBeforeConnect = "1" : Use CMDirectory webapi to get fresh CM list on connect - 0=disabled, 1=enabled, 2=main/dev/beta clients only
 @nClientServiceMethodForDownloadListPercent = "100" :
 @nCloudClientUseGetAppFileChangelist = "1" : Should the client use the new GetAppFileChangelist API - 0 = no, 1 = yes, 2 = beta clients
@@ -277,7 +279,7 @@ nCloudUploadMinIntervalSec = "600" :
 nContentDownloadsToOtherDrive = "1" : Allow to download updates to other drives then install folder is on
 nContentStatsReportInterval = "72" : In Hours
 nDepotSaveCorruptChunks = "0" :
-nPeerContentDefaultMode = "0" : 0 = off, 1 = only me, 2 = only friends, 3 = anyone
+nPeerContentDefaultMode = "1" : 0 = off, 1 = only me, 2 = only friends, 3 = anyone
 nProductInfoUpdateInterval = "900" :
 nRichPresenceUploadThrottleSecs = "5" :
 nSubscribedAutoDownloadMaxSimultaneous = "8" :
@@ -341,6 +343,7 @@ download_item : download_item <appid> <PublishedFileId> : download a workshop it
 download_sources : Dumps list of download sources
 drm_wrap : drm_wrap <appid> <input filename> <output filename> <toolname> <flags> : upload executable to back end for DRM wrapping
 dump_box_ips : dump the list of detected local box IP addresses
+dump_offline_playtime : Dumps recorded playtime sessions
 dump_scheduled_functions : usage: "dump_scheduled_functions" Displays internal Steam function callback timers
 exit : Stops Steam client console
 find : find substrings in console commands
@@ -367,9 +370,11 @@ net_msgdump : Dumps list of sent net messages
 net_msgspew : Spews sent and recv net messages
 p2p_info : usage: "p2p_info" Displays the current state of the P2P networking subsystem.
 package_info_print : Dumps package info for packageID
+patch_dump : <filename> <depotid>
 peer_content_server_status : Dumps status of peer content server
 profile : <seconds> profile for N seconds
 quit : Stops Steam client console
+remote_clients : dump remote client info
 render_ipc_connections : usage: "render_ipc_connections
 run_app_build : run_app_build [-preview] [-desc <text>] <appbuildfile> : run app depot build as specified in appbuildfile
 run_app_build_http : run_app_build_http : alias for run_app_build
