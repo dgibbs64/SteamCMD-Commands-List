@@ -113,8 +113,8 @@ ConVars:
 @nClientDownloadInitWindowSizeHTTP2Stream = "2000000" : Init per-stream window size for HTTP/2.
 @nClientDownloadNiceNetworkThrottlePercentage = "85" :
 @nClientDownloadPreferredServerMaxLoad = "85" : Once preferred servers reach this load, we'll continue to use non-preferred servers in the list after them
-@nClientEnableHTTP2PlatformLinux = "1" : Enable HTTP/2 connections on Linux clients
-@nClientEnableHTTP2PlatformWindows = "1" : Enable HTTP/2 connections on Windows clients
+@nClientEnableHTTP2PlatformLinux = "0" : Enable HTTP/2 connections on Linux clients
+@nClientEnableHTTP2PlatformWindows = "0" : Enable HTTP/2 connections on Windows clients
 @nClientQueryCMDirectoryBeforeConnect = "1" : Use CMDirectory webapi to get fresh CM list on connect - 0=disabled, 1=enabled, 2=main/dev/beta clients only
 @nClientServiceMethodForDownloadListPercent = "100" :
 @nCloudClientUseGetAppFileChangelist = "1" : Should the client use the new GetAppFileChangelist API - 0 = no, 1 = yes, 2 = beta clients
