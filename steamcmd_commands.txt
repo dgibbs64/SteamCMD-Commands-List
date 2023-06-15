@@ -33,29 +33,34 @@ ConVars:
 @StreamClientArgs = "" :
 @bCSForceNoCache = "0" :
 @bCallerDeadlineAbortJobDisableWhenHTTPReqStart = "1" :
-@bClientDownloadNiceNetworkThrottle = "0" :
+@bCheckMsgProtobufOnJobStackForArenaAlloc = "1" : Should we only use the arena allocator if the protobuf is on the job stack
 @bClientDownloadUseHTTPS = "0" : Set this to use HTTPS on supported download servers
 @bClientOpenCacheStickyRedirects = "1" :
+@bClientTryRequestManifestWithoutCode = "0" : If set, client will try to get a manifest even without a manifest request code
 @bContentManifestUseProtobufs = "1" :
 @bDepotBuilderReadBufferSizeKB = "8192" :
 @bDepotBuilderUnbufferedReads = "1" :
 @bDisableDualStackDownloads = "0" :
+@bDownloadThrottleDuringCloudSync = "0" :
 @bEnableFrameFuncOverageWarnings = "0" : This turns on the spew in SPEW_MISC at level 4, still need to adjust spew levels to see it.
 @bEnableHTTP2OnAllCHTTPClients = "0" : Enable HTTP/2 on all CHTTPClients automatically for SSL connections
 @bEnableLogTearOff = "1" :
 @bEnableMovieRecording = "0" :
 @bEnableNetworkJobsOwnStartList = "1" :
 @bEnableOfflineLogonTicket = "1" : If true, an offline logon ticket will be requested during logon if none is cached
+@bEnableProtobufArenaAllocation = "0" : Kill switch for arena allocation globally
 @bEnableSiteLicenseConnect = "1" :
 @bEnableSiteLicenseConsoleLogging = "0" :
 @bEnableSpewThrottle = "1" :
 @bEnforceValidEmailDomains = "1" : Enable valid email domains in BIsValidEmailAddress
 @bForceStreamUnsupportedApp = "0" :
+@bFreeCNetPacketOnThread = "1" : Should we move freeing netpackets to a threaded workitem
 @bHttpClientRecordHostnameDimension = "0" : Group HTTP metrics by hostname. Careful, the cardinality of your in-memory map might be large.
 @bLANPeerConnectionTimeoutSec = "5" :
 @bLogMessageToProtobufClass = "1" : We we first discover the protobuf class used for a particular EMsg, log it
 @bMetricsEnabled = "1" : Enabling allows jobs to collect and report metrics through IMetricsReporters.
 @bMsgErrorDump = "0" :
+@bPartnerUploadUseCloud = "-1" : set to request to use or not use cloud storage for legacy DRM uploads: 1 = yes, 0 = no, -1 = let server decide
 @bRequireOfflineLogonTicket = "1" : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
 @bScreenshotsLegacyCloudUpload = "0" : If set, use the legacy Steam Cloud upload path for screenshot uploads
 @bShaderClientGetBucketManifestUseWebAPI = "1" :
@@ -111,7 +116,6 @@ ConVars:
 @nClientDownloadEnableHTTP2RelBranch = "1" : Only enable HTTP/2 on enabled platforms on rel branch client if this is set
 @nClientDownloadInitWindowSizeHTTP2Connection = "10000000" : Init per-connection window size for HTTP/2.
 @nClientDownloadInitWindowSizeHTTP2Stream = "2000000" : Init per-stream window size for HTTP/2.
-@nClientDownloadNiceNetworkThrottlePercentage = "85" :
 @nClientDownloadPreferredServerMaxLoad = "85" : Once preferred servers reach this load, we'll continue to use non-preferred servers in the list after them
 @nClientEnableHTTP2PlatformLinux = "0" : Enable HTTP/2 connections on Linux clients
 @nClientEnableHTTP2PlatformWindows = "0" : Enable HTTP/2 connections on Windows clients
@@ -122,9 +126,9 @@ ConVars:
 @nContentUpdateAutoVerifyCleanBytesThresholdMB = "2048" : How many clean MB must we verify before backing off on auto-verifies
 @nContentUpdateAutoVerifyEnable = "1" : 0 = disabled; 1 = enabled all clients; 2 = enabled public Beta clients only
 @nContentUpdateAutoVerifyPostThresholdOdds = "10" : 1 in X chance we auto-verify this update even if you've reached the clean-data threshold
-@nDownloadGlobalThrottlingDaytimeStartHour = "0" :
 @nDownloadLANChunkCacheSizeMB = "128" :
 @nDownloadLANPeerGroup = "0" :
+@nFreeCNetPacketOnThreadMaxBatch = "2048" : How many max packets to free per-workitem
 @nHTPPServerLogLevelAccessLine200 = "3" : Log level to use for one-line access-log-style for each http server request returning 200
 @nHTPPServerLogLevelAccessLineNon200 = "2" : Log level to use for one-line access-log-style for each http server request that returns != 200
 @nHTPPServerLogLevelDetails200 = "4" : Log level to use for full details of any http server request returning 200. This will probably fill up the log if you leave it on.
@@ -150,7 +154,6 @@ ConVars:
 @nSpewThrottleTriggerThreshold = "10" :
 @nSpewThrottleUnconditionalResumeMs = "5000" :
 @nSpewThrottleUnconditionalTriggerCount = "50" :
-@nTCPLargeSendBufSizeMB = "16" :
 @net_backlog_bytes_allowed = "18000000" :
 @net_backlog_time_allowed_sec = "8" :
 @net_loopback = "1" :
@@ -180,11 +183,12 @@ ClientConnectTokenBucketEnable = "1" :
 ClientStatsUploadRateSeconds = "10" :
 DepotDeltaPatches = "2" :
 DepotDownloadProgressTimeout = "900" :
-DepotMinWriteGapSize = "64" :
+DepotMinWriteGapSizeMB = "64" :
 DepotReconstructionBadChunk = "0" :
 DepotReconstructionLowPrio = "1" :
 DepotReconstructionNumIOThreads = "32" :
 DepotUseAlternatingReadWrite = "1" :
+DepotUseSparseFiles = "1" :
 MergeCapReprocess_minutes = "480" :
 UGCCDNReportPct = "100" :
 app_force_preload = "0" : force this app into preload mode
@@ -196,7 +200,7 @@ bBroadcastUploadGameDataIntervalSeconds = "5" :
 bCheckUGCIntegrity = "1" :
 bClientConvar601DEACE = "1" :
 bClientPingCSesForCellID = "0" :
-bCloudAcceptUnexpectedAutoCloudFileChanges = "1" :
+bCloudAcceptUnexpectedAutoCloudFileChanges = "0" :
 bDelayGameUpdatesOnBeta = "0" : Should we do scheduling of updates on Steam Beta? If not, they'll all be ASAP
 bDepotDeltaPatchUseAPI = "1" :
 bDisableTenFootOverlay = "0" :
@@ -249,7 +253,11 @@ csecManifestDownloadTimeout = "120" :
 deck_mouse_haptic_tick_dist = "9000" :
 deck_mouse_leftside_filter = "30500" :
 developer = "0" :
-g_yawNudgeTowardMeanFactor = "0.0" :
+g_RumbleRepeatAfterDelaySeconds = "0.050" :
+g_RumbleSustainTimeSeconds = "3" :
+g_pitchNudgeFromAccelerometer = "0.005" :
+g_yawNudgeTowardMeanFactor = "0.000" :
+gyro_controller_update_ab_test = "0" :
 gyro_drift_calibration_debug = "0" :
 gyro_raw_deadzone = "6.0" :
 gyro_stationary_calibration_debug = "0" :
@@ -276,6 +284,7 @@ nCloudFileCompressionMinFileSizeKBSharedFile = "128" :
 nCloudFileCompressionPercentageMin = "10" :
 nCloudFileCompressionPercentageMinSharedFile = "50" :
 nCloudUploadMinIntervalSec = "1800" :
+nCloudUploadNetworkTimeoutSeconds = "400" :
 nContentDownloadsToOtherDrive = "1" : Allow to download updates to other drives then install folder is on
 nContentStatsReportInterval = "72" : In Hours
 nDepotSaveCorruptChunks = "0" :
@@ -313,10 +322,12 @@ workshop_items_update_interval = "900" :
 
 Commands:
 api_logging : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
+app_backup : <appid> <target folder> [max folder size MB]
 app_build_all_depots : app_build_all_depots [-desc <text>] -depotconfigpath <folder> -contentroot <folder> -buildoutput <folder> <appid> : Build all depots for one app
 app_delay_update : <appid> <seconds> force delay update
 app_dlc_status : app_status <appId> <dlcId>
-app_info_print : Dumps app info for appID
+app_info_find : Find apps with a certain appinfo value set, eg 'common/type media'. * is any.
+app_info_print : app_info_print <appid> [section] : print app info for appID
 app_info_request : <AppID> - Issue an appinfo request for the given appid. Does not wait for results from the server.
 app_info_update : [0|1] : trigger app info update, optionally for update all
 app_install_script : <AppID> [uninstall:0|1]- Runs app install script.
@@ -332,7 +343,6 @@ app_update_cancel : <EAppUpdateError>
 apps_installed :
 apps_running : displays information about running games tracked by Steam
 async_disconnect : async disconnect
-build_backup : <appid> <target folder> [max folder size MB]
 build_installer : <project file> <target folder> [beta key] [beta pwd]
 ceg_wrap : ceg_wrap <appid> <orig filename> <stripped filename> <strips filename> : upload executable to back end for CEG wrapping
 cm_force_change : Change CM List
@@ -352,7 +362,6 @@ get_download_throttle :
 help : Show help information
 http_cache_clearall : Delete all data from internal HTTP client and CEF browser
 http_test : <optional_url> test HTTP connectivity via specified URL
-httpclients : [cMaxPerCnx] Dump HTTP client stats, optionally limiting the # of in-flight requests to spew per connection
 info : Dump various Steam info
 library_folder_list : list all mounted Steam volumes
 licenses_for_app : <appid> : shows active licenses for appid
