@@ -60,7 +60,6 @@ ConVars:
 @bLogMessageToProtobufClass = "1" : We we first discover the protobuf class used for a particular EMsg, log it
 @bMetricsEnabled = "1" : Enabling allows jobs to collect and report metrics through IMetricsReporters.
 @bMsgErrorDump = "0" :
-@bPartnerUploadUseCloud = "-1" : set to request to use or not use cloud storage for legacy DRM uploads: 1 = yes, 0 = no, -1 = let server decide
 @bRequireOfflineLogonTicket = "1" : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
 @bScreenshotsLegacyCloudUpload = "0" : If set, use the legacy Steam Cloud upload path for screenshot uploads
 @bShaderClientGetBucketManifestUseWebAPI = "1" :
@@ -254,9 +253,13 @@ deck_mouse_haptic_tick_dist = "9000" :
 deck_mouse_leftside_filter = "30500" :
 developer = "0" :
 g_RumbleRepeatAfterDelaySeconds = "0.050" :
-g_RumbleSustainTimeSeconds = "3" :
+g_RumbleSustainTimeSeconds = "10" :
 g_pitchNudgeFromAccelerometer = "0.005" :
 g_yawNudgeTowardMeanFactor = "0.0001" :
+gyro_calibration_duration_automatic = "5.0" :
+gyro_calibration_duration_manual = "5.0" :
+gyro_calibration_duration_manual_timeout = "30.0" :
+gyro_calibration_duration_stationary = "5.0" :
 gyro_controller_update_ab_test = "0" :
 gyro_drift_calibration_debug = "0" :
 gyro_raw_deadzone = "6.0" :
@@ -351,7 +354,7 @@ download_chunk : download_chunk <appid> <depotid> <sha>: download a single chunk
 download_depot : download_depot <appid> <depotid> [<target manifestid>] [<delta manifestid>] [<depot flags filter>] [<destination folder>]: download a single depot
 download_item : download_item <appid> <PublishedFileId> : download a workshop item directly
 download_sources : Dumps list of download sources
-drm_wrap : drm_wrap <appid> <input filename> <output filename> <toolname> <flags> : upload executable to back end for DRM wrapping
+drm_wrap : drm_wrap <appid> <input filename> <output filename> <toolname> <flags> [<destination>]: upload executable to back end for DRM wrapping
 dump_box_ips : dump the list of detected local box IP addresses
 dump_offline_playtime : Dumps recorded playtime sessions
 dump_scheduled_functions : usage: "dump_scheduled_functions" Displays internal Steam function callback timers
