@@ -48,13 +48,11 @@ ConVars:
 @bEnableMovieRecording = "0" :
 @bEnableNetworkJobsOwnStartList = "1" :
 @bEnableOfflineLogonTicket = "1" : If true, an offline logon ticket will be requested during logon if none is cached
-@bEnableProtobufArenaAllocation = "0" : Kill switch for arena allocation globally
 @bEnableSiteLicenseConnect = "1" :
 @bEnableSiteLicenseConsoleLogging = "0" :
 @bEnableSpewThrottle = "1" :
 @bEnforceValidEmailDomains = "1" : Enable valid email domains in BIsValidEmailAddress
 @bForceStreamUnsupportedApp = "0" :
-@bFreeCNetPacketOnThread = "1" : Should we move freeing netpackets to a threaded workitem
 @bHttpClientRecordHostnameDimension = "0" : Group HTTP metrics by hostname. Careful, the cardinality of your in-memory map might be large.
 @bLANPeerConnectionTimeoutSec = "5" :
 @bLogMessageToProtobufClass = "1" : We we first discover the protobuf class used for a particular EMsg, log it
@@ -127,14 +125,13 @@ ConVars:
 @nContentUpdateAutoVerifyPostThresholdOdds = "10" : 1 in X chance we auto-verify this update even if you've reached the clean-data threshold
 @nDownloadLANChunkCacheSizeMB = "128" :
 @nDownloadLANPeerGroup = "0" :
-@nFreeCNetPacketOnThreadMaxBatch = "2048" : How many max packets to free per-workitem
 @nHTPPServerLogLevelAccessLine200 = "3" : Log level to use for one-line access-log-style for each http server request returning 200
 @nHTPPServerLogLevelAccessLineNon200 = "2" : Log level to use for one-line access-log-style for each http server request that returns != 200
 @nHTPPServerLogLevelDetails200 = "4" : Log level to use for full details of any http server request returning 200. This will probably fill up the log if you leave it on.
 @nHTPPServerLogLevelDetailsNon200 = "4" : Log level to use for full details of any http server request returning != 200
 @nIOCPThreadCount = "1" :
-@nJobInteryieldMillisecondsAlertThreshold = "200" :
-@nJobInteryieldMillisecondsLogThreshold = "100" :
+@nJobInteryieldMillisecondsAlertThreshold = "120" :
+@nJobInteryieldMillisecondsLogThreshold = "80" :
 @nJobNetSendsInsaneThreshold = "15000" :
 @nLANPeerGroupRateLimitKbps = "0" :
 @nLANPeerMaxConnections = "24" :
@@ -142,6 +139,10 @@ ConVars:
 @nLegalDictionaryUpdateRateInSeconds = "600" :
 @nNetConnectionBufferZipLevel = "1" :
 @nParentalSettingsLogLevel = "4" : Control the amount of spew written to the parental log file
+@nProtobufArenaInitialBlockSize = "65536" : Default initial allocation size for PB arena
+@nProtobufArenaMaxBlockSize = "524288" : Max block allocation size for PB arena
+@nProtobufArenaNumberOfHeadersToShare = "128" : Number of Jobs to give a single protobuf Arena before we create a new one
+@nProtobufArenaNumberOfJobsToShare = "128" : Number of Jobs to give a single protobuf Arena before we create a new one
 @nRoamingConfigReconnectCloudSyncWindowSec = "7200" :
 @nScreenshotSaveMaxWidth = "9999" :
 @nSiteLicenseProxyCacheMaxGB = "100" : If local content cache is enabled, use up to this much disk space
@@ -239,12 +240,14 @@ cPreallocateMinimumSizeKB = "256" :
 controller_base_rotation_angle = "0" :
 controller_edge_cutoff = "0" :
 controller_gyro_x_scale = "16000" :
+controller_idle_poll_interval = "50" :
 controller_min_activation_time = "0.0333" :
 controller_momentum_min_vel = "0" :
 controller_momentum_num_excluded_samples = "1" :
 controller_momentum_num_included_samples = "5" :
 controller_momentum_smooth = "0" :
 controller_newpoll = "1" :
+controller_poll_state = "-1" :
 controller_rate = "2000" :
 controller_spew_level = "3" :
 countrycode = "" :
