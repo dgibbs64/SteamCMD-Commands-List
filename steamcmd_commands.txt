@@ -104,7 +104,7 @@ ConVars:
 @nClientCMUDPPingTimeGoodEnoughThresholdMS = "50" :
 @nClientCMUDPPingTimeoutUseGoodEnoughMS = "250" :
 @nClientCloudMaxMBParallelDownloads = "64" :
-@nClientCloudMaxMBParallelUploads = "64" :
+@nClientCloudMaxMBParallelUploads = "32" :
 @nClientCloudMaxNumParallelDeletes = "10" :
 @nClientCloudMaxNumParallelDownloads = "10" :
 @nClientCloudMaxNumParallelUploads = "10" :
