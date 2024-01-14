@@ -31,7 +31,7 @@ ConVars:
 @PeerContentServerRetryDelay = "60" : seconds before retrying peer content server
 @ShutdownOnFailedCommand = "1" : Exit steamcmd immediately upon any failed console command
 @StreamClientArgs = "" :
-@WatchdogThreadPercentReport = "100" :
+@WatchdogThreadPercentReport = "10" :
 @bCSForceNoCache = "0" :
 @bCallerDeadlineAbortJobDisableWhenHTTPReqStart = "1" :
 @bCheckMsgProtobufOnJobStackForArenaAlloc = "1" : Should we only use the arena allocator if the protobuf is on the job stack
