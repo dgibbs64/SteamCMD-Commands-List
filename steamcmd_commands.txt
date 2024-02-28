@@ -34,7 +34,6 @@ ConVars:
 @WatchdogThreadPercentReport = "10" :
 @bCSForceNoCache = "0" :
 @bCallerDeadlineAbortJobDisableWhenHTTPReqStart = "1" :
-@bCheckMsgProtobufOnJobStackForArenaAlloc = "1" : Should we only use the arena allocator if the protobuf is on the job stack
 @bClientDownloadUseHTTPS = "0" : Set this to use HTTPS on supported download servers
 @bClientOpenCacheStickyRedirects = "1" :
 @bClientTryRequestManifestWithoutCode = "0" : If set, client will try to get a manifest even without a manifest request code
