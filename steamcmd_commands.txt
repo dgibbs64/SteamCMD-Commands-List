@@ -62,7 +62,6 @@ ConVars:
 @bRequireOfflineLogonTicket = "1" : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
 @bScreenshotsLegacyCloudUpload = "0" : If set, use the legacy Steam Cloud upload path for screenshot uploads
 @bShaderClientGetBucketManifestUseWebAPI = "1" :
-@bShaderClientUseProtobufLocalHitCache = "1" :
 @bSiteLicenseAllowCachedClientCredentials = "0" : Allow Steam clients that associate to this site to save username and auth credentials locally
 @bSiteLicenseProxyCacheIsExternalProcess = "0" : If set, the caching content proxy will be handled by some process other than steamcmd. You probably also should set @sSiteLicenseProxyExplicitIP.
 @bSiteLicenseProxyEnableIPv6 = "0" : If set, we will enable ipv6 communications to the Steam servers
@@ -120,7 +119,6 @@ ConVars:
 @nClientEnableHTTP2PlatformWindows = "0" : Enable HTTP/2 connections on Windows clients
 @nClientQueryCMDirectoryBeforeConnect = "1" : Use CMDirectory webapi to get fresh CM list on connect - 0=disabled, 1=enabled, 2=main/dev/beta clients only
 @nClientServiceMethodForDownloadListPercent = "100" :
-@nCloudClientUseGetAppFileChangelist = "1" : Should the client use the new GetAppFileChangelist API - 0 = no, 1 = yes, 2 = beta clients
 @nContentDeltaChunkAppendChunksAfterProtobufSizeThresholdMB = "33" :
 @nContentUpdateAutoVerifyCleanBytesThresholdMB = "2048" : How many clean MB must we verify before backing off on auto-verifies
 @nContentUpdateAutoVerifyEnable = "1" : 0 = disabled; 1 = enabled all clients; 2 = enabled public Beta clients only
@@ -134,6 +132,7 @@ ConVars:
 @nIOCPThreadCount = "1" :
 @nJobInteryieldMillisecondsAlertThreshold = "120" :
 @nJobInteryieldMillisecondsLogThreshold = "80" :
+@nJobInteryieldMillisecondsSpewThreshold = "500" :
 @nJobNetSendsInsaneThreshold = "15000" :
 @nLANPeerGroupRateLimitKbps = "0" :
 @nLANPeerMaxConnections = "24" :
