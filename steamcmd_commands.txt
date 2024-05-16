@@ -122,7 +122,7 @@ ConVars:
 @nContentDeltaChunkAppendChunksAfterProtobufSizeThresholdMB = "33" :
 @nContentUpdateAutoVerifyCleanBytesThresholdMB = "2048" : How many clean MB must we verify before backing off on auto-verifies
 @nContentUpdateAutoVerifyEnable = "1" : 0 = disabled; 1 = enabled all clients; 2 = enabled public Beta clients only
-@nContentUpdateAutoVerifyPostThresholdOdds = "10" : 1 in X chance we auto-verify this update even if you've reached the clean-data threshold
+@nContentUpdateAutoVerifyPostThresholdOdds = "50" : 1 in X chance we auto-verify this update even if you've reached the clean-data threshold
 @nDownloadLANChunkCacheSizeMB = "128" :
 @nDownloadLANPeerGroup = "0" :
 @nHTPPServerLogLevelAccessLine200 = "3" : Log level to use for one-line access-log-style for each http server request returning 200
