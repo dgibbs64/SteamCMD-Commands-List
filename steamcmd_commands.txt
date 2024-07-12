@@ -339,7 +339,7 @@ voice_quality = "6" :
 voice_resample_quality = "1" :
 voice_silk_bitrate = "30000" :
 workshop_items_cache_days = "14" :
-workshop_items_update_interval = "1800" :
+workshop_items_update_interval = "2700" :
 
 Commands:
 api_logging : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
