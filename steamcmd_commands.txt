@@ -110,7 +110,7 @@ ConVars:
 @nClientCloudMaxNumParallelDownloads = "10" :
 @nClientCloudMaxNumParallelUploads = "10" :
 @nClientCloudMaxNumUploadsPerBatch = "100" :
-@nClientDownloadEnableHTTP2PlatformLinux = "1" : Enable HTTP/2 connections on Linux clients
+@nClientDownloadEnableHTTP2PlatformLinux = "0" : Enable HTTP/2 connections on Linux clients
 @nClientDownloadEnableHTTP2PlatformWindows = "1" : Enable HTTP/2 connections on Windows clients
 @nClientDownloadEnableHTTP2RelBranch = "1" : Only enable HTTP/2 on enabled platforms on rel branch client if this is set
 @nClientDownloadInitWindowSizeHTTP2Connection = "10000000" : Init per-connection window size for HTTP/2.
