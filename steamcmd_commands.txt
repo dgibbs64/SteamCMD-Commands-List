@@ -21,6 +21,10 @@ ConVars:
 @GCNameOverride = "" :
 @LocalContentServer = "" :
 @LogFileFolderName = "" : Use something other than 'logs' as the folder for log files
+@MatchmakingCreatePingWaitTime = "0" :
+@MatchmakingJoinPingWaitTime = "0" :
+@MatchmakingSearchPingWaitTime = "0" :
+@MatchmakingTotalPingWaitTime = "0" :
 @MaxOutstandingSendThreadItem = "10000" :
 @NetConnectionBufferMsgLimit = "1000" : Max # of message that will be buffered into a single zipped packet
 @NetConnectionBufferThreaded = "1" :
@@ -115,6 +119,7 @@ ConVars:
 @nClientDownloadEnableHTTP2RelBranch = "1" : Only enable HTTP/2 on enabled platforms on rel branch client if this is set
 @nClientDownloadInitWindowSizeHTTP2Connection = "10000000" : Init per-connection window size for HTTP/2.
 @nClientDownloadInitWindowSizeHTTP2Stream = "2000000" : Init per-stream window size for HTTP/2.
+@nClientDownloadProbUseHTTP2IfAvailable = "50" : If http/2 is available for a given download source, use it w/ this probability [0,100]
 @nClientEnableHTTP2PlatformLinux = "0" : Enable HTTP/2 connections on Linux clients
 @nClientEnableHTTP2PlatformWindows = "0" : Enable HTTP/2 connections on Windows clients
 @nClientEnableIPv6ForHTTPPlatformLinux = "0" : Enable IPv6 HTTP connections by default on Linux clients
@@ -148,6 +153,9 @@ ConVars:
 @nProtobufArenaNumberOfJobsToShare = "128" : Number of Jobs to give a single protobuf Arena before we create a new one
 @nRoamingConfigReconnectCloudSyncWindowSec = "7200" :
 @nScreenshotSaveMaxWidth = "9999" :
+@nServerRefreshRateLimitAdditional = "1" : Limits the burst number of calls per appid to refresh GMS game server lists
+@nServerRefreshRateLimitBurst = "100" : Limits the burst number of calls per appid to refresh GMS game server lists
+@nServerRefreshRateLimitInterval = "5" : Limits the burst number of calls per appid to refresh GMS game server lists
 @nSiteLicenseProxyCacheMaxGB = "100" : If local content cache is enabled, use up to this much disk space
 @nSiteLicenseProxyEnableP2P = "0" : If set, will have all connected clients join the same P2P download group
 @nSiteLicenseProxyPort = "0" : Local content cache: set > 0 to enable, will listen on this port
@@ -310,6 +318,7 @@ nContentDownloadsToOtherDrive = "1" : Allow to download updates to other drives 
 nContentStatsReportInterval = "72" : In Hours
 nDepotSaveCorruptChunks = "0" :
 nPeerContentDefaultMode = "1" : 0 = off, 1 = only me, 2 = only friends, 3 = anyone
+nPrivateBetaBranches = "2" :
 nProductInfoUpdateInterval = "900" :
 nRichPresenceUploadThrottleSecs = "5" :
 nSubscribedAutoDownloadMaxSimultaneous = "8" :
@@ -402,6 +411,7 @@ p2p_info : usage: "p2p_info" Displays the current state of the P2P networking su
 package_info_print : Dumps package info for packageID
 patch_dump : <filename> <depotid>
 peer_content_server_status : Dumps status of peer content server
+print_sdr_ping : print current sdr ping location string
 profile : <seconds> profile for N seconds
 quit : Stops Steam client console
 remote_clients : dump remote client info
