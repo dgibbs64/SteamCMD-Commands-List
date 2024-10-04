@@ -119,7 +119,7 @@ ConVars:
 @nClientDownloadEnableHTTP2RelBranch = "1" : Only enable HTTP/2 on enabled platforms on rel branch client if this is set
 @nClientDownloadInitWindowSizeHTTP2Connection = "10000000" : Init per-connection window size for HTTP/2.
 @nClientDownloadInitWindowSizeHTTP2Stream = "2000000" : Init per-stream window size for HTTP/2.
-@nClientDownloadProbUseHTTP2IfAvailable = "75" : If http/2 is available for a given download source, use it w/ this probability [0,100]
+@nClientDownloadProbUseHTTP2IfAvailable = "90" : If http/2 is available for a given download source, use it w/ this probability [0,100]
 @nClientEnableHTTP2PlatformLinux = "0" : Enable HTTP/2 connections on Linux clients
 @nClientEnableHTTP2PlatformWindows = "0" : Enable HTTP/2 connections on Windows clients
 @nClientEnableIPv6ForHTTPPlatformLinux = "0" : Enable IPv6 HTTP connections by default on Linux clients
