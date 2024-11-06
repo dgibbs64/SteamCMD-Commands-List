@@ -128,8 +128,8 @@ ConVars:
 @nClientServiceMethodForDownloadListPercent = "100" :
 @nContentDeltaChunkAppendChunksAfterProtobufSizeThresholdMB = "33" :
 @nContentUpdateAutoVerifyCleanBytesThresholdMB = "2048" : How many clean MB must we verify before backing off on auto-verifies
-@nContentUpdateAutoVerifyEnable = "1" : 0 = disabled; 1 = enabled all clients; 2 = enabled public Beta clients only
-@nContentUpdateAutoVerifyPostThresholdOdds = "50" : 1 in X chance we auto-verify this update even if you've reached the clean-data threshold
+@nContentUpdateAutoVerifyEnable = "1" : 0 = disabled; 1 = enabled all clients
+@nContentUpdateAutoVerifyIntervalDays = "15" : Auto-verify game updates ever N days
 @nDownloadLANChunkCacheSizeMB = "128" :
 @nDownloadLANPeerGroup = "0" :
 @nHTPPServerLogLevelAccessLine200 = "3" : Log level to use for one-line access-log-style for each http server request returning 200
@@ -191,7 +191,6 @@ AsyncFileIOMaxPendingWin32 = "256" :
 AsyncFileIOReadHandleCache = "64" :
 AsyncFileIOWriteHandleCache = "64" :
 ClientConnectTokenBucketEnable = "1" :
-ClientStatsUploadRateSeconds = "10" :
 DepotDeltaPatches = "2" :
 DepotDownloadProgressTimeout = "900" :
 DepotMinWriteGapSizeMB = "64" :
@@ -207,7 +206,6 @@ app_info_http_min = "0" :
 app_info_http_num_sockets = "8" :
 appcloudsessions = "all" :
 bBroadcastAlwaysUploadThumbnails = "1" :
-bBroadcastUploadGameDataIntervalSeconds = "5" :
 bCheckUGCIntegrity = "1" :
 bClientConvar601DEACE = "1" :
 bClientPingCSesForCellID = "0" :
@@ -257,7 +255,6 @@ controller_momentum_min_vel = "0" :
 controller_momentum_num_excluded_samples = "1" :
 controller_momentum_num_included_samples = "5" :
 controller_momentum_smooth = "0" :
-controller_newpoll = "1" :
 controller_poll_state = "-1" :
 controller_rate = "2000" : SteamInput Active Polling interval in microseconds. Default 2000us = 500hz
 controller_spew_level = "3" :
@@ -347,6 +344,7 @@ voice_preprocess = "0" : enables voice cleanup on incoming microphone data
 voice_quality = "6" :
 voice_resample_quality = "1" :
 voice_silk_bitrate = "30000" :
+voice_spew_activity_check = "0" :
 workshop_items_cache_days = "14" :
 workshop_items_update_interval = "2700" :
 
