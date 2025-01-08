@@ -315,7 +315,7 @@ nContentDownloadsToOtherDrive = "1" : Allow to download updates to other drives 
 nContentStatsReportInterval = "72" : In Hours
 nDepotSaveCorruptChunks = "0" :
 nPeerContentDefaultMode = "1" : 0 = off, 1 = only me, 2 = only friends, 3 = anyone
-nPrivateBetaBranches = "100000" :
+nPrivateBetaBranches = "1" :
 nProductInfoUpdateInterval = "900" :
 nRichPresenceUploadThrottleSecs = "5" :
 nSubscribedAutoDownloadMaxSimultaneous = "8" :
