@@ -101,6 +101,7 @@ ConVars:
 @metricsDisabledCatalogs = "" : Comma separated list of metrics catalogs to disable. This is the last check.
 @metricsDisabledOperations = "" : Comma separated list of metrics operations that are disabled. This setting has highest priority
 @metricsEnabledOperations = "" : Comma separated list of metrics operations. Overrides disabled catalogs
+@nBootReserveRetryPeriodSec = "30" : Number of seconds to wait before retrying after failing to create a boot reserve file. Should be a multiple of 10.
 @nCSClientRateLimitKbps = "0" :
 @nCSJob404ResponseLimit = "100" :
 @nCSJob5xyResponseLimit = "10" :
@@ -136,6 +137,8 @@ ConVars:
 @nHTPPServerLogLevelAccessLineNon200 = "2" : Log level to use for one-line access-log-style for each http server request that returns != 200
 @nHTPPServerLogLevelDetails200 = "4" : Log level to use for full details of any http server request returning 200. This will probably fill up the log if you leave it on.
 @nHTPPServerLogLevelDetailsNon200 = "4" : Log level to use for full details of any http server request returning != 200
+@nHTTPServerMaxPipelinedReqsPerConnection = "8" : Max outstanding pipelined reqs per connection
+@nHTTPServerYieldOn100ContinueSendSecs = "300" : Seconds to yield when sending a 100 continue for purposes of telling client to send body of request
 @nIOCPThreadCount = "1" :
 @nJobInteryieldMillisecondsAlertThreshold = "120" :
 @nJobInteryieldMillisecondsLogThreshold = "80" :
@@ -182,6 +185,9 @@ ConVars:
 @uDownloadLANPeerPort = "27038" : If LAN p2p download enabled, will listen on this port for TCP connections from peers. Must be set consistently across all members of the group!
 @uRemoteDiscoveryPortOverride = "0" : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort
 @uRemoteDiscoveryPortTransmit = "0" : If non-zero, will transmit outgoing broadcasts on this port instead of on the listen port
+@voice_minabs = "0.15" :
+@voice_minavg = "1.0" :
+@voice_spew_activity_check = "0" :
 AlwaysCustomizeOnBadExit = "0" :
 AsyncFileIOAlternateReadWrite = "0" :
 AsyncFileIODisableWrite = "0" :
@@ -286,7 +292,6 @@ gyro_raw_deadzone = "6.0" : Legacy deadzoning for gyro signal. Only affects "As 
 gyro_speed_deadzone = "0.5" :
 gyro_speed_deadzone_enabled = "1" : Enable the minimum speed required to update the gyroscope response.
 gyro_stationary_calibration_debug = "0" : Display which sensor readings (accelerometer or gyroscope) are restarting the tolerance calibration due to their noise being too large.
-gyro_use_neptune_raw_quaternion = "0" :
 haptic_click_gain_modifier = "0" :
 haptic_intensity = "8000" :
 haptic_intensity_old = "2500" :
@@ -336,15 +341,12 @@ unShaderMaxUploadMessageSizeKb = "256" :
 voice_api_optimalrate = "24000" :
 voice_autogain = "0" :
 voice_fakeloss = "0" :
-voice_minabs = "0.15" :
-voice_minavg = "1.0" :
 voice_outputdevice = "0" : 0=>Miles 1=>XAudio2
 voice_outputfile = "" : causes output from voice system to be written out to the specified file
 voice_preprocess = "0" : enables voice cleanup on incoming microphone data
 voice_quality = "6" :
 voice_resample_quality = "1" :
 voice_silk_bitrate = "30000" :
-voice_spew_activity_check = "0" :
 workshop_items_cache_days = "14" :
 workshop_items_update_interval = "2700" :
 
