@@ -42,7 +42,6 @@ ConVars:
 @bClientOpenCacheStickyRedirects = "1" :
 @bClientTryRequestManifestWithoutCode = "0" : If set, client will try to get a manifest even without a manifest request code
 @bCloudSyncFailDownloadIfGameOutOfDate = "0" :
-@bContentManifestUseProtobufs = "1" :
 @bDepotBuilderReadBufferSizeKB = "8192" :
 @bDepotBuilderUnbufferedReads = "1" :
 @bDisableDualStackDownloads = "0" :
@@ -125,6 +124,8 @@ ConVars:
 @nClientEnableHTTP2PlatformWindows = "0" : Enable HTTP/2 connections on Windows clients
 @nClientEnableIPv6ForHTTPPlatformLinux = "0" : Enable IPv6 HTTP connections by default on Linux clients
 @nClientEnableIPv6ForHTTPPlatformWindows = "0" : Enable IPv6 HTTP connections by default on Windows clients
+@nClientInitWindowSizeHTTP2Connection = "10000000" : Init per-connection window size for HTTP/2.
+@nClientInitWindowSizeHTTP2Stream = "2000000" : Init per-stream window size for HTTP/2.
 @nClientQueryCMDirectoryBeforeConnect = "1" : Use CMDirectory webapi to get fresh CM list on connect - 0=disabled, 1=enabled, 2=main/dev/beta clients only
 @nClientServiceMethodForDownloadListPercent = "100" :
 @nContentDeltaChunkAppendChunksAfterProtobufSizeThresholdMB = "33" :
@@ -242,6 +243,7 @@ bSubscribedFilesDecompressOnClient = "1" :
 bSubscribedFilesPollForUpdates = "0" :
 bSubscribedFilesUseRangeRequests = "0" :
 bVerifyAllDownloads = "0" : Verify all files after downloading an update
+bVerifyAllInstalled = "0" : Verify all installed files before installing an update
 batterycharging = "0" :
 batterypercent = "-1" :
 batterytime = "-1" :
@@ -260,9 +262,9 @@ controller_min_activation_time = "0.0333" :
 controller_momentum_min_vel = "0" :
 controller_momentum_num_excluded_samples = "1" :
 controller_momentum_num_included_samples = "5" :
-controller_momentum_smooth = "0" :
 controller_poll_state = "-1" :
 controller_rate = "2000" : SteamInput Active Polling interval in microseconds. Default 2000us = 500hz
+controller_simulate_trackpad = "0" : Simulate a trackpad swipe on the right trackpad when the left pad is touched
 controller_spew_level = "3" :
 countrycode = "" :
 csecManifestDownloadTimeout = "120" :
@@ -271,7 +273,7 @@ deck_mouse_leftside_filter = "30500" :
 developer = "0" :
 g_RumbleRepeatAfterDelaySeconds = "0.050" :
 g_RumbleSustainTimeSeconds = "10" :
-gyro_auto_detect_polling_rate = "0" : 0: Legacy Mode. Known to be buggy with Blitz 2 and 1000hz controllers. 1: If SDL sensor delta time is zero, or unexpected sensor timings are detected, fall back on packet-rate based estimation of polling rate (if outside a margin of error: gyro_sensor_margin_of_error_pct). 2: Exclusively use packet-rate based estimation of polling rate.
+gyro_auto_detect_polling_rate = "1" : Wired Connections only. 0: Legacy Mode. Known to be buggy with Blitz 2 and other controllers set to 1000hz+. 1: If SDL3 sensor delta time is zero, or unexpected sensor timings are detected, fall back on packet-rate based estimation of polling rate (if outside a margin of error: gyro_sensor_margin_of_error_pct). 2: Exclusively use packet-rate based estimation of polling rate.
 gyro_calibration_duration_automatic = "5.0" : Duration in seconds required to calibrate gyro drift outside of manual calibration. Warning: Short calibration times are more likely to result in false positive anti-drift solutions.
 gyro_calibration_duration_manual = "5.0" : Duration in second of manual gyro drift calibration. Longer durations make for more accurate drift corrections.
 gyro_calibration_duration_manual_timeout = "30.0" : Duration before manual gyro drift calibration times out, and returns to calibrating the noise tolerance.
@@ -322,7 +324,6 @@ nContentDownloadsToOtherDrive = "1" : Allow to download updates to other drives 
 nContentStatsReportInterval = "72" : In Hours
 nDepotSaveCorruptChunks = "0" :
 nPeerContentDefaultMode = "1" : 0 = off, 1 = only me, 2 = only friends, 3 = anyone
-nPrivateBetaBranches = "1" :
 nProductInfoUpdateInterval = "900" :
 nRichPresenceUploadThrottleSecs = "5" :
 nSubscribedAutoDownloadMaxSimultaneous = "8" :
@@ -372,6 +373,7 @@ app_stop : <appid> [force:0|1] stop this running app
 app_uninstall : <appId>
 app_update : app_update <appid> [-validate] [-language <lang>] [-beta <betaname>] [-betapassword <pwd>] make sure a Steam application is up-to-date
 app_update_cancel : <EAppUpdateError>
+app_update_status : app_update_status [appId]
 apps_installed :
 apps_running : displays information about running games tracked by Steam
 async_disconnect : async disconnect
@@ -421,7 +423,7 @@ render_ipc_connections : usage: "render_ipc_connections
 run_app_build : run_app_build [-preview] [-desc <text>] <appbuildfile> : run app depot build as specified in appbuildfile
 run_app_build_http : run_app_build_http : alias for run_app_build
 runscript : <scriptfile> - runs a console command script
-set_app_beta_password : set_app_beta_password <appid> -betapassword <pwd> -- opt-in to the app beta with the given password
+set_app_beta_password : set_app_beta_password <appid> -beta <name> -betapassword <pwd> -- opt-in to the app beta with the given password
 set_download_throttle : set_download_throttle <kbps> <bPersistent = false>
 set_spew : <group> <level> <loglevel> set spew levels for the given group
 set_spew_level : <SpewLevel LogLevel> Sets spew and log level for all groups
