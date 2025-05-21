@@ -303,6 +303,7 @@ haptic_intensity_old = "2500" :
 haptic_new = "0" :
 haptic_off_divisor = "5.0f" :
 haptic_tick_gain_modifier = "0" :
+lenovo_hook_filter = "31500" :
 log_files_always_flush = "0" :
 log_matchmaking_callbacks = "0" :
 mic_autogain = "16000" : automatic gain control level for microphone input
