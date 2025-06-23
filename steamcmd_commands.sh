@@ -28,6 +28,7 @@ for letter in {a..z}; do
   sed -i '/CProcessWorkItem/d' "${rootdir}/tmp/${letter}_raw.txt"
   sed -i '/CHTTPClientThreadPool/d' "${rootdir}/tmp/${letter}_raw.txt"
   sed -i '/CJobMgr::m_WorkThreadPool:1/d' "${rootdir}/tmp/${letter}_raw.txt"
+  sed -i '/CUnloading Steam API/d "${rootdir}/tmp/${letter}_raw.txt"
 
   # Separating commands and convars
   # Commands List
