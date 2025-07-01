@@ -361,6 +361,7 @@ Unloading Steam API...OK
 api_logging : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
 app_backup : <appid> <target folder> [max folder size MB]
 app_build_all_depots : app_build_all_depots [-desc <text>] -depotconfigpath <folder> -contentroot <folder> -buildoutput <folder> <appid> : Build all depots for one app
+app_debug_install : <appId> [<path>] - app debug install
 app_delay_update : <appid> <seconds> force delay update
 app_dlc_status : app_status <appId> <dlcId>
 app_info_find : Find apps with a certain appinfo value set, eg 'common/type media'. * is any.
