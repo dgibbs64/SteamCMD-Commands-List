@@ -24,12 +24,16 @@ jobs:
 
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
-      - name: Push to main branch
-        uses: Automattic/action-commit-to-branch@master
+      - name: Add and commit changes
+        uses: EndBug/add-and-commit@v9
         with:
-          branch: "main"
-          commit_message: "GitHub Actions build: ${{ steps.date.outputs.date }}"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          fetch: false
+          message: "GitHub Actions build: ${{ steps.date.outputs.date }}"
+          push: true
+
+      - name: Sleep for 10s
+        uses: juliangruber/sleep-action@v2
+        with:
+          time: 10s
