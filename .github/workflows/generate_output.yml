@@ -1,4 +1,3 @@
----
 # This workflow generates the output and pushes it to main branch
 
 name: Generate Output
@@ -8,6 +7,9 @@ on:
     - cron: "0 0 * * *"
   push:
     branches: ["main"]
+
+permissions:
+  contents: write
 
 jobs:
   build:
