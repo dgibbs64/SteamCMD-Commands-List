@@ -16,3 +16,4 @@ jobs:
         uses: creyD/prettier_action@v4.6
         with:
           prettier_plugins: "prettier-plugin-sh"
+          prettier_options: .
