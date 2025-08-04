@@ -17,7 +17,8 @@ cd "${rootdir}/steamcmd" || exit
 # Loop though each letter of the alphabet using find command
 for letter in {a..z}; do
   echo "steamcmd +login anonymous +find ${letter} +quit"
-  steamcmd +login anonymous +find "${letter}" +quit > "${rootdir}/tmp/${letter}_raw.txt"
+   # shellcheck disable=SC2086
+  steamcmd +login anonymous +find ${letter} +quit > "${rootdir}/tmp/${letter}_raw.txt"
   # Remove ANSI characters
   sed -i 's/\x1b//g' "${rootdir}/tmp/${letter}_raw.txt"
   sed -i 's/\[0m//g' "${rootdir}/tmp/${letter}_raw.txt"
