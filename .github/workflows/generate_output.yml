@@ -3,10 +3,12 @@
 name: Generate Output
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"
   push:
-    branches: ["main"]
+    branches:
+      - "*"
 
 permissions:
   contents: write
