@@ -25,7 +25,7 @@ for letter in {a..z}; do
   # shellcheck disable=SC2086
   steamcmd +login anonymous +find ${letter} +quit | \
     sed -E -e 's/\x1b\[[0-9;]*m//g' \
-      -e '/CWorkThreadPool|workthreadpool.cpp|CProcessWorkItem|CHTTPClientThreadPool|CJobMgr::m_WorkThreadPool:1|CUnloading Steam API/d' | \
+      -e '/CWorkThreadPool|workthreadpool.cpp|CProcessWorkItem|CHTTPClientThreadPool|CJobMgr::m_WorkThreadPool:1|Unloading Steam API/d' | \
     awk -v COUT="$commands_raw" -v VOUT="$convars_raw" '
       BEGIN{inConvars=0; inCommands=0}
       /ConVars:/ {inConvars=1; inCommands=0; next}
