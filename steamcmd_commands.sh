@@ -2,7 +2,7 @@
 # steamcmd_commands.sh
 # Author: Daniel Gibbs
 # Website: http://danielgibbs.co.uk
-# Version: 191212
+# Version: 250817
 # Description: SteamCMD does not have a "list all" command to get all command options within SteamCMD.
 # Instead you have use find <string>
 # This script outputs all the commands available and saves it to a file
@@ -13,7 +13,6 @@ echo ""
 echo "Getting SteamCMD Commands/Convars"
 echo "================================="
 mkdir "${rootdir}/tmp"
-cd "${rootdir}/steamcmd" || exit
 commands_raw="${rootdir}/tmp/commands_list_raw.txt"
 convars_raw="${rootdir}/tmp/convars_list_raw.txt"
 # Truncate/create aggregate files
@@ -24,10 +23,10 @@ convars_raw="${rootdir}/tmp/convars_list_raw.txt"
 for letter in {a..z}; do
   echo "steamcmd +login anonymous +find ${letter} +quit"
   # shellcheck disable=SC2086
-  steamcmd +login anonymous +find ${letter} +quit \
-    | sed -E -e 's/\x1b\[[0-9;]*m//g' \
-      -e '/CWorkThreadPool|workthreadpool.cpp|CProcessWorkItem|CHTTPClientThreadPool|CJobMgr::m_WorkThreadPool:1|CUnloading Steam API/d' \
-    | awk -v COUT="$commands_raw" -v VOUT="$convars_raw" '
+  steamcmd +login anonymous +find ${letter} +quit | \
+    sed -E -e 's/\x1b\[[0-9;]*m//g' \
+      -e '/CWorkThreadPool|workthreadpool.cpp|CProcessWorkItem|CHTTPClientThreadPool|CJobMgr::m_WorkThreadPool:1|CUnloading Steam API/d' | \
+    awk -v COUT="$commands_raw" -v VOUT="$convars_raw" '
       BEGIN{inConvars=0; inCommands=0}
       /ConVars:/ {inConvars=1; inCommands=0; next}
       /Commands:/ {inConvars=0; inCommands=1; next}
@@ -35,21 +34,10 @@ for letter in {a..z}; do
     '
 done
 
-# Removing any remaining ANSI characters.
-sed -i 's/\[1m//g' "${rootdir}/tmp/commands_list_raw.txt"
-sed -i 's/\[1m//g' "${rootdir}/tmp/convars_list_raw.txt"
-
-# Sorting lists
+# Sorting & de-duplicating lists (single pass each)
 echo "Sorting lists."
-#sort -n "${rootdir}/tmp/commands_list_raw.txt" > "${rootdir}/tmp/commands_list_sort.txt"
-sort "${rootdir}/tmp/commands_list_raw.txt" | awk '{$1=$1};1' | tee "${rootdir}/tmp/commands_list_sort.txt"
-uniq "${rootdir}/tmp/commands_list_sort.txt" | tee "${rootdir}/tmp/commands_list_uniq.txt"
-sort "${rootdir}/tmp/commands_list_uniq.txt" | tee "${rootdir}/tmp/commands_list.txt"
-
-#sort -n "${rootdir}/tmp/convars_list_raw.txt" > "${rootdir}/tmp/convars_list_sort.txt"
-sort "${rootdir}/tmp/convars_list_raw.txt" | awk '{$1=$1};1' | tee "${rootdir}/tmp/convars_list_sort.txt"
-uniq "${rootdir}/tmp/convars_list_sort.txt" | tee "${rootdir}/tmp/convars_list_uniq.txt"
-sort "${rootdir}/tmp/convars_list_uniq.txt" | tee "${rootdir}/tmp/convars_list.txt"
+awk '{$1=$1};1' "${rootdir}/tmp/commands_list_raw.txt" | LC_ALL=C sort -u > "${rootdir}/tmp/commands_list.txt"
+awk '{$1=$1};1' "${rootdir}/tmp/convars_list_raw.txt" | LC_ALL=C sort -u > "${rootdir}/tmp/convars_list.txt"
 
 # Final Output
 rm "${rootdir}/steamcmd_commands.txt"
