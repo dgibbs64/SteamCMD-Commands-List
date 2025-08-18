@@ -8,7 +8,7 @@
 <a href="https://github.com/dgibbs64/SteamCMD-Commands-List/actions/workflows/action-generate_output.yml"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/dgibbs64/SteamCMD-Commands-List/action-generate_output.yml?branch=main&logo=github&style=flat-square"></a>
 <a href="https://www.codacy.com/gh/dgibbs64/SteamCMD-Commands-List/dashboard"><img src="https://img.shields.io/codacy/grade/61b87c56e64f46a0a29df385dd7e5c60?style=flat-square&logo=codacy&logoColor=white" alt="Codacy grade"></a>
 <a href="https://developer.valvesoftware.com/wiki/SteamCMD"><img src="https://img.shields.io/badge/SteamCMD-000000?style=flat-square&amp;logo=Steam&amp;logoColor=white" alt="SteamCMD"></a>
-<a href="https://www.gnu.org/software/bash/"><img src="https://img.shields.io/badge/Made with BASH-1f425f?style=flat-square&amp;logo=gnu bash&amp;logoColor=white" alt="SteamCMD"></a>
+<a href="https://www.gnu.org/software/bash/"><img src="https://img.shields.io/badge/Made with BASH-1f425f?style=flat-square&amp;logo=gnu bash&amp;logoColor=white" alt="BASH"></a>
 <a href="https://github.com/dgibbs64/SteamCMD-Commands-List/blob/main/LICENSE"><img src="https://img.shields.io/github/license/dgibbs64/SteamCMD-Commands-List?style=flat-square" alt="MIT License"></a>
 
 ## Description
