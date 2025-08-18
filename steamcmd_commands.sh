@@ -14,34 +14,25 @@ echo "Getting SteamCMD Commands/Convars"
 echo "================================="
 mkdir "${rootdir}/tmp"
 cd "${rootdir}/steamcmd" || exit
-# Loop though each letter of the alphabet using find command
+commands_raw="${rootdir}/tmp/commands_list_raw.txt"
+convars_raw="${rootdir}/tmp/convars_list_raw.txt"
+# Truncate/create aggregate files
+: > "$commands_raw"
+: > "$convars_raw"
+
+# Stream processing loop (no per-letter temp files)
 for letter in {a..z}; do
   echo "steamcmd +login anonymous +find ${letter} +quit"
   # shellcheck disable=SC2086
-  steamcmd +login anonymous +find ${letter} +quit > "${rootdir}/tmp/${letter}_raw.txt"
-  # Remove ANSI characters
-  sed -i 's/\x1b//g' "${rootdir}/tmp/${letter}_raw.txt"
-  sed -i 's/\[0m//g' "${rootdir}/tmp/${letter}_raw.txt"
-  sed -i 's/\[1m//g' "${rootdir}/tmp/${letter}_raw.txt"
-  # Remove CWorkThreadPool errors
-  sed -i '/CWorkThreadPool/d' "${rootdir}/tmp/${letter}_raw.txt"
-  sed -i '/workthreadpool.cpp/d' "${rootdir}/tmp/${letter}_raw.txt"
-  sed -i '/CProcessWorkItem/d' "${rootdir}/tmp/${letter}_raw.txt"
-  sed -i '/CHTTPClientThreadPool/d' "${rootdir}/tmp/${letter}_raw.txt"
-  sed -i '/CJobMgr::m_WorkThreadPool:1/d' "${rootdir}/tmp/${letter}_raw.txt"
-  sed -i '/CUnloading Steam API/d' "${rootdir}/tmp/${letter}_raw.txt"
-
-  # Separating commands and convars
-  # Commands List
-  cat "${rootdir}/tmp/${letter}_raw.txt" > "${rootdir}/tmp/${letter}_commands.txt"
-  sed -i '1,/Commands:/d' "${rootdir}/tmp/${letter}_commands.txt"
-  cat "${rootdir}/tmp/${letter}_commands.txt" >> "${rootdir}/tmp/commands_list_raw.txt"
-
-  # Convars List
-  cat "${rootdir}/tmp/${letter}_raw.txt" > "${rootdir}/tmp/${letter}convars"
-  sed -i '1,/ConVars:/d' "${rootdir}/tmp/${letter}convars"
-  sed -i '/Commands:/Q' "${rootdir}/tmp/${letter}convars"
-  cat "${rootdir}/tmp/${letter}convars" >> "${rootdir}/tmp/convars_list_raw.txt"
+  steamcmd +login anonymous +find ${letter} +quit | \
+    sed -E -e 's/\x1b\[[0-9;]*m//g' \
+      -e '/CWorkThreadPool|workthreadpool.cpp|CProcessWorkItem|CHTTPClientThreadPool|CJobMgr::m_WorkThreadPool:1|CUnloading Steam API/d' | \
+    awk -v COUT="$commands_raw" -v VOUT="$convars_raw" '
+      BEGIN{inConvars=0; inCommands=0}
+      /ConVars:/ {inConvars=1; inCommands=0; next}
+      /Commands:/ {inConvars=0; inCommands=1; next}
+      { if (inConvars) { print >> VOUT } else if (inCommands) { print >> COUT } }
+    '
 done
 
 # Removing any remaining ANSI characters.
