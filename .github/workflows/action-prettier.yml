@@ -4,8 +4,12 @@ on:
     branches:
       - "*"
 
+concurrency:
+  group: prettier-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   prettier:
@@ -15,8 +19,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: Install Prettier and plugins
+        run: |
+          npm install --no-save prettier prettier-plugin-sh prettier-plugin-jinja-template
+
       - name: Prettify code
         uses: creyD/prettier_action@v4.6
         with:
-          prettier_plugins: "prettier-plugin-sh"
-          prettier_options: .
+          prettier_plugins: "prettier-plugin-sh prettier-plugin-jinja-template"
+          prettier_options: --write .
+          github_token: ${{ secrets.GITHUB_TOKEN }}
