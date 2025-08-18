@@ -29,3 +29,4 @@ jobs:
           prettier_plugins: "prettier-plugin-sh prettier-plugin-jinja-template"
           prettier_options: --write .
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: "chore(prettier): format code"
