@@ -423,6 +423,7 @@ peer_content_server_status : Dumps status of peer content server
 print_sdr_ping : print current sdr ping location string
 profile : <seconds> profile for N seconds
 quit : Stops Steam client console
+remote_client_dongle : remote_client_dongle [[connect|monitor] clientid ssid password isWPA2|disconnect|status|checkon clientid]
 remote_clients : dump remote client info
 render_ipc_connections : usage: "render_ipc_connections
 run_app_build : run_app_build [-preview] [-desc <text>] <appbuildfile> : run app depot build as specified in appbuildfile
@@ -446,6 +447,7 @@ swarm_shader_prepopulate : <work_dir>
 swarm_shader_upload : <work_dir>
 swarm_tc_download : swarm_tc_download <src_bucket_hw_id> <src_bucketsw_id> <work_dir>
 swarm_tc_upload : <src_bucket_hw_id> <src_bucketsw_id> <dst_bucket_hw_id> <dst_bucket_sw_id> <work_dir> <appid> <bucketid>
+test_concurrent_textfilter_change : Queue up multiple text filter changes to the UI
 test_dropcon : Tests dropping a connection
 test_failnextconnect : Tests failing the next connection
 test_opus_voice_encode : test an opus voice encode
