@@ -357,7 +357,6 @@ workshop_items_cache_days = "14" :
 workshop_items_update_interval = "2700" :
 
 Commands:
-OK
 api_logging : api_logging <enabled> <verbose> : enable/disable verbose API logging in steamcmd
 app_backup : <appid> <target folder> [max folder size MB]
 app_build_all_depots : app_build_all_depots [-desc <text>] -depotconfigpath <folder> -contentroot <folder> -buildoutput <folder> <appid> : Build all depots for one app
