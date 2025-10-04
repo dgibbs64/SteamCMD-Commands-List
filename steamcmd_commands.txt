@@ -135,10 +135,10 @@ ConVars:
 @nContentUpdateAutoVerifyIntervalDays = "15" : Auto-verify game updates ever N days
 @nDownloadLANChunkCacheSizeMB = "128" :
 @nDownloadLANPeerGroup = "0" :
-@nHTPPServerLogLevelAccessLine200 = "3" : Log level to use for one-line access-log-style for each http server request returning 200
-@nHTPPServerLogLevelAccessLineNon200 = "2" : Log level to use for one-line access-log-style for each http server request that returns != 200
-@nHTPPServerLogLevelDetails200 = "4" : Log level to use for full details of any http server request returning 200. This will probably fill up the log if you leave it on.
-@nHTPPServerLogLevelDetailsNon200 = "4" : Log level to use for full details of any http server request returning != 200
+@nHTTPServerLogLevelAccessLine200 = "3" : Log level to use for one-line access-log-style for each http server request returning 200
+@nHTTPServerLogLevelAccessLineNon200 = "2" : Log level to use for one-line access-log-style for each http server request that returns != 200
+@nHTTPServerLogLevelDetails200 = "4" : Log level to use for full details of any http server request returning 200. This will probably fill up the log if you leave it on.
+@nHTTPServerLogLevelDetailsNon200 = "4" : Log level to use for full details of any http server request returning != 200
 @nHTTPServerMaxPipelinedReqsPerConnection = "8" : Max outstanding pipelined reqs per connection
 @nHTTPServerYieldOn100ContinueSendSecs = "300" : Seconds to yield when sending a 100 continue for purposes of telling client to send body of request
 @nIOCPThreadCount = "1" :
