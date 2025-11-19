@@ -125,6 +125,8 @@ ConVars:
 @nClientEnableHTTP2PlatformWindows = "1" : Enable HTTP/2 connections on Windows clients
 @nClientEnableIPv6ForHTTPPlatformLinux = "0" : Enable IPv6 HTTP connections by default on Linux clients
 @nClientEnableIPv6ForHTTPPlatformWindows = "0" : Enable IPv6 HTTP connections by default on Windows clients
+@nClientFrameRateReportBatchSize = "20" : Number of frame rate reports to collect locally before sending to the server
+@nClientFrameRateReportSecs = "30" : Number of seconds between individual frame rate reports
 @nClientInitWindowSizeHTTP2Connection = "10000000" : Init per-connection window size for HTTP/2.
 @nClientInitWindowSizeHTTP2Stream = "2000000" : Init per-stream window size for HTTP/2.
 @nClientQueryCMDirectoryBeforeConnect = "1" : Use CMDirectory webapi to get fresh CM list on connect - 0=disabled, 1=enabled, 2=main/dev/beta clients only
@@ -259,6 +261,10 @@ controller_base_rotation_angle = "0" :
 controller_edge_cutoff = "0" :
 controller_gyro_x_scale = "16000" :
 controller_idle_poll_interval = "50000" : SteamInput Idle Polling interval in microseconds. Default 50,000us = 20hz
+controller_jerk_low_pass_filter_rate = "4" : How quickly the low pass filter chases the raw gyro jerk value.
+controller_jerk_threshold = "500" : The amount of Gyro Jerk (gyro change per second) required to create a Controller Jerk count. Note, only available on SteamDeck/Neptune/Galileo
+controller_jerk_threshold_debug = "0" : Debug spew to tell us the current "Jerk" value coming from the accelerometer
+controller_jerk_throttle = "2" : (Hz) The maximum callback rate for Controller Jerk Events.
 controller_min_activation_time = "0.0333" :
 controller_momentum_min_vel = "0" :
 controller_momentum_num_excluded_samples = "1" :
