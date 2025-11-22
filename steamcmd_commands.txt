@@ -73,7 +73,10 @@ ConVars:
 @bSiteLicenseServerGUI = "0" :
 @cCSClientMaxNumSocketsPerHost = "8" :
 @cCSClientMaxNumSocketsPerHostForCachingProxy = "32" :
-@cDepotBuilderFileChunkingThreads = "4" :
+@cDepotBuilderFileChunkingThreads = "0" :
+@cFileChunkingCRCFalseAlarmBytesToSkip = "128" :
+@cFileChunkingCRCFalseAlarmThreshold = "0" :
+@cFileChunkingSupersectionSizeMB = "1024" :
 @cMaxContentServersToRequest = "20" :
 @cMaxInitialDownloadSources = "-1" :
 @cMinimumJobTimeoutsToCheckPerFrame = "100" :
