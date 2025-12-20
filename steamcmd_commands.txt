@@ -346,6 +346,7 @@ rtime32EarliestSubscribedFileToDownload = "1354389910" :
 sDepotDownloadFileFilter = "" : only download matching files, eg *.exe;*.dll
 spew_controller_loss = "0" :
 testappcloudpaths = "0" :
+triton_pairing_trigger = "0" :
 ugc_query_default_cache_time = "600" :
 ugc_query_max_get_details = "1000" :
 unShaderBackgroundProcessingThreads = "0" :
@@ -432,7 +433,8 @@ peer_content_server_status : Dumps status of peer content server
 print_sdr_ping : print current sdr ping location string
 profile : <seconds> profile for N seconds
 quit : Stops Steam client console
-remote_client_dongle : remote_client_dongle [[connect|monitor] clientid ssid password isWPA2|disconnect|status|checkon clientid]
+remote_client_dongle : remote_client_dongle [[connect|monitor] clientid ssid password|disconnect|status|checkon clientid]
+remote_client_softapcmd : remote_client_softapcmd <softapcmd args>
 remote_clients : dump remote client info
 render_ipc_connections : usage: "render_ipc_connections
 run_app_build : run_app_build [-preview] [-desc <text>] <appbuildfile> : run app depot build as specified in appbuildfile
