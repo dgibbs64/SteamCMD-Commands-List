@@ -433,7 +433,7 @@ peer_content_server_status : Dumps status of peer content server
 print_sdr_ping : print current sdr ping location string
 profile : <seconds> profile for N seconds
 quit : Stops Steam client console
-remote_client_dongle : remote_client_dongle [[connect|monitor] clientid ssid password|disconnect|status|checkon clientid]
+remote_client_dongle : remote_client_dongle [[connect] clientid ssid password]|disconnect|status|disable|enable|leddebug|lednodebug
 remote_client_softapcmd : remote_client_softapcmd <softapcmd args>
 remote_clients : dump remote client info
 render_ipc_connections : usage: "render_ipc_connections
