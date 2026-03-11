@@ -128,8 +128,8 @@ ConVars:
 @nClientEnableHTTP2PlatformWindows = "1" : Enable HTTP/2 connections on Windows clients
 @nClientEnableIPv6ForHTTPPlatformLinux = "0" : Enable IPv6 HTTP connections by default on Linux clients
 @nClientEnableIPv6ForHTTPPlatformWindows = "0" : Enable IPv6 HTTP connections by default on Windows clients
-@nClientFrameRateReportBatchSize = "20" : Number of frame rate reports to collect locally before sending to the server
-@nClientFrameRateReportSecs = "30" : Number of seconds between individual frame rate reports
+@nClientFrameRateReportBatchSize = "60" : Number of frame rate reports to collect locally before sending to the server
+@nClientFrameRateReportSecs = "60" : Number of seconds between individual frame rate reports
 @nClientInitWindowSizeHTTP2Connection = "10000000" : Init per-connection window size for HTTP/2.
 @nClientInitWindowSizeHTTP2Stream = "2000000" : Init per-stream window size for HTTP/2.
 @nClientQueryCMDirectoryBeforeConnect = "1" : Use CMDirectory webapi to get fresh CM list on connect - 0=disabled, 1=enabled, 2=main/dev/beta clients only
@@ -192,6 +192,7 @@ ConVars:
 @uDownloadLANPeerPort = "27038" : If LAN p2p download enabled, will listen on this port for TCP connections from peers. Must be set consistently across all members of the group!
 @uRemoteDiscoveryPortOverride = "0" : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort
 @uRemoteDiscoveryPortTransmit = "0" : If non-zero, will transmit outgoing broadcasts on this port instead of on the listen port
+@unUserStatsTest = "4400000" :
 @voice_minabs = "0.15" :
 @voice_minavg = "1.0" :
 @voice_spew_activity_check = "0" :
@@ -281,6 +282,7 @@ csecManifestDownloadTimeout = "120" :
 deck_mouse_haptic_tick_dist = "9000" :
 deck_mouse_leftside_filter = "30500" :
 developer = "0" :
+force_software_gyro_drift_correction = "0" : 0: Only use software drift calibration based on controller capabilities. 1: Any controllers with IMUs will be forced to use the standard software drift calibration.
 g_RumbleRepeatAfterDelaySeconds = "0.050" :
 g_RumbleSustainTimeSeconds = "10" :
 gyro_auto_detect_polling_rate = "1" : Wired Connections only. 0: Legacy Mode. Known to be buggy with Blitz 2 and other controllers set to 1000hz+. 1: If SDL3 sensor delta time is zero, or unexpected sensor timings are detected, fall back on packet-rate based estimation of polling rate (if outside a margin of error: gyro_sensor_margin_of_error_pct). 2: Exclusively use packet-rate based estimation of polling rate.
@@ -378,6 +380,7 @@ app_info_print : app_info_print <appid> [section] : print app info for appID
 app_info_request : <AppID> - Issue an appinfo request for the given appid. Does not wait for results from the server.
 app_info_update : [0|1] : trigger app info update, optionally for update all
 app_install_script : <AppID> [uninstall:0|1]- Runs app install script.
+app_installed_files : <AppID>
 app_launch : <appId> [LaunchOptionIndex] [Arguments]
 app_license_request : <AppID> - Requests a free licenses for this app if not already owned.
 app_run : <appId> [LaunchOptionIndex] [Arguments]
