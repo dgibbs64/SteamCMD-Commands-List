@@ -31,7 +31,7 @@ jobs:
         run: echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
 
       - name: Add and commit changes
-        uses: EndBug/add-and-commit@v9
+        uses: EndBug/add-and-commit@v10
         with:
           fetch: false
           message: "GitHub Actions build: ${{ steps.date.outputs.date }}"
