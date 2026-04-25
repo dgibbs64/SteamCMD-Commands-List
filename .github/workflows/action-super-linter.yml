@@ -49,6 +49,5 @@ jobs:
           VALIDATE_MARKDOWN_PRETTIER: false
           VALIDATE_NATURAL_LANGUAGE: false
           VALIDATE_SHELL_SHFMT: false
-          VALIDATE_TERRAFORM_TERRASCAN: false
           VALIDATE_TRIVY: false
           VALIDATE_YAML_PRETTIER: false
