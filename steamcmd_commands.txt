@@ -25,7 +25,9 @@ ConVars:
 @MatchmakingJoinPingWaitTime = "0" :
 @MatchmakingSearchPingWaitTime = "0" :
 @MatchmakingTotalPingWaitTime = "0" :
-@MaxOutstandingSendThreadItem = "10000" :
+@MaxOutstandingSendThreadItemFatalAssert = "30000" :
+@MaxOutstandingSendThreadItemFatalAssertSecondsAtLimit = "30" :
+@MaxOutstandingSendThreadItemSleep = "10000" :
 @NetConnectionBufferMsgLimit = "1000" : Max # of message that will be buffered into a single zipped packet
 @NetConnectionBufferThreaded = "1" :
 @NoPromptForPassword = "0" :
@@ -175,7 +177,7 @@ ConVars:
 @nSpewThrottleTriggerThreshold = "10" :
 @nSpewThrottleUnconditionalResumeMs = "5000" :
 @nSpewThrottleUnconditionalTriggerCount = "50" :
-@net_backlog_bytes_allowed = "18000000" :
+@net_backlog_bytes_allowed = "60000000" :
 @net_backlog_time_allowed_sec = "8" :
 @net_loopback = "1" :
 @sCSDSVirtualHostHeader = "" :
@@ -192,6 +194,7 @@ ConVars:
 @uDownloadLANPeerPort = "27038" : If LAN p2p download enabled, will listen on this port for TCP connections from peers. Must be set consistently across all members of the group!
 @uRemoteDiscoveryPortOverride = "0" : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort
 @uRemoteDiscoveryPortTransmit = "0" : If non-zero, will transmit outgoing broadcasts on this port instead of on the listen port
+@unMinimumShaderDownloadSizeInUI = "33554432" :
 @unUserStatsTest = "3000000" :
 @voice_minabs = "0.15" :
 @voice_minavg = "1.0" :
@@ -347,8 +350,8 @@ p2p_unusedtimeout = "120" :
 rtime32EarliestSubscribedFileToDownload = "1354389910" :
 sDepotDownloadFileFilter = "" : only download matching files, eg *.exe;*.dll
 spew_controller_loss = "0" :
+steam_controller_force_oobe = "0" :
 testappcloudpaths = "0" :
-triton_pairing_trigger = "0" :
 ugc_query_default_cache_time = "600" :
 ugc_query_max_get_details = "1000" :
 unShaderBackgroundProcessingThreads = "0" :
