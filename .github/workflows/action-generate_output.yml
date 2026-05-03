@@ -8,7 +8,7 @@ on:
     - cron: "0 0 * * *"
   push:
     branches:
-      - "*"
+      - main
 
 permissions:
   contents: write
@@ -36,8 +36,3 @@ jobs:
           fetch: false
           message: "GitHub Actions build: ${{ steps.date.outputs.date }}"
           push: true
-
-      - name: Sleep for 10s
-        uses: juliangruber/sleep-action@v2
-        with:
-          time: 10s

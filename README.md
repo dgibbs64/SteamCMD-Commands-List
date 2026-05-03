@@ -21,7 +21,7 @@ This script outputs all the commands available and saves it to a file.
 
 You can get the output without using the script.
 
-[steamcmd_commands.txt](https://github.com/dgibbs64/SteamCMD-Commands-List/blob/master/steamcmd_commands.txt)
+[steamcmd_commands.txt](https://github.com/dgibbs64/SteamCMD-Commands-List/blob/main/steamcmd_commands.txt)
 
 > GitHub Actions checks daily for updates and posts them to this repo. So this list will always be up-to-date.
 
@@ -30,7 +30,7 @@ You can get the output without using the script.
 Simply download the script and run it.
 
 ```bash
-wget https://raw.githubusercontent.com/dgibbs64/SteamCMD-Commands-List/master/steamcmd_commands.sh
+wget https://raw.githubusercontent.com/dgibbs64/SteamCMD-Commands-List/main/steamcmd_commands.sh
 chmod +x steamcmd_commands.sh
 ./steamcmd_commands.sh
 ```

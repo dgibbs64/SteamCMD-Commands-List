@@ -7,14 +7,28 @@
 # Instead you have use find <string>
 # This script outputs all the commands available and saves it to a file
 
+set -euo pipefail
+
 rootdir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+tmpdir="${rootdir}/tmp"
+
+if ! command -v steamcmd > /dev/null 2>&1; then
+  echo "Error: steamcmd is not installed or not in PATH."
+  exit 1
+fi
+
+cleanup() {
+  rm -rf "${tmpdir}" "${rootdir}/steamcmd"
+}
+
+trap cleanup EXIT
 
 echo ""
 echo "Getting SteamCMD Commands/Convars"
 echo "================================="
-mkdir "${rootdir}/tmp"
-commands_raw="${rootdir}/tmp/commands_list_raw.txt"
-convars_raw="${rootdir}/tmp/convars_list_raw.txt"
+mkdir -p "${tmpdir}"
+commands_raw="${tmpdir}/commands_list_raw.txt"
+convars_raw="${tmpdir}/convars_list_raw.txt"
 # Truncate/create aggregate files
 : > "$commands_raw"
 : > "$convars_raw"
@@ -36,8 +50,8 @@ done
 
 # Sorting & de-duplicating lists (single pass each)
 echo "Sorting lists."
-awk '{$1=$1};1' "${rootdir}/tmp/commands_list_raw.txt" | LC_ALL=C sort -u > "${rootdir}/tmp/commands_list.txt"
-awk '{$1=$1};1' "${rootdir}/tmp/convars_list_raw.txt" | LC_ALL=C sort -u > "${rootdir}/tmp/convars_list.txt"
+awk '{$1=$1};1' "${tmpdir}/commands_list_raw.txt" | LC_ALL=C sort -u > "${tmpdir}/commands_list.txt"
+awk '{$1=$1};1' "${tmpdir}/convars_list_raw.txt" | LC_ALL=C sort -u > "${tmpdir}/convars_list.txt"
 
 # Final Output
 rm "${rootdir}/steamcmd_commands.txt"
@@ -45,13 +59,9 @@ touch "${rootdir}/steamcmd_commands.txt"
 echo "Generating output."
 {
   echo "ConVars:"
-  cat "${rootdir}/tmp/convars_list.txt"
+  cat "${tmpdir}/convars_list.txt"
   echo ""
   echo "Commands:"
-  cat "${rootdir}/tmp/commands_list.txt"
+  cat "${tmpdir}/commands_list.txt"
 } > "${rootdir}/steamcmd_commands.txt"
 cat "${rootdir}/steamcmd_commands.txt"
-
-echo "Tidy up."
-rm -rf "${rootdir}/tmp"
-rm -rf "${rootdir}/steamcmd"
