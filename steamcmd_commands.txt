@@ -196,7 +196,7 @@ ConVars:
 @uRemoteDiscoveryPortOverride = "0" : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort
 @uRemoteDiscoveryPortTransmit = "0" : If non-zero, will transmit outgoing broadcasts on this port instead of on the listen port
 @unMinimumShaderDownloadSizeInUI = "33554432" :
-@unUserStatsTest = "3000000" :
+@unUserStatsTest = "2500000" :
 @voice_minabs = "0.15" :
 @voice_minavg = "1.0" :
 @voice_spew_activity_check = "0" :
