@@ -1,4 +1,5 @@
 ConVars:
+
 @CSInterfaceProxyPassword = "" :
 @CSInterfaceProxyUsername = "" :
 @CustomBinaryRequestRetryTimes = "20" :
@@ -160,6 +161,7 @@ ConVars:
 @nLegalDictionaryUpdateRateInSeconds = "600" :
 @nNetConnectionBufferZipLevel = "1" :
 @nParentalSettingsLogLevel = "4" : Control the amount of spew written to the parental log file
+@nPartnerUploadFinalizeTimeoutSecs = "600" : Seconds to timeout the DRM finalize which can be slow as it involves sending to cloud storage
 @nProtobufArenaInitialBlockSize = "65536" : Default initial allocation size for PB arena
 @nProtobufArenaMaxBlockSize = "524288" : Max block allocation size for PB arena
 @nProtobufArenaNumberOfHeadersToShare = "128" : Number of Jobs to give a single protobuf Arena before we create a new one
@@ -313,6 +315,13 @@ gyro_filter_smoothness = "75" : Smoothing amount for low pass filter. 1 is TOO s
 gyro_force_handheld_orientation = "0" : 0: Auto. 1: Force Controller to be "HandHeld" orientation, like SteamDeck (tilt in pitch by 90 degrees so that "Yaw" is "Through the Screen". 2: Force Controller to be "Standalone" controller like Steam Controller, where "Yaw" is "Through Sticks".
 gyro_force_sensor_rate = "0" : If zero, cull suspected bad sensor data (can result in a loss of natural sensitivity). If not zero, ignore IMU sensor timing and use fixed rate instead. Measured in HZ. Common values: 250hz (PS5), 250hz (PS4), 200hz (Nintendo Switch)
 gyro_handheld_pitch_offset = "90" : When in handheld mode, how far we tilt the gyro quaternion before processing. This affects only the "Gyro to Mouse" and "Gyro to JoystickCamera" modes. And only affects Yaw, Roll, Yaw + Roll, and Laser Pointer 3DOF to 2D conversion styles within those modes. Player Space and World Space are controller affordance agnostic.
+gyro_haptic_probe_enabled = "0" : 0: Off. 1: Try new gyro mode. Config must have haptic level set to something other than "off
+gyro_haptic_probe_max_pulse = "100" : How loud the grip effect gets at max speed
+gyro_haptic_probe_max_speed = "360.0" : Highest speed for haptic probe movement. Degrees per second.
+gyro_haptic_probe_min_pulse = "20" : How loud the grip effect gets at max speed
+gyro_haptic_probe_min_speed = "0.125" : Lowest speed for haptic probe movement. Degrees per second.
+gyro_haptic_probe_offset_scale = "0.65" : How far to spread the haptic probe set is spread out. 0 = ontop of each other. 1 = 1 degree separation.
+gyro_haptic_probe_types = "3" : 0: None. 1: Trackpad Only. 2: Rumble Only. 3: Both
 gyro_precision_speed = "0.75" :
 gyro_precision_speed_enabled = "1" : Enable linear response multiplier to speeds below the value set in the "Gyro To..." modes. This applies itself to the remaining speed after the gyro speed deadzone has been applied.
 gyro_prediction_correction_speed_max = "180.0" : Above this speed (degrees per second) there is full correction of the predicted quaternion toward the "ground truth" quaternion. Note this will still be gradual correction, and only in the shared direction of user rotation and the correction required.
@@ -369,6 +378,7 @@ sc_kalman_repeated_sample = "0" :
 spew_controller_loss = "0" :
 steam_controller_force_oobe = "0" :
 testappcloudpaths = "0" :
+triton_imu_sensortime_log = "0" : Spew the triton IMU sensor timings to console.
 ugc_query_default_cache_time = "600" :
 ugc_query_max_get_details = "1000" :
 unShaderBackgroundProcessingThreads = "0" :
@@ -422,7 +432,7 @@ download_chunk : download_chunk <appid> <depotid> <sha>: download a single chunk
 download_depot : download_depot <appid> <depotid> [<target manifestid>] [<delta manifestid>] [<destination folder>]: download a single depot
 download_item : download_item <appid> <PublishedFileId> : download a workshop item directly
 download_sources : Dumps list of download sources
-drm_wrap : drm_wrap <appid> <input filename> <output filename> <toolname> <flags> [<destination>]: upload executable to back end for DRM wrapping
+drm_wrap : drm_wrap <appid> <input filename> <output filename> <toolname> <flags>: upload executable to back end for DRM wrapping
 dump_box_ips : dump the list of detected local box IP addresses
 dump_offline_playtime : Dumps recorded playtime sessions
 dump_scheduled_functions : usage: "dump_scheduled_functions" Displays internal Steam function callback timers
