@@ -253,7 +253,6 @@ bSingleFileUpdateMode = "1" :
 bSteam3LimitedUserEnable = "1" :
 bSteamLoaderEnable = "1" :
 bSubscribedFilesDecompressOnClient = "1" :
-bSubscribedFilesPollForUpdates = "0" :
 bSubscribedFilesUseRangeRequests = "1" :
 bVerifyAllDownloads = "0" : Verify all files after downloading an update
 bVerifyAllInstalled = "0" : Verify all installed files before installing an update
@@ -368,12 +367,10 @@ nDepotSaveCorruptChunks = "0" :
 nPeerContentDefaultMode = "1" : 0 = off, 1 = only me, 2 = only friends, 3 = anyone
 nProductInfoUpdateInterval = "900" :
 nRichPresenceUploadThrottleSecs = "5" :
-nSubscribedAutoDownloadMaxSimultaneous = "8" :
 net_incomingcheck = "1" :
 net_maxresendsperframe = "32" :
 p2p_connecttimeout = "15" :
 p2p_unusedtimeout = "120" :
-rtime32EarliestSubscribedFileToDownload = "1354389910" :
 sDepotDownloadFileFilter = "" : only download matching files, eg *.exe;*.dll
 sc_kalman_repeated_sample = "0" :
 spew_controller_loss = "0" :
@@ -497,6 +494,7 @@ test_dropcon : Tests dropping a connection
 test_failnextconnect : Tests failing the next connection
 test_opus_voice_encode : test an opus voice encode
 test_reconnect : Reconnect after using test_failnextconnect&test_dropcon
+test_resume : Resumes from a system suspend
 test_voice_encode : test a voice encode
 timed_trial_add_playtime : timed_trial_add_playtime <appId> <seconds>: add trial app playtime (developer only)
 timed_trial_reset_playtime : timed_trial_reset_playtime <appId> : reset trial app playtime (developer only)
