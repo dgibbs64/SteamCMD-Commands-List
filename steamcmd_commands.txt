@@ -59,6 +59,7 @@ ConVars:
 @bEnableSpewThrottle = "1" :
 @bEnforceValidEmailDomains = "1" : Enable valid email domains in BIsValidEmailAddress
 @bForceStreamUnsupportedApp = "0" :
+@bHTTPServerHTTP2Enabled = "0" : Global default for whether CHTTPServer advertises/accepts HTTP/2 (over TLS via ALPN). A server that calls SetHTTP2Enabled() explicitly overrides this value.
 @bHttpClientRecordHostnameDimension = "0" : Group HTTP metrics by hostname. Careful, the cardinality of your in-memory map might be large.
 @bLANPeerConnectionTimeoutSec = "5" :
 @bLogMessageToProtobufClass = "1" : We we first discover the protobuf class used for a particular EMsg, log it
@@ -144,6 +145,9 @@ ConVars:
 @nContentUpdateAutoVerifyIntervalDays = "15" : Auto-verify game updates ever N days
 @nDownloadLANChunkCacheSizeMB = "128" :
 @nDownloadLANPeerGroup = "0" :
+@nHTTPServerHTTP2InitWindowSizePerConnection = "3145728" : Default HTTP/2 per-connection flow-control initial window size in bytes for CHTTPServer connections. Overridden per-server by SetHTTP2FlowControlInitWindowSizePerConnection().
+@nHTTPServerHTTP2InitWindowSizePerStream = "1048576" : Default HTTP/2 per-stream flow-control initial window size in bytes for CHTTPServer connections. Overridden per-server by SetHTTP2FlowControlInitWindowSizePerStream().
+@nHTTPServerHTTP2MaxConcurrentStreams = "25" : Default maximum concurrent HTTP/2 streams advertised per CHTTPServer connection. Overridden per-server by SetHTTP2MaxConcurrentStreamsPerConnection().
 @nHTTPServerLogLevelAccessLine200 = "3" : Log level to use for one-line access-log-style for each http server request returning 200
 @nHTTPServerLogLevelAccessLineNon200 = "2" : Log level to use for one-line access-log-style for each http server request that returns != 200
 @nHTTPServerLogLevelDetails200 = "4" : Log level to use for full details of any http server request returning 200. This will probably fill up the log if you leave it on.
@@ -394,6 +398,7 @@ voice_quality = "6" :
 voice_resample_quality = "1" :
 voice_silk_bitrate = "30000" :
 workshop_items_cache_days = "14" :
+workshop_items_full_check_interval = "86400" :
 workshop_items_update_interval = "2700" :
 
 Commands:
@@ -464,13 +469,15 @@ peer_content_server_status : Dumps status of peer content server
 print_sdr_ping : print current sdr ping location string
 profile : <seconds> profile for N seconds
 quit : Stops Steam client console
-remote_client_dongle : remote_client_dongle [[connect] clientid ssid password]|disconnect|status|disable|enable|leddebug|lednodebug
+remote_client_dongle : remote_client_dongle [[connect] clientid ssid password]|disconnect|status|disable|enable|leddebug|lednodebug|[verbose 0|1]|[debugpdthresh thres (default -75)]
 remote_client_softapcmd : remote_client_softapcmd <softapcmd args>
 remote_clients : dump remote client info
 render_ipc_connections : usage: "render_ipc_connections
 run_app_build : run_app_build [-preview] [-desc <text>] <appbuildfile> : run app depot build as specified in appbuildfile
 run_app_build_http : run_app_build_http : alias for run_app_build
 runscript : <scriptfile> - runs a console command script
+serverbrowser_debug_toggle : Enable debug spew for server browser
+serverbrowser_debug_verbose : Enable debug spew for server browser
 set_app_beta_password : set_app_beta_password <appid> -beta <name> -betapassword <pwd> -- opt-in to the app beta with the given password
 set_download_throttle : set_download_throttle <kbps> <bPersistent = false>
 set_spew : <group> <level> <loglevel> set spew levels for the given group
