@@ -66,7 +66,10 @@ if [ "${total}" -gt 0 ]; then
   [ "${#added[@]}" -gt 0 ] && summary+=("${#added[@]} added")
   [ "${#removed[@]}" -gt 0 ] && summary+=("${#removed[@]} removed")
   [ "${#changed[@]}" -gt 0 ] && summary+=("${#changed[@]} changed")
-  summary_text="$(IFS=,; echo "${summary[*]}")"
+  summary_text="$(
+    IFS=,
+    echo "${summary[*]}"
+  )"
   summary_text="${summary_text//,/, }"
   if [ "${total}" -le 3 ]; then
     message="SteamCMD commands: ${summary_text} ($(printf '%s ' "${added[@]}" "${removed[@]}" "${changed[@]}" | sed 's/ $//')) (version ${version})"
