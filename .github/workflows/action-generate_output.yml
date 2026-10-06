@@ -9,6 +9,11 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    paths:
+      - "steamcmd_commands.sh"
+      - ".github/scripts/summarise_changes.sh"
+      - ".github/workflows/action-generate_output.yml"
 
 permissions:
   contents: write
@@ -18,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup SteamCMD
         uses: CyberAndrii/setup-steamcmd@v1.3.0
@@ -26,13 +31,24 @@ jobs:
       - name: Run steamcmd_commands.sh
         run: ./steamcmd_commands.sh
 
-      - name: Get current date
-        id: date
-        run: echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+      - name: Summarise changes
+        id: changes
+        run: .github/scripts/summarise_changes.sh
 
       - name: Add and commit changes
-        uses: EndBug/add-and-commit@v10
+        if: github.event_name != 'pull_request' && steps.changes.outputs.message != ''
+        uses: EndBug/add-and-commit@v11
         with:
           fetch: false
-          message: "GitHub Actions build: ${{ steps.date.outputs.date }}"
+          message: ${{ steps.changes.outputs.message }}
           push: true
+
+  # Scheduled workflows are disabled after 60 days without repo activity,
+  # and this one only commits when the SteamCMD output changes.
+  workflow-keepalive:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - uses: liskin/gh-workflow-keepalive@v1

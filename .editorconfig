@@ -15,3 +15,9 @@ trim_trailing_whitespace = true
 [*.{.sh}]
 indent_size = 4
 indent_style = tab
+
+# Generated SteamCMD output, kept verbatim
+[steamcmd_*.txt]
+indent_style = unset
+indent_size = unset
+trim_trailing_whitespace = false
