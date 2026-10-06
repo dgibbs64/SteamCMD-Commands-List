@@ -1,5 +1,4 @@
 ConVars:
-
 @CSInterfaceProxyPassword = "" :
 @CSInterfaceProxyUsername = "" :
 @CustomBinaryRequestRetryTimes = "20" :
