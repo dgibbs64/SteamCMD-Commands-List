@@ -30,7 +30,6 @@ You can get the output without using the script.
 
 ## Tracking changes
 
-- [CHANGELOG.md](CHANGELOG.md) lists each day the list changed, with the commands and convars that were added, removed or changed, and the SteamCMD version.
 - [steamcmd_version.txt](steamcmd_version.txt) holds the SteamCMD version the list was generated with.
 - To be notified, watch the repo or subscribe to the [commits feed](https://github.com/dgibbs64/SteamCMD-Commands-List/commits/main.atom).
 

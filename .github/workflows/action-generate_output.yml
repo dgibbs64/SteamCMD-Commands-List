@@ -12,7 +12,7 @@ on:
   pull_request:
     paths:
       - "steamcmd_commands.sh"
-      - ".github/scripts/summarise_changes.sh"
+      - ".github/scripts/commit_message.sh"
       - ".github/workflows/action-generate_output.yml"
 
 permissions:
@@ -31,9 +31,9 @@ jobs:
       - name: Run steamcmd_commands.sh
         run: ./steamcmd_commands.sh
 
-      - name: Summarise changes
+      - name: Generate commit message
         id: changes
-        run: .github/scripts/summarise_changes.sh
+        run: .github/scripts/commit_message.sh
 
       - name: Add and commit changes
         if: github.event_name != 'pull_request' && steps.changes.outputs.message != ''
