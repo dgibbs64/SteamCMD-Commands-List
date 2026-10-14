@@ -1,4 +1,5 @@
 ConVars:
+'protobuf_parse_stats' for the running count and which messages it happened to.
 @CSInterfaceProxyPassword = "" :
 @CSInterfaceProxyUsername = "" :
 @CustomBinaryRequestRetryTimes = "20" :
@@ -38,6 +39,7 @@ ConVars:
 @ShutdownOnFailedCommand = "1" : Exit steamcmd immediately upon any failed console command
 @StreamClientArgs = "" :
 @WatchdogThreadPercentReport = "10" :
+@bAssertOnProtoBufBodyMismatch = "1" : Assert when a body parsed ahead of the main thread is not the type the handler builds. See
 @bCSForceNoCache = "0" :
 @bCallerDeadlineAbortJobDisableWhenHTTPReqStart = "1" :
 @bClientDownloadUseHTTPS = "0" : Set this to use HTTPS on supported download servers
@@ -62,11 +64,18 @@ ConVars:
 @bHttpClientRecordHostnameDimension = "0" : Group HTTP metrics by hostname. Careful, the cardinality of your in-memory map might be large.
 @bLANPeerConnectionTimeoutSec = "5" :
 @bLogMessageToProtobufClass = "1" : We we first discover the protobuf class used for a particular EMsg, log it
+@bMeasureSSLLatencyStats = "1" :
 @bMetricsEnabled = "1" : Enabling allows jobs to collect and report metrics through IMetricsReporters.
 @bMsgErrorDump = "0" :
 @bProfileYieldsInTestSuiteJobs = "0" :
+@bProtoBufNetPacketDropRawBytes = "1" : Release the raw packet bytes of an inbound message whose header and body were both parsed for us, rebuilding them on demand for the few callers that want them. Also read by the SSL work thread, which then never copies those bytes out of its read buffer in the first place. Watch 'protobuf_parse_stats' for how often that happens.
+@bProtobufParseSizeProfile = "1" : Track a histogram of protobuf message body sizes as they are parsed. See the protobuf_parse_stats console command.
+@bProtobufParseTimeProfile = "0" : Also time each protobuf body parse, so protobuf_parse_stats can report time per size bucket and how much parse time actually moved off the job thread. Off by default - it adds two clock samples per parse.
 @bRefreshDownloadSourcesFrequently = "1" :
 @bRequireOfflineLogonTicket = "1" : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
+@bSSLThreadedMsgParse = "1" : Parse framed Steam3 message headers and bodies on the SSL work thread, as well as framing them there. Read per message, so it takes effect live.
+@bSSLThreadedMsgParseRelayedBodies = "0" : Pre-parse the bodies of service methods that execute on the client. Off by default: the only
+@bSSLThreadedSendDelivery = "1" :
 @bScreenshotsLegacyCloudUpload = "0" : If set, use the legacy Steam Cloud upload path for screenshot uploads
 @bShaderClientGetBucketManifestUseWebAPI = "1" :
 @bSiteLicenseAllowCachedClientCredentials = "0" : Allow Steam clients that associate to this site to save username and auth credentials locally
@@ -154,6 +163,7 @@ ConVars:
 @nHTTPServerMaxPipelinedReqsPerConnection = "8" : Max outstanding pipelined reqs per connection
 @nHTTPServerYieldOn100ContinueSendSecs = "300" : Seconds to yield when sending a 100 continue for purposes of telling client to send body of request
 @nIOCPThreadCount = "1" :
+@nJWTVerifiedTokenCacheSize = "0" : Number of verified JWTs to memoize so that re-presenting a token doesn't re-check its signature. 0 disables the cache.
 @nJobInteryieldMillisecondsAlertThreshold = "120" :
 @nJobInteryieldMillisecondsLogThreshold = "80" :
 @nJobInteryieldMillisecondsSpewThreshold = "500" :
@@ -183,6 +193,8 @@ ConVars:
 @nSpewThrottleTriggerThreshold = "10" :
 @nSpewThrottleUnconditionalResumeMs = "5000" :
 @nSpewThrottleUnconditionalTriggerCount = "50" :
+@nThreadedProtobufParseMinBytes = "128" : Parse protobuf message bodies of at least this many bytes on a worker thread instead of on the job thread. 0 disables threaded parsing entirely.
+@nThreadedProtobufParseThreads = "2" : Max worker threads in the dedicated pool used for threaded protobuf body parses (see @nThreadedProtobufParseMinBytes). Changes take effect live.
 @net_backlog_bytes_allowed = "60000000" :
 @net_backlog_time_allowed_sec = "8" :
 @net_loopback = "1" :
@@ -192,6 +204,7 @@ ConVars:
 @sSiteLicenseProxyExplicitIP = "" : Local content cache: if not blank, will instruct clients to go to this IP for the content cache.
 @sStartupScript = "" : Exec contents of this convar as a script at startup
 @sSteamCmdForcePlatformBitness = "" : Must be one of: [32 | 64]
+@sSteamCmdForcePlatformCPU = "" : Must be one of: [x86 | arm64]
 @sSteamCmdForcePlatformType = "" : Must be one of: [windows | macos | linux | android]
 @sTrustedLocalContentCacheName = "" : Set this to the machine name where a trusted local Steam download cache is hosted, and we'll use it if available.
 @strCSNoCacheHeader = "no-cache" :
@@ -201,7 +214,7 @@ ConVars:
 @uRemoteDiscoveryPortOverride = "0" : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort
 @uRemoteDiscoveryPortTransmit = "0" : If non-zero, will transmit outgoing broadcasts on this port instead of on the listen port
 @unMinimumShaderDownloadSizeInUI = "33554432" :
-@unUserStatsTest = "250000" :
+@unUserStatsTest = "1" :
 @voice_minabs = "0.15" :
 @voice_minavg = "1.0" :
 @voice_spew_activity_check = "0" :
@@ -209,7 +222,6 @@ AlwaysCustomizeOnBadExit = "0" :
 AsyncFileIOAlternateReadWrite = "0" :
 AsyncFileIODisableWrite = "0" :
 AsyncFileIOExpectOutstandingIO = "6" :
-AsyncFileIOForceGenericIO = "0" :
 AsyncFileIOMaxPendingWin32 = "256" :
 AsyncFileIOReadHandleCache = "64" :
 AsyncFileIOWriteHandleCache = "64" :
@@ -218,6 +230,7 @@ DepotDeltaPatches = "2" :
 DepotDownloadProgressTimeout = "900" :
 DepotMinWriteGapSizeMB = "64" :
 DepotReconstructionBadChunk = "0" :
+DepotReconstructionForceGenericIO = "" :
 DepotReconstructionLowPrio = "1" :
 DepotReconstructionNumIOThreads = "32" :
 DepotUseAlternatingReadWrite = "1" :
@@ -255,8 +268,6 @@ bShaderVerboseLogs = "0" :
 bSingleFileUpdateMode = "1" :
 bSteam3LimitedUserEnable = "1" :
 bSteamLoaderEnable = "1" :
-bSubscribedFilesDecompressOnClient = "1" :
-bSubscribedFilesUseRangeRequests = "1" :
 bVerifyAllDownloads = "0" : Verify all files after downloading an update
 bVerifyAllInstalled = "0" : Verify all installed files before installing an update
 batterycharging = "0" :
@@ -270,6 +281,7 @@ cFileValidationMaxLog = "100" :
 cMaxDecryptThreadsOverride = "0" :
 cPreallocateMinimumSizeKB = "256" :
 controller_base_rotation_angle = "0" :
+controller_debug_triton_wireless = "0" :
 controller_edge_cutoff = "0" :
 controller_gyro_x_scale = "16000" :
 controller_idle_poll_interval = "50000" : SteamInput Idle Polling interval in microseconds. Default 50,000us = 20hz
@@ -374,8 +386,10 @@ net_incomingcheck = "1" :
 net_maxresendsperframe = "32" :
 p2p_connecttimeout = "15" :
 p2p_unusedtimeout = "120" :
+parsing it here is work nobody on this side consumes. Watch 'protobuf_parse_stats'.
 sDepotDownloadFileFilter = "" : only download matching files, eg *.exe;*.dll
 sc_kalman_repeated_sample = "0" :
+servers those pass through - CM and UDS - relay them by header and never look at the body, so
 spew_controller_loss = "0" :
 steam_controller_force_oobe = "0" :
 testappcloudpaths = "0" :
@@ -430,6 +444,7 @@ build_installer : <project file> <target folder> [beta key] [beta pwd]
 ceg_wrap : ceg_wrap <appid> <orig filename> <stripped filename> <strips filename> : upload executable to back end for CEG wrapping
 clear_credentials : Clear cached credentials for current user. The next login will require authentication including an email or mobile confirmation.
 cm_force_change : Change CM List
+controller_calibration_stage : controller_calibration_stage <stage> [controller index] - send a calibration stage message to the controller hardware
 download_chunk : download_chunk <appid> <depotid> <sha>: download a single chunk from a depot
 download_depot : download_depot <appid> <depotid> [<target manifestid>] [<delta manifestid>] [<destination folder>]: download a single depot
 download_item : download_item <appid> <PublishedFileId> : download a workshop item directly
@@ -467,6 +482,7 @@ patch_dump : <filename> <depotid>
 peer_content_server_status : Dumps status of peer content server
 print_sdr_ping : print current sdr ping location string
 profile : <seconds> profile for N seconds
+protobuf_parse_stats : [reset] Dump the histogram of protobuf message body sizes parsed, and how many were parsed on a worker thread
 quit : Stops Steam client console
 remote_client_dongle : remote_client_dongle [[connect] clientid ssid password]|disconnect|status|disable|enable|leddebug|lednodebug|[verbose 0|1]|[debugpdthresh thres (default -75)]
 remote_client_softapcmd : remote_client_softapcmd <softapcmd args>
@@ -499,6 +515,7 @@ test_concurrent_textfilter_change : Queue up multiple text filter changes to the
 test_dropcon : Tests dropping a connection
 test_failnextconnect : Tests failing the next connection
 test_opus_voice_encode : test an opus voice encode
+test_os_suspend : Simulate the OS telling us it is suspending
 test_reconnect : Reconnect after using test_failnextconnect&test_dropcon
 test_resume : Resumes from a system suspend
 test_voice_encode : test a voice encode
