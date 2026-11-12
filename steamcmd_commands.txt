@@ -30,7 +30,6 @@ ConVars:
 @MaxOutstandingSendThreadItemFatalAssertSecondsAtLimit = "30" :
 @MaxOutstandingSendThreadItemSleep = "10000" :
 @NetConnectionBufferMsgLimit = "1000" : Max # of message that will be buffered into a single zipped packet
-@NetConnectionBufferThreaded = "1" :
 @NoPromptForPassword = "0" :
 @PeerContentClientMaxJobs = "1" : number of peer sources used at the same time
 @PeerContentServerMaxClients = "8" : limit number of peers connected
@@ -60,6 +59,7 @@ ConVars:
 @bEnableSpewThrottle = "1" :
 @bEnforceValidEmailDomains = "1" : Enable valid email domains in BIsValidEmailAddress
 @bForceStreamUnsupportedApp = "0" :
+@bHTTPClientCaptureAllRequestSpew = "0" : Record every SPEW_HTTPCLIENT line per request (CHTTPRequestHandle::GetCapturedSpew), not just failures and anomalies, so a timeout or an error handler can dump the full story of that one request. Always on while a server test set is running.
 @bHTTPServerHTTP2Enabled = "0" : Global default for whether CHTTPServer advertises/accepts HTTP/2 (over TLS via ALPN). A server that calls SetHTTP2Enabled() explicitly overrides this value.
 @bHttpClientRecordHostnameDimension = "0" : Group HTTP metrics by hostname. Careful, the cardinality of your in-memory map might be large.
 @bLANPeerConnectionTimeoutSec = "5" :
@@ -67,18 +67,16 @@ ConVars:
 @bMeasureSSLLatencyStats = "1" :
 @bMetricsEnabled = "1" : Enabling allows jobs to collect and report metrics through IMetricsReporters.
 @bMsgErrorDump = "0" :
+@bParseKVSpewRejectedValue = "0" : When ParseKV rejects a field that isn't a valid integer, include the rejected value in the warning
 @bProfileYieldsInTestSuiteJobs = "0" :
-@bProtoBufNetPacketDropRawBytes = "1" : Release the raw packet bytes of an inbound message whose header and body were both parsed for us, rebuilding them on demand for the few callers that want them. Also read by the SSL work thread, which then never copies those bytes out of its read buffer in the first place. Watch 'protobuf_parse_stats' for how often that happens.
 @bProtobufParseSizeProfile = "1" : Track a histogram of protobuf message body sizes as they are parsed. See the protobuf_parse_stats console command.
 @bProtobufParseTimeProfile = "0" : Also time each protobuf body parse, so protobuf_parse_stats can report time per size bucket and how much parse time actually moved off the job thread. Off by default - it adds two clock samples per parse.
 @bRefreshDownloadSourcesFrequently = "1" :
 @bRequireOfflineLogonTicket = "1" : If true, a valid offline logon ticket is required when logging in in offline or no connection mode
-@bSSLThreadedMsgParse = "1" : Parse framed Steam3 message headers and bodies on the SSL work thread, as well as framing them there. Read per message, so it takes effect live.
-@bSSLThreadedMsgParseRelayedBodies = "0" : Pre-parse the bodies of service methods that execute on the client. Off by default: the only
-@bSSLThreadedSendDelivery = "1" :
 @bScreenshotsLegacyCloudUpload = "0" : If set, use the legacy Steam Cloud upload path for screenshot uploads
 @bShaderClientGetBucketManifestUseWebAPI = "1" :
 @bSiteLicenseAllowCachedClientCredentials = "0" : Allow Steam clients that associate to this site to save username and auth credentials locally
+@bSiteLicenseGetUserApprovalForAssociation = "1" : Require user approval before associating to a site license server on the local network
 @bSiteLicenseProxyCacheIsExternalProcess = "0" : If set, the caching content proxy will be handled by some process other than steamcmd. You probably also should set @sSiteLicenseProxyExplicitIP.
 @bSiteLicenseProxyEnableIPv6 = "0" : If set, we will enable ipv6 communications to the Steam servers
 @bSiteLicenseServer = "0" :
@@ -142,6 +140,7 @@ ConVars:
 @nClientEnableIPv6ForHTTPPlatformLinux = "0" : Enable IPv6 HTTP connections by default on Linux clients
 @nClientEnableIPv6ForHTTPPlatformWindows = "0" : Enable IPv6 HTTP connections by default on Windows clients
 @nClientFrameRateReportBatchSize = "60" : Number of frame rate reports to collect locally before sending to the server
+@nClientFrameRateReportMaxHoursPerWeek = "10" : Maximum hours of frame rate data a client may submit per app per week; 0 = unlimited
 @nClientFrameRateReportSecs = "60" : Number of seconds between individual frame rate reports
 @nClientInitWindowSizeHTTP2Connection = "10000000" : Init per-connection window size for HTTP/2.
 @nClientInitWindowSizeHTTP2Stream = "2000000" : Init per-stream window size for HTTP/2.
@@ -161,6 +160,8 @@ ConVars:
 @nHTTPServerLogLevelDetails200 = "4" : Log level to use for full details of any http server request returning 200. This will probably fill up the log if you leave it on.
 @nHTTPServerLogLevelDetailsNon200 = "4" : Log level to use for full details of any http server request returning != 200
 @nHTTPServerMaxPipelinedReqsPerConnection = "8" : Max outstanding pipelined reqs per connection
+@nHTTPServerMaxRequestHeaderBytes = "65536" : Max total bytes of header lines in a request to CHTTPServer, requests with more are rejected with 431 (HTTP/1.x) or a stream reset (HTTP/2)
+@nHTTPServerMaxRequestHeaders = "100" : Max header lines in a request to CHTTPServer, requests with more are rejected with 431 (HTTP/1.x) or a stream reset (HTTP/2)
 @nHTTPServerYieldOn100ContinueSendSecs = "300" : Seconds to yield when sending a 100 continue for purposes of telling client to send body of request
 @nIOCPThreadCount = "1" :
 @nJWTVerifiedTokenCacheSize = "0" : Number of verified JWTs to memoize so that re-presenting a token doesn't re-check its signature. 0 disables the cache.
@@ -214,7 +215,6 @@ ConVars:
 @uRemoteDiscoveryPortOverride = "0" : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort
 @uRemoteDiscoveryPortTransmit = "0" : If non-zero, will transmit outgoing broadcasts on this port instead of on the listen port
 @unMinimumShaderDownloadSizeInUI = "33554432" :
-@unUserStatsTest = "1" :
 @voice_minabs = "0.15" :
 @voice_minavg = "1.0" :
 @voice_spew_activity_check = "0" :
@@ -264,6 +264,7 @@ bShaderEnableFossilizeLayer = "1" :
 bShaderEnableUpload = "1" :
 bShaderFossilizeFastMerge = "1" :
 bShaderPrecompiledCache = "1" :
+bShaderSerializeDriverQuery = "1" :
 bShaderVerboseLogs = "0" :
 bSingleFileUpdateMode = "1" :
 bSteam3LimitedUserEnable = "1" :
@@ -282,6 +283,7 @@ cMaxDecryptThreadsOverride = "0" :
 cPreallocateMinimumSizeKB = "256" :
 controller_base_rotation_angle = "0" :
 controller_debug_triton_wireless = "0" :
+controller_debug_xinput_slots = "0" : Log the Linux virtual gamepad slot tables on every seat/swap/reset
 controller_edge_cutoff = "0" :
 controller_gyro_x_scale = "16000" :
 controller_idle_poll_interval = "50000" : SteamInput Idle Polling interval in microseconds. Default 50,000us = 20hz
@@ -386,10 +388,8 @@ net_incomingcheck = "1" :
 net_maxresendsperframe = "32" :
 p2p_connecttimeout = "15" :
 p2p_unusedtimeout = "120" :
-parsing it here is work nobody on this side consumes. Watch 'protobuf_parse_stats'.
 sDepotDownloadFileFilter = "" : only download matching files, eg *.exe;*.dll
 sc_kalman_repeated_sample = "0" :
-servers those pass through - CM and UDS - relay them by header and never look at the body, so
 spew_controller_loss = "0" :
 steam_controller_force_oobe = "0" :
 testappcloudpaths = "0" :
@@ -427,9 +427,9 @@ app_info_request : <AppID> - Issue an appinfo request for the given appid. Does 
 app_info_update : [0|1] : trigger app info update, optionally for update all
 app_install_script : <AppID> [uninstall:0|1]- Runs app install script.
 app_installed_files : <AppID>
-app_launch : <appId> [LaunchOptionIndex] [Arguments]
+app_launch : <appId> [LaunchOptionIndex] [Arguments] - starts app without waiting to finish
 app_license_request : <AppID> - Requests a free licenses for this app if not already owned.
-app_run : <appId> [LaunchOptionIndex] [Arguments]
+app_run : <appId> [LaunchOptionIndex] [Arguments] - starts app and waits until finished
 app_set_config : <AppID> <key> <value> - sets a config value for given app.
 app_status : app_status <appId>
 app_stop : <appid> [force:0|1] stop this running app
@@ -500,7 +500,9 @@ set_spew_level : <SpewLevel LogLevel> Sets spew and log level for all groups
 set_steam_guard_code : <code> - authorize this computer by adding the Steam Guard email code
 set_var : <name> <value>- Set the value of a Cvar
 shader_process : shader_process <appId> <bucketID> <optionalOverrideBasePath>
+shader_upload : shader_upload <appid> <contentroot> : upload a shader folder
 sign_install_script : sign_install_script <appid> <input filename> <output filename> : upload install script to back end for signing
+sleep : sleep <seconds>
 stats_dump : stats_dump [filter] : dumps matching debug stats
 stats_monitor : stats_monitor <stat name> : monitor a debug stat value
 stats_reset : stats_reset [filter] : set matching stats back to 0
